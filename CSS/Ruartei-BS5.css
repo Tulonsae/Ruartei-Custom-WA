@@ -1,0 +1,1076 @@
+/* bootstrap 5, no WA style, no base font specified */
+
+/* FONTS */
+
+@font-face {
+  font-family: 'Taviraj';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/taviraj/v11/ahcZv8Cj3ylylTXzTOkrUsNzjUw.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Eagle Lake';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/eaglelake/v20/ptRMTiqbbuNJDOiKj9wG1On4KCFtpe4.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fdMPmDaZRbrw.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPAcZTIAOhVxoMyOr9n_E7fdMbWD6xWTL6RsQ.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffBzCGItzY5abuWI.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPFcZTIAOhVxoMyOr9n_E7fdMbe0IhDYZycm2A2xQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffHjDGItzY5abuWI.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPFcZTIAOhVxoMyOr9n_E7fdMbetIlDYZycm2A2xQ.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLmrETNbFtZCeGqgRXSe2DiLsip.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLgrETNbFtZCeGqgRXXS2LoKeqrgE8.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLhrETNbFtZCeGqgR0hWHXPDMWDikd5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLjrETNbFtZCeGqgRXXQ5HLPMeJjWV72Vc.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLhrETNbFtZCeGqgR0NX3XPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLjrETNbFtZCeGqgRXXQ73MPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLhrETNbFtZCeGqgR1pXnXPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v15/WBLjrETNbFtZCeGqgRXXQ9nNPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* VARIABLES */
+
+.user-css,
+.user-css-extended,
+.user-css-presentation,
+.user-css-map-sidebar,
+.page,
+.map-context-user,
+.user-css-map,
+.tooltipster-content {
+
+  /* new color names */
+  --AztecGold: #C5994B;
+  --AztecGold80: #C5994B80;
+  --BlueJeans: #60B0F4;
+  --Cashmere: #E7C9A8;
+  --Champagne: #FAECCC;
+  --Dallas: #6D4A23;
+  --DeepCove: #040E2D;
+  --Hampton: #E5D8AF;
+  --Janna: #F4EBD3;
+  --MagicMint: #9DF2C8;
+  --Malibu: #7DC8F7;
+  --MetallicBronze: #49371B;
+  --Moonstone: #3A97B4;
+  --NewOrleans: #F2C89D;
+  --NightShadz: #B43A66;
+  --NileBlue: #193751;
+  --OceanGreen: #4BC599;
+  --Pelorous: #4BA8C5;
+  --Ronchi: #EFBA5B;
+  --RoyalBlue: #4169E1;
+  --Tide: #BFB8B0;
+
+  --Black: #000000;
+  --Black60: #00000060;
+  --CodGray: #111111;
+  --DoveGray: #656565;
+  --Gallery: #EEEEEE;
+  --Gallery80: #EEEEEE80;
+  --GalleryDD: #EEEEEEDD;
+  --White: #FFFFFF;
+
+  /* fonts */
+  --txFont: Tomorrow, sans-serif;
+  --hdFont: Titillium Web, sans-serif;
+  --sgFont: Eagle Lake, cursive;
+  --bqFont: Taviraj, serif;
+
+  /* font weights */
+  --normal: 400;
+  --semi-bold: 500;
+  --nearly-bold: 600;
+  --bold: 700;
+
+  /* font sizes */
+  /* Note: default font size for text=16px, headers use default BS5 calcs */
+  --txSize: 1rem;
+  --lbSize: 1rem;
+  --sbSize: .9rem;
+  --cpSize: .9em;
+  --smSize: .6em;
+
+  /* colors */
+  --main-bgcolor: var(--DeepCove);
+  --main-border-color: var(--NileBlue);
+  --main-text-color: var(--Champagne);
+  --main-link-color: var(--Malibu);
+  --main-hover-color: var(--Ronchi);
+  --main-h1-color: var(--AztecGold);
+  --main-h1-ipa-color: var(--Tide);
+  --main-h2-color: var(--OceanGreen);
+  --main-h2-border-color: var(--AztecGold);
+  --main-h3-color: var(--Moonstone);
+  --main-h4-color: var(--AztecGold);
+  --main-h5-color: var(--NewOrleans);
+  --main-h5-hover-color: var(--MagicMint);
+  --dropdown-bgcolor: var(--DeepCove);
+  --dropdown-text-color: var(--Champagne);
+  --dropdown-active-item-color: var(--NileBlue);
+  --dropdown-muted-text-color: var(--Tide);
+  --dropdown-active-text-color: var(--MagicMint);
+  --popup-bgcolor: var(--Janna);
+  --popup-text-color: var(--DeepCove);
+  --popup-border-color: var(--MetallicBronze);
+  --popup-hr-border-color: var(--MetallicBronze);
+  --popup-link-color: var(--RoyalBlue);
+  --popup-hover-color: var(--Dallas);
+  --mouseover-bgcolor: var(--NileBlue);
+  --mouseover-border-color: var(--MetallicBronze);
+  --mouseover-button-color: var(--NileBlue);
+  --mouseover-text-color: var(--Champagne);
+  --mouseover-link-color: var(--MagicMint);
+  --mouseover-hover-color: var(--Ronchi);
+  --mouseover-arrow-color: var(--NileBlue);
+  --mouseover-arrow-border-color: var(--MetallicBronze);
+  --sidebar-bgcolor: var(--Janna);
+  --sidebar-border-color: var(--MetallicBronze);
+  --sidebar-text-color: var(--DeepCove);
+  --sidebar-link-color: var(--RoyalBlue);
+  --sidebar-hover-color: var(--NightShadz);
+  --button-bgcolor: var(--NileBlue);
+  --button-border-color: var(--MetallicBronze);
+  --button-text-color: var(--Champagne);
+  --button-link-color: var(--Champagne);
+  --button-hover-color: var(--Ronchi);
+  --extended-button-color: var(--NileBlue);
+  --extended-text-color: var(--Champagne);
+  --extended-link-color: var(--Malibu);
+  --extended-hover-color: var(--Ronchi);
+  --extended-border-color: var(--MetallicBronze);
+  --wabtn-bgcolor: var(--NileBlue);
+  --wabtn-bgcolor-hover: var(--RoyalBlue);
+  --wabtn-dropdown-bgcolor: var(--NileBlue);
+  --wabtn-dropdown-text-color: var(--Janna);
+  --wabtn-dropdown-hover-bgcolor: var(--Tide);
+  --wabtn-dropdown-hover-color: var(--DeepCove);
+  --hr-border-color: var(--AztecGold);
+
+  /* spacing */
+  --cover-side-space: -1.5rem;
+
+}
+
+/* FIXES */
+
+/* Fix the extra space at the end of various links */
+.user-css.page-world-homepage .world-category-link,
+.user-css-presentation #world-navigation-sidebar .world-category-link,
+.user-css-presentation .tooltipster-content a,
+.user-css div.user-css-vignette {
+  display: inline-block;
+}
+
+/* PAGE */
+
+.user-css-presentation {
+  background-attachment: fixed;
+}
+
+.user-css-presentation .page {
+  box-shadow: 0 -1px 15px 5px rgba(0,0,0,.2);
+  background: var(--main-bgcolor);
+  border-radius: 15px;
+  border: 5px solid var(--main-border-color);
+  margin-top: 0;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.user-css .cover {
+  background: var(--main-border-color);
+  margin-left: var(--cover-side-space,-.75rem);
+  margin-right: var(--cover-side-space,-.75rem);
+}
+.user-css .cover img {
+  border-bottom: 5px solid var(--main-border-color);
+  border-radius: 15px 15px 0px 0px;
+}
+
+/* NAV SIDEBAR */
+
+.user-css-presentation #world-navigation-sidebar {
+  background: var(--main-bgcolor);
+  border-radius: 15px;
+  border: 5px solid var(--main-border-color);
+}
+
+/* REGULAR TEXT */
+
+.user-css {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--txSize);
+  color: var(--main-text-color);
+}
+
+.user-css a {
+  color: var(--main-link-color);
+}
+
+.user-css a:hover {
+  color: var(--main-hover-color);
+}
+
+.user-css p {
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+.user-css .paragraph-indent {
+  text-indent: 1.5em;
+}
+
+.user-css .article-content mark {
+  background: var(--Janna);
+  border: 0 solid;
+  border-radius: 6px;
+  color: var(--DeepCove);
+}
+/* TODO set the link and hover colors
+  var(--sidebar-link-color);
+  var(--sidebar-hover-color);
+*/
+.user-css .article-content em mark {
+  padding-top: .2em;
+  padding-bottom: .1em;
+  padding-left: .25em;
+  padding-right: .35em;
+}
+.user-css .article-content b mark {
+  padding-top: .2em;
+  padding-bottom: .1em;
+  padding-left: .25em;
+  padding-right: .25em;
+}
+
+.user-css hr {
+  border-color: var(--hr-border-color);
+}
+
+.user-css .dropcap {
+    float: left;
+    font-family: var(--txFont);
+    font-weight: var(--semi-bold);
+    font-size: 4em;
+    line-height: 1em;
+    padding-left: .1em;
+    padding-right: .1em;
+    padding-top: .1em;
+    padding-top:4px;
+    padding-right:10px;
+    text-transform:uppercase;
+}
+
+/* BLOCKQUOTE */
+
+.user-css blockquote {
+  margin: .75em;
+  padding: 1.25em;
+  background: var(--sidebar-bgcolor);
+  box-shadow: 5px 5px 10px var(--Black60);
+  border-left: 10px var(--sidebar-border-color) solid;
+  border-top-right-radius: .75em;
+  border-bottom-right-radius: .75em;
+  font-family: var(--bqFont);
+  font-size: 1.2em;
+  color: var(--sidebar-text-color);
+}
+
+.user-css blockquote .paragraph-indent {
+  padding-top: .25em;
+}
+
+/* CREDITS */
+
+.user-css .artist-credits {
+  font-size: var(--cpSize);
+  text-align: center;
+}
+
+/* keep the credit for WA, but get rid of the edit list */
+.user-css.widget-white-label-mark ul {
+  display: none;
+}
+.user-css.widget-white-label-mark {
+  width: 6rem;
+  margin-left: .25em;
+  background: var(--sidebar-bgcolor);
+  border-radius: .5em;
+  text-align: center;
+  color: var(--sidebar-text-color);
+}
+.user-css.widget-white-label-mark small {
+  color: var(--sidebar-text-color);
+}
+.user-css.widget-white-label-mark a {
+  color: var(--sidebar-link-color);
+}
+.user-css.widget-white-label-mark a:hover {
+  color: var(--sidebar-hover-color);
+}
+
+/* HOME PAGE TITLE */
+
+.user-css h1.world-title {
+/* this also hides the subtitle */
+  display: none;
+}
+
+.user-css .world-currentDate {
+  color: var(--main-h2-color);
+}
+
+.user-css .world-authors {
+/* sets the font size for both text and author */
+  font-size: 1.25rem;
+}
+
+.user-css .world-authors p {
+/* this is for the Created by text */
+  color: var(--main-h5-color);
+}
+
+.user-css .world-author {
+  font-family: var(--sgFont);
+}
+
+/* HEADINGS */
+
+.user-css h1,
+.user-css h2,
+.user-css h3,
+.user-css h4,
+.user-css h5 {
+  margin-top: .75em;
+  margin-bottom: 0;
+  font-family: var(--hdFont);
+  font-weight: var(--normal);
+  text-transform: capitalize;
+}
+
+.user-css h1 {
+  margin-top: .5em;
+  color: var(--main-h1-color);
+}
+
+.user-css h2 {
+  border-bottom: 1px solid var(--main-h2-border-color);
+  margin-bottom: .25em;
+  color: var(--main-h2-color);
+}
+
+.user-css h3 {
+  color: var(--main-h3-color);
+}
+
+.user-css h4 {
+  color: var(--main-h4-color);
+}
+
+.user-css h5,
+.user-css h5 a {
+  color: var(--main-h5-color);
+  text-decoration: none;
+}
+.user-css h5 a:hover {
+  color: var(--main-h5-hover-color);
+}
+
+.user-css .article-content .pronunciation {
+  font-size: var(--smSize);
+  text-transform: none;
+  color: var(--main-h1-ipa-color);
+}
+
+/* WORLD MENU */
+
+.user-css .world-menu h5,
+.user-css .world-menu div.list-box {
+  margin-top: .5em;
+}
+
+.user-css .world-menu li {
+  list-style: none;
+}
+
+.user-css .world-menu a.toc-article-link,
+.user-css .world-menu i.article-title-icon {
+  color: var(--main-h5-color);
+}
+.user-css .world-menu a.toc-article-link:hover {
+  color: var(--main-h5-hover-color);
+}
+
+/* WORLD MENU POPUP */
+
+.user-css #world-category-content .panel {
+  background: var(--popup-bgcolor);
+  box-shadow: 5px 5px 10px var(--Black60);
+  color: var(--popup-text-color);
+}
+
+.user-css #world-category-content div.row.category-columns.m-b-20 {
+  margin-bottom: 0px !important;
+}
+
+.user-css #world-category-content .panel a {
+  color: var(--popup-link-color);
+}
+.user-css #world-category-content .panel a:hover {
+  color: var(--popup-hover-color);
+}
+
+.user-css #world-category-content .category-title-icon-wrapper {
+  display: inline;
+}
+
+.user-css #world-category-content .category-header h1,
+.user-css #world-category-content .category-header h3,
+.user-css #world-category-content .category-header h4,
+.user-css #world-category-content .category-header h5 {
+  font-weight: var(--nearly-bold);
+  color: var(--DeepCove);
+}
+
+.user-css-presentation #world-category-content .category-header .text-center {
+  margin-left: 0;
+  width: 100%;
+}
+
+.user-css #world-category-content .category-header .text-center h1.m-b-0,
+.user-css-presentation #world-category-content .category-articles ul.article-list {
+  margin-top: .25em;
+}
+
+.user-css #world-category-content .category-header .text-center hr,
+.user-css-presentation #world-category-content .category-articles h2 {
+  margin-top: .25em;
+  margin-bottom: .25em;
+  height: 2px;
+  color: var(--popup-hr-border-color);
+}
+
+.user-css #world-category-content .category-header .text-center h5 {
+  margin-top: .25em;
+}
+
+.user-css-presentation #world-category-content .category-header .text-center img {
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 5px solid var(--main-border-color);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--Black60);
+}
+
+/* note: credits are displayed on the bottom of the category or article page */
+.user-css-presentation #world-category-content .category-header .artist-credits {
+  display: none;
+}
+
+.user-css-presentation .page-world-homepage #world-category-content .article-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.user-css-presentation #world-category-content div.row.user-row {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.user-css-presentation #world-category-content div.row.user-row .col-md-6 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.user-css-presentation #world-category-content div.row.user-row .user-css-image-thumbnail {
+  margin-top: .75em;
+  margin-bottom: .5em;
+  padding: 0px;
+}
+
+/* ARTICLE BLOCKS */
+
+.user-css .article-panel {
+  border: 5px solid var(--main-border-color);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--Black60);
+  margin-top: .75em;
+  margin-bottom: .5em;
+}
+
+.user-css .article-panel .cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom: 5px solid var(--main-border-color);
+  border-radius: 5px 5px 0px 0px;
+  margin-left: -10px;
+  margin-right: -10px
+}
+
+.user-css .article-panel .details .heading {
+  font-weight: var(--nearly-bold);
+  text-align: center;
+}
+
+.user-css .article-panel .details .subheading {
+  display: none;
+}
+
+/* MOUSEOVERS */
+
+.user-css-presentation .tooltipster-sidetip .tooltipster-box {
+  background: var(--mouseover-bgcolor);
+  border-width: 2px;
+  border-color: var(--mouseover-border-color);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--Black60);
+}
+
+.user-css-presentation .tooltipster-sidetip .tooltipster-content {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--txSize);
+  line-height: 1.5em;
+  color: var(--mouseover-text-color);
+}
+
+.user-css-presentation .tooltipster-sidetip .tooltipster-content p {
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+.user-css-presentation .tooltipster-sidetip .tooltipster-content .paragraph-indent {
+  margin-top: .25em;
+  margin-bottom: 0;
+  text-indent: 1.5em;
+}
+
+.user-css-presentation .tooltipster-content ul {
+  padding-top: .5em;
+}
+
+.user-css-presentation .tooltipster-content .pt-0 {
+  padding-top: .25em !important;
+}
+.user-css-presentation .tooltipster-content .m-b-20 {
+}
+
+/* fix - do not break after spanned icons */
+.user-css-presentation .tooltipster-content span {
+  display: inline-flex;
+}
+
+.user-css-presentation .tooltipster-content a {
+  color: var(--mouseover-link-color);
+}
+.user-css-presentation .tooltipster-content a:hover {
+  color: var(--mouseover-hover-color);
+}
+
+.user-css-presentation .tooltipster-content h2,
+.user-css-presentation .tooltipster-content h3,
+.user-css-presentation .tooltipster-content h4 {
+  font-family: var(--hdFont);
+  font-weight: var(--normal);
+}
+.user-css-presentation .tooltipster-content h2 {
+  color: var(--main-h2-color);
+}
+.user-css-presentation .tooltipster-content h3 {
+  color: var(--main-h3-color);
+}
+.user-css-presentation .tooltipster-content h4 {
+  color: var(--main-h4-color);
+}
+
+.user-css-presentation .tooltipster-content .btn-secondary {
+  background: var(--mouseover-button-color);
+  border-width: 1px;
+  border-color: var(--mouseover-border-color);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--Black60);
+}
+
+.user-css-presentation .tooltipster-sidetip.tooltipster-bottom .tooltipster-arrow-background {
+    border-bottom-color: var(--mouseover-arrow-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-left .tooltipster-arrow-background {
+    border-left-color: var(--mouseover-arrow-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-right .tooltipster-arrow-background {
+    border-right-color: var(--mouseover-arrow-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-top .tooltipster-arrow-background {
+    border-top-color: var(--mouseover-arrow-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-bottom .tooltipster-arrow-border {
+    border-bottom-color: var(--mouseover-arrow-border-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-left .tooltipster-arrow-border {
+    border-left-color: var(--mouseover-arrow-border-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-right .tooltipster-arrow-border {
+    border-right-color: var(--mouseover-arrow-border-color);
+}
+.user-css-presentation .tooltipster-sidetip.tooltipster-top .tooltipster-arrow-border {
+    border-top-color: var(--mouseover-arrow-border-color);
+}
+
+/* SEARCH */
+
+.user-css-viewer {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.user-css .search-form {
+  position: absolute;
+  top: 50px;
+  left: 120px;
+  z-index: 1000;
+}
+
+.user-css .search-form .typeahead-input {
+  padding-left: .5em;
+  background: var(--GalleryDD);
+  border: 1px solid var(--Gallery);
+  border-radius: 10px;
+  color: var(--CodGray);
+}
+
+.user-css .typeahead li .text-muted {
+  color: var(--DoveGray);
+}
+.user-css .typeahead li.active .text-muted{
+  color: var(--Tide);
+}
+
+.user-css .search-form ul.typeahead.dropdown-menu {
+  background: var(--dropdown-bgcolor);
+}
+.user-css .search-form ul.typeahead.dropdown-menu a.dropdown-item {
+  color: var(--dropdown-text-color);
+}
+.user-css .search-form ul.typeahead.dropdown-menu li.active a.dropdown-item {
+  background: var(--dropdown-active-item-color);
+  color: var(--dropdown-active-text-color);
+}
+.user-css .search-form ul.typeahead.dropdown-menu .text-muted {
+  color: var(--dropdown-muted-text-color) !important;
+}
+
+/* BACK TO HOME PAGE */
+
+.user-css div.backtoworld {
+  margin-top: -30px;
+  margin-left: -50px;
+}
+
+.user-css div.backtoworld a {
+  background: var(--button-bgcolor);
+  box-shadow: 6px 12px 5px var(--Black60);
+  border-radius: 15px;
+  padding: .5em 1em;
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--sbSize);
+  text-decoration: none;
+  color: var(--button-text-color);
+}
+
+.user-css div.backtoworld a:hover {
+  box-shadow: 8px 16px 10px var(--Black60);
+  color: var(--button-hover-color);
+}
+
+/* WA BUTTONS and ICONS */
+
+.user-css .btn-primary {
+  background: var(--wabtn-bgcolor);
+}
+.user-css .btn-primary:hover {
+  background: var(--wabtn-bgcolor-hover);
+}
+
+/* this dropdown is for the WA buttons */
+.user-css .dropdown-menu {
+  background-color: var(--wabtn-dropdown-bgcolor);
+}
+.user-css .dropdown-menu ul {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.user-css .dropdown-item {
+  color: var(--wabtn-dropdown-text-color);
+}
+.user-css .dropdown-menu a:hover {
+  background-color: var(--wabtn-dropdown-hover-bgcolor);
+  color:var(--wabtn-dropdown-hover-color);
+}
+.user-css a.dropdown-item {
+  margin-bottom: 0px !important;
+}
+
+/* DISCUSSION BOARDS BUTTON */
+
+.user-css .discussion-boards-world-link a {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  background: var(--button-bgcolor);
+  border-color: var(--button-border-color) !important;
+  border: 1px solid;
+  box-shadow: 6px 8px 5px var(--Black60);
+  border-radius: 20px;
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--lbSize);
+  color: var(--button-text-color) !important;
+}
+.user-css .discussion-boards-world-link a:hover {
+  background: var(--button-bgcolor);
+  box-shadow: 8px 12px 10px var(--Black60);
+  color: var(--button-hover-color) !important;
+}
+
+/* FOLLOWERS COUNTER BUTTON */
+
+.user-css .followers-counter .panel {
+  margin-bottom: 0px;
+  background: var(--button-bgcolor);
+  border-color: var(--button-border-color) !important;
+  border: 1px solid;
+  box-shadow: 6px 8px 5px var(--Black60);
+  border-radius: 20px;
+}
+.user-css-followers-counter-number {
+  margin-top: -1em !important;
+  margin-bottom: -.25em;
+}
+.user-css .followers-counter .panel .header-title {
+  margin-bottom: 0px;
+  font-size: var(--lbSize);
+  color: var(--button-text-color);
+}
+.user-css .followers-counter .panel a {
+  color: var(--button-text-color);
+}
+.user-css-presentation .followers-counter .panel a:hover {
+/*  text-decoration: none;*/
+  color: var(--button-hover-color);
+}
+
+/* METADATA */
+
+.user-css-presentation .nav-tabs {
+  padding-bottom: 1.5rem;
+  border: 0;
+}
+.user-css-presentation .tab-content {
+  margin-bottom: 1.5rem;
+}
+
+.user-css-presentation .nav-tabs li.nav-item a.nav-link {
+  margin-top: .75em;
+  margin-right: 1em;
+  padding: .75em 1em;
+  background: var(--button-bgcolor);
+  border-radius: .5em;
+  font-family: var(--txFont);
+  font-size: var(--txSize);
+  line-height: 1.5em;
+  text-transform: uppercase;
+  color: var(--button-text-color);
+}
+.user-css-presentation .nav-tabs li.nav-item a.nav-link:hover {
+  border-color: var(--button-border-color);
+  color: var(--button-hover-color);
+}
+.user-css-presentation .nav-tabs li.nav-item a.nav-link.active {
+  border-color: var(--button-border-color);
+  color: var(--button-hover-color);
+}
+
+.user-css-presentation .tab-pane.active {
+  font-family: var(--txFont);
+  font-size: var(--txSize);
+  color: var(--extended-text-color);
+}
+.user-css-presentation .tab-pane.active a {
+  color: var(--extended-link-color);
+}
+.user-css-presentation .tab-pane.active a:hover {
+  color: var(--extended-hover-color);
+}
+
+/* ORG TREE */
+
+.user-css-presentation .orgtree a.article-link {
+  font-family: var(--txFont);
+  font-size: var(--txSize);
+  color: rgb(102, 102, 102);
+}
+
+/* COMMENTS */
+
+.user-css-presentation #comments h2 {
+  font-family: var(--hdFont);
+  font-weight: var(--semi-bold);
+  margin-top: 10px;
+  padding-top: 5px;
+  text-transform: capitalize;
+  color: var(--main-h2-color);
+}
+
+.user-css-presentation #comments .btn-primary {
+  background: var(--wabtn-bgcolor);
+  font-family: var(--txFont);
+}
+.user-css-presentation #comments .btn-primary:hover {
+  background: var(--wabtn-bgcolor-hover);
+}
+
+.user-css-presentation .comment-form label {
+  font-family: var(--txFont);
+  color: var(--main-text-color);
+}
+
+.user-css-presentation .comment-box-content {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  color: var(--main-text-color);
+}
+
+.user-css-presentation #comments .comment-box .comment-box-date,
+.user-css-presentation #comments .comment-box small {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  color: var(--main-text-color);
+}
+
+.user-css-presentation #comments .comment-box .user-tag,
+.user-css-presentation #comments .comment-box small {
+  font-family: var(--sgFont);
+}
+
+.user-css-presentation #comments .comment-box a {
+  font-weight: var(--semi-bold);
+  color: var(--main-link-color);
+}
+.user-css-presentation #comments .comment-box a:hover {
+  color: var(--main-hover-color);
+}
+
+/* CATEGORY PAGES - JEK */
+
+/* use this to hide description content on category page, but still display in world menu popup */
+.user-css .category-contents .jek-cat-desc-content {
+  display: none;
+}
+
+/* SIDEBAR - JEK */
+/* make sure to put this after the org tree */
+
+.user-css .jek-sidepanel {
+  background: var(--sidebar-bgcolor);
+  border: 0 solid;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--Black60);
+}
+
+.user-css .panel .jek-key-facts-sidepanel {
+  padding-top: .5em;
+  padding-bottom: .75em;
+}
+
+.user-css .panel .jek-key-facts-content {
+  color: var(--sidebar-text-color);
+}
+
+.user-css .panel .jek-key-facts-content a {
+  color: var(--sidebar-link-color);
+}
+
+.user-css .panel .jek-key-facts-content a:hover {
+  color: var(--sidebar-hover-color);
+}
+
+.user-css .panel .jek-key-facts-heading,
+.user-css .panel .jek-key-facts-content h2,
+.user-css .panel .jek-key-facts-content h3,
+.user-css .panel .jek-key-facts-content h4,
+.user-css .panel .jek-key-facts-content h5 {
+  margin-top: .5em;
+  margin-bottom: .25em;
+  font-weight: var(--nearly-bold);
+  color: var(--sidebar-text-color);
+}
+
+.user-css .panel .jek-key-facts-subheading {
+  margin-top: .5em;
+  font-weight: var(--nearly-bold);
+}
+
+.user-css .panel .jek-key-facts-label {
+  font-weight: var(--nearly-bold);
+}
+
+.user-css .panel .jek-key-facts-info {
+  margin-bottom: .5em;
+}
+
+.user-css .panel .jek-key-facts-list {
+  margin-bottom: .5em;
+  padding-left: 1.5em;
+}
+
+.user-css .panel .jek-key-facts-indent {
+  margin-bottom: .5em;
+  padding-left: .5em;
+}
+
+/* IMAGES */
+.jek-image-30 {
+  max-width: 30% !important;
+}
+.jek-image-50 {
+  max-width: 50% !important;
+}
+.jek-image-30 .credit-art-title {
+  display: block;
+}
+.jek-image-50 .credit-art-title {
+  display: block;
+}
+
+/* FOLLOWERS */
+
+/* DIALOG ?? */
+
+/* TABLES */
+
+/* SECRETS */
+
+/* RELATIONS */
+
+/* TIMELINES */
+
+/* NO CAMPAIGNS CHARACTERS SESSIONS */
