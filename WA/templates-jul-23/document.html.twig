@@ -1,0 +1,140 @@
+
+<div class="row">
+	<div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+		<div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+		{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.purpose, 'title':'document.purpose','locale': locale} only %}
+		{% if article.clauses|length > 0 or article.caveats|length > 0 or article.clauses|length > 0 or article.textreferences|length > 0 or article.publicity|length > 0 or article.legality|length > 0 %}
+			<h2>{{ 'document.structure'|trans({},'presentation') }}</h2>
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.clauses, 'title':'document.clauses','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.caveats, 'title':'document.caveats','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.textreferences, 'title':'document.references','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.publicity, 'title':'document.publication.status','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.legality, 'title':'document.legal.status','locale': locale} only %}
+		{% endif %}
+
+		{% if
+			article.background|length > 0 or
+			article.history|length > 0 or
+			article.publicreaction|length > 0 or
+			article.legacy|length > 0 or
+			article.term|length > 0
+		%}
+			<h2>{{ 'document.historical.details'|trans({},'presentation') }}</h2>
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.background, 'title':'document.background','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.history, 'title':'document.history','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.publicreaction, 'title':'document.public.reaction','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.legacy, 'title':'document.legacy','locale': locale} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.term, 'title':'document.term','locale': locale} only %}
+		{% endif %}
+		{% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+	</div>
+	<div class="col-md-4 article-content-right">
+		<div class="world-global-annnouncement">
+			{{ article.world.globalAnnouncement|BBcode }}
+		</div>
+		{% if article.contents %}
+			<button type="button" class="read-document-button  btn btn-primary btn-block d-block  m-b-20" data-toggle="modal" data-target="#myModal"  data-bs-toggle="modal" data-bs-target="#myModal" >{{ 'document.modal.read.document'|trans({},'presentation') }}</button>
+			<div class="modal fade read-document-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog read-document-modal-dialog" role="document">
+					<div class="modal-content read-document-data">
+						<div class="modal-header read-document-data-header">
+							<h4 class="modal-title" id="myModalLabel">{{ article.title }}</h4>
+						</div>
+						<div class="modal-body read-document-data-main">
+							{{ article.contents|BBcode  }}
+						</div>
+						<div class="modal-footer read-document-data-bottom">
+							<button type="button" class="btn btn-default"  data-bs-dismiss="modal" data-dismiss="modal">{{ 'document.modal.close'|trans({},'presentation') }}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		{% if article.sidebarcontent|length > 0 %}
+			<div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+		{% endif %}
+		{% if
+			article.sidepanelcontent|length > 0  or
+			article.sidepanelcontenttop|length > 0 or
+			article.type|length > 0 or
+			article.medium|length > 0 or
+			article.authoringDate|length > 0 or
+			article.ratificationDate|length > 0 or
+			article.authoringDate|length > 0 or
+			article.myth|length > 0 or
+			article.relatedlocation|length > 0 or
+			article.documentauthors|length > 0 or
+			article.signatorycharacters|length > 0 or
+			article.signatoryorganizations|length > 0
+		%}
+
+			<div class="panel panel-default card mb-3">
+				<div class="panel-body card-body">
+					{% if article.world.globalAnnouncement|length > 0 %}
+						<div class="world-global-annnouncement">
+							{{ article.world.globalAnnouncement|BBcode }}
+						</div>
+					{% endif %}
+					{{ article.sidepanelcontenttop|BBcode }}
+					<div>
+
+						{% include 'PresentationBundle:Helpers:value.html.twig' with {'value': article.type, 'title':'type','locale': locale} only %}
+
+						{% include 'PresentationBundle:Helpers:value.html.twig' with {'value': article.medium, 'title':'document.article.medium','locale': locale} only %}
+
+						{% include 'PresentationBundle:Helpers:value.html.twig' with {'value': article.authoringDate, 'title':'document.article.authoringdate','locale': locale} only %}
+
+						{% include 'PresentationBundle:Helpers:value.html.twig' with {'value': article.ratificationDate, 'title':'document.article.ratificationdate','locale': locale} only %}
+
+						{% include 'PresentationBundle:Helpers:value.html.twig' with {'value': article.expirationDate, 'title':'document.article.expirationdate','locale': locale} only %}
+
+						{% include 'PresentationBundle:Helpers:relation.html.twig' with {
+							'value': article.myth,
+							'title':'document.article.myth',
+							'article': article,'locale': locale
+						} only %}
+
+						{% include 'PresentationBundle:Helpers:relation.html.twig' with {
+							'value': article.relatedlocation,
+							'title':'document.article.location',
+							'article': article,'locale': locale
+						} only %}
+
+						{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+							'list': article.documentauthors,
+							'title': 'document.article.authors',
+							'locale': locale
+						} only %}
+						{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+							'list': article.signatorycharacters,
+							'title': 'document.article.signatoriescharacters',
+							'locale': locale
+						} only %}
+						{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+							'list': article.signatoryorganizations,
+							'title': 'document.article.signatoriesorganizations',
+							'locale': locale
+						} only %}
+
+					</div>
+					{{ article.sidepanelcontent|BBcode }}
+				</div>
+			</div>
+		{% endif %}
+		{{ article.sidebarcontentbottom|BBcode }}
+		<div class="world-global-article-additional">
+			{{ article.world.globalSidebarFooter|BBcode }}
+		</div>
+	</div>
+</div>

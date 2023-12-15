@@ -1,0 +1,252 @@
+
+<div class="row ">
+    <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.scenes,
+            'title':'plot.plot_points_scenes',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.themes,
+            'title':'plot.themes',
+            'locale': locale
+        } only %}
+
+
+        {% if article.exposition|length > 0 or article.conflict|length > 0 or article.risingaction|length > 0 or article.climax|length > 0 or article.fallingaction|length > 0 or article.resolution|length > 0%}
+            <h2>{{ 'plot.structure'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.exposition,
+            'title':'plot.exposition',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.conflict,
+            'title':'plot.conflict',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.risingaction,
+            'title':'plot.rising_action',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.climax,
+            'title':'plot.climax',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.fallingaction,
+            'title':'plot.falling_action',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.resolution,
+            'title':'plot.resolution',
+            'locale': locale
+        } only %}
+
+        {% if article.goals|length > 0 or article.hooks|length > 0 or article.stakes|length > 0 or article.moralquandaries|length > 0 or article.crueltricks|length > 0 or article.redherrings|length > 0%}
+            <h2>{{ 'plot.components'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.goals,
+            'title':'plot.goals',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.hooks,
+            'title':'plot.hooks',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.stakes,
+            'title':'plot.stakes',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.moralquandaries,
+            'title':'plot.moral_quandaries',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.crueltricks,
+            'title':'plot.cruel_tricks',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.redherrings,
+            'title':'plot.red_herrings',
+            'locale': locale
+        } only %}
+
+        {% if article.protagonists|length > 0 or article.allies|length > 0 or article.neutrals|length > 0 or article.competitors|length > 0 or article.adversaries|length > 0 %}
+            <h2>{{ 'plot.relations'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.protagonists,
+            'title':'plot.protagonists',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.allies,
+            'title':'plot.allies',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.neutrals,
+            'title':'plot.neutrals_bystanders',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.competitors,
+            'title':'plot.competitors',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.adversaries,
+            'title':'plot.adversaries',
+            'locale': locale
+        } only %}
+
+        {% if article.locations|length > 0 or article.threats|length > 0 or article.encounters|length > 0 or article.pastevents|length > 0 %}
+            <h2>{{ 'plot.backdrops'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.locations,
+            'title':'plot.locations',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.threats,
+            'title':'plot.threats',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.encounters,
+            'title':'plot.encounters',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.pastevents,
+            'title':'plot.past_events',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+    </div>
+    {% if article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+
+            {% if
+                article.sidepanelcontenttop|length > 0 or
+                article.completionDate|length > 0 or
+                article.type|length > 0 or
+                article.parent|length > 0 or
+                article.children|length > 0 or
+                article.relatedpeople|length > 0 or
+                article.relatedorganizations|length > 0 or
+                article.relatedlocations|length > 0 or
+                article.reports|length > 0
+            %}
+                <div class="panel panel-default card mb-3">
+                    <div class="panel-body card-body">
+                        {{ article.sidepanelcontenttop|BBcode }}
+                        {% if article.completionDate|length > 0 %}
+                            <div class="panel card panel-danger card-complation-date ">
+                                <div class="panel-body card-body  text-center">
+                                    <strong class="text-danger">Completion Date</strong>
+                                    <br />
+                                    {{ article.completionDate|BBcode }}
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div>
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.type,
+                                'title':'plot.type',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parent,
+                                'title':'plot.parent',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.children,
+                                'title': 'plot.subplots',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.relatedpeople,
+                                'title': 'plot.related_characters',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.relatedorganizations,
+                                'title': 'plot.related_organizations',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.relatedlocations,
+                                'title': 'plot.related_locations',
+                                'locale': locale
+                            } only %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.reports,
+                                'title': 'plot.related_reports',
+                                'locale': locale
+                            } only %}
+                        </div>
+                        {{ article.sidepanelcontent|BBcode }}
+                    </div>
+                </div>
+            {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

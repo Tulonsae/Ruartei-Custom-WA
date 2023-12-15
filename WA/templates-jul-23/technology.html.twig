@@ -1,0 +1,120 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.utility,
+            'title':'technology.utility',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.manufacturing,
+            'title':'technology.manufacturing',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.socialImpact,
+            'title':'technology.socialImpact.name',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            {% if  article.parents|length > 0 or  article.children|length > 0 %}
+                <div class="panel panel-default card mb-3">
+                    <div class="panel-body card-body">
+                        <div>
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.parents,
+                                'title': 'technology.parent_technologies',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.children,
+                                'title': 'technology.children_technologies',
+                                'locale': locale
+                            } only %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+                {% if article.inventor|length > 0  or article.access|length > 0 or
+                 article.complexity|length > 0 or article.discovery|length > 0  or
+                 article.items|length > 0 or article.materials|length > 0 or article.usedInVehicles|length > 0 or
+                 article.sidepanelcontenttop|length > 0 or article.sidepanelcontent|length > 0 %}
+                    <div class="panel panel-default card mb-3">
+                        <div class="panel-body card-body">
+                            {{ article.sidepanelcontenttop|BBcode }}
+                            <div>
+                                {% if article.inventor|length > 0 %}
+                                    <dt>{{ 'technology.inventor_s'|trans({},'presentation' )}}</dt>
+                                    <dd>{{ article.inventor|BBcode }}</dd>
+                                {% endif %}
+
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.access,
+                                    'title':'technology.access_availability',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.complexity,
+                                    'title':'technology.complexity',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.discovery,
+                                    'title':'technology.discovery',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                    'list': article.items,
+                                    'title': 'technology.related_items',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                    'list': article.materials,
+                                    'title':'Related Materials',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                    'list': article.usedInVehicles,
+                                    'title':'vehicle.technologiesUsed.reflexive.name',
+                                    'locale': locale
+                                } only %}
+
+                                {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                    'list': article.relatedSpecies,
+                                    'title':'technology.relatedSpecies.name',
+                                    'locale': locale
+                                } only %}
+                            </div>
+                            {{ article.sidepanelcontent|BBcode }}
+                        </div>
+                    </div>
+                {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>
