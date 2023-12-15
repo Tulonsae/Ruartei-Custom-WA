@@ -1,0 +1,205 @@
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        <div class="">
+            {% if article.femalenames|length > 0 or article.malenames|length > 0 or article.unisexnames|length > 0 or article.familynames|length > 0 or article.othernames|length > 0  %}
+                <h2>{{ 'ethnicity.naming.traditions'|trans({},'presentation') }}</h2>
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.femalenames,
+                    'title':'ethnicity.feminine.names',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.malenames,
+                    'title':'ethnicity.masculine.names',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.unisexnames,
+                    'title':'ethnicity.unisex.names',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.familynames,
+                    'title':'ethnicity.family.names',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.othernames,
+                    'title':'ethnicity.other.names',
+                    'locale': locale}
+                only %}
+
+            {% endif %}
+
+            {% if  article.languages|length > 0 or  article.culture|length > 0 or  article.sharedValues|length > 0 or  article.technologicalLevel|length > 0 or  article.etiquette|length > 0 or  article.dresscode|length > 0 or   article.art|length > 0 or article.customs|length > 0 or  article.birthrights|length > 0 or  article.comingofagerights|length > 0 or  article.funeraryCustoms|length > 0 or  article.taboos|length > 0 or  article.mythsAndLegends|length > 0 or  article.historicalFigures|length > 0 %}
+                <h2>{{ 'ethnicity.culture'|trans({},'presentation') }}</h2>
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.languages,
+                    'title':'ethnicity.major.lang.groups.dialects',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.culture,
+                    'title':'ethnicity.culture.cultural.heritage',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.sharedValues,
+                    'title':'ethnicity.shared.customary.codes.values',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.technologicalLevel,
+                    'title':'ethnicity.Average.technological.level',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.etiquette,
+                    'title':'ethnicity.common.etiquette.rules',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.dresscode,
+                    'title':'ethnicity.common.dress.code',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.art,
+                    'title':'ethnicity.art.architecture',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.foodsAndCuisine,
+                    'title':'ethnicity.foods.cuisine',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.customs,
+                    'title':'ethnicity.common.customs.traditions.rituals',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.birthrights,
+                    'title':'ethnicity.birth.baptismal.rites',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.comingofagerights,
+                    'title':'ethnicity.comingofage.rites',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.funeraryCustoms,
+                    'title':'ethnicity.funerary.memorial.Customs',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.taboos,
+                    'title':'ethnicity.common.taboos',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.mythsAndLegends,
+                    'title':'ethnicity.common.myths.legends',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.historicalFigures,
+                    'title':'ethnicity.historical.figures',
+                    'locale': locale}
+                only %}
+
+            {% endif %}
+
+            {% if  article.beautyIdeals|length > 0 or article.genderIdeals|length > 0 or article.courtshipIdeals|length > 0 or article.relationshipsIdeals|length > 0  %}
+                <h2>{{ 'ethnicity.ideals'|trans({},'presentation') }}</h2>
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.beautyIdeals,
+                    'title':'ethnicity.beauty.ideals',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.genderIdeals,
+                    'title':'ethnicity.gender.ideals',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.courtshipIdeals,
+                    'title':'ethnicity.courtship.ideals',
+                    'locale': locale}
+                only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.relationshipsIdeals,
+                    'title':'ethnicity.relationship.ideals',
+                    'locale': locale}
+                only %}
+
+            {% endif %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.majorOrganizations,
+                'title':'ethnicity.major.organizations',
+                'locale': locale}
+            only %}
+
+
+            {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 article-content-right">
+        {% if article.world.globalAnnouncement|length > 0 %}
+            <div class="world-global-annnouncement">
+                {{ article.world.globalAnnouncement|BBcode }}
+            </div>
+        {% endif %}
+        {% if article.sidebarcontent|length > 0 %}
+            <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+        {% endif %}
+        {% if article.parents|length > 0 or article.children|length > 0 or article.species|length > 0 or article.organizations|length > 0 or article.sidepanelcontent|length > 0  or article.sidepanelcontenttop|length > 0 or article.items|length > 0 or article.relatedlanguages|length > 0 or article.locations|length > 0 %}
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.parents, 'title':'Parent ethnicities'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.children, 'title':'Diverged ethnicities'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.species, 'title':'Encompassed species'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.organizations, 'title':'Related Organizations'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.items, 'title':'Related Items'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.myths, 'title':'Related Myths'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedlanguages, 'title':'Languages spoken'} only %}
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.locations, 'title':'ethnicity.locations.name','locale': locale } only %}
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+        {% endif %}
+        {{ article.sidebarcontentbottom|BBcode }}
+        <div class="world-global-article-additional">
+            {{ article.world.globalSidebarFooter|BBcode }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        <div class="">
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.effect,
+                'title':'spell.effect',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.sideeffects,
+                'title':'spell.effect_side_secondary',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.manifestation,
+                'title':'spell.manifestation',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.source,
+                'title':'spell.source',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.discovery,
+                'title':'spell.discovery',
+                'locale': locale
+            } only %}
+            {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+        </div>
+    </div>
+    {% if article.displaySidebar == 1  %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            {% if article.sidepanelcontenttop|length > 0 or article.sidepanelcontent|length > 0 or article.deity|length > 0 or article.material|length > 0 or article.gestures|length > 0 or article.discipline|length > 0 or article.school|length > 0 or  article.element|length > 0 or article.duration|length > 0  or article.castingtime|length > 0 or article.spellrange|length > 0 or article.level|length > 0 or  article.restrictions|length > 0 %}
+                <div class="panel panel-default card mb-3">
+                    <div class="panel-body card-body">
+                        {{ article.sidepanelcontenttop|BBcode }}
+                        <div>
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.deity,
+                                'title':'spell.related_deity_power',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.relatedorganizations,
+                                'title': 'spell.related_organizations',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.material,
+                                'title':'spell.material_components',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.gestures,
+                                'title':'spell.gestures_ritual',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.discipline,
+                                'title':'spell.related_discipline',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.school,
+                                'title':'spell.related_school',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.element,
+                                'title':'spell.related_element',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.duration,
+                                'title':'spell.effect_duration',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.castingtime,
+                                'title':'spell.effect_casting_time',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.spellrange,
+                                'title':'spell.range',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.level,
+                                'title':'spell.level',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.restrictions,
+                                'title':'spell.restriction_applied',
+                                'locale': locale
+                            } only %}
+                        </div>
+                        {{ article.sidepanelcontent|BBcode }}
+                    </div>
+                </div>
+            {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

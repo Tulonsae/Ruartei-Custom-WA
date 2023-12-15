@@ -1,0 +1,242 @@
+
+<div class="row">
+    <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.power,
+            'title':'vehicle.power_generation',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.propulsion,
+            'title':'vehicle.propulsion',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.armament,
+            'title':'vehicle.weapons_armament',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.defenses,
+            'title':'vehicle.armor_and_defense',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.communication,
+            'title':'vehicle.communication_tools_systems',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.sensors,
+            'title':'vehicle.sensors',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.systems,
+            'title':'vehicle.additional_auxiliary_systems',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.hangar,
+            'title':'vehicle.hangars_docked_vessels',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.datasheet,
+            'title':'vehicle.rpg_datasheet',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            {% if  article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.parent,
+                            'title':'vehicle.class',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.children, 'title':'Used by'} only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.nickname,
+                            'title':'vehicle.nickname',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.designation,
+                            'title':'vehicle.designation',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.motto,
+                            'title':'vehicle.motto',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.rooms,
+                            'title':'vehicle.compartments',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.manufacturer,
+                            'title':'Manufacturer',
+                            'article': article,'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.vehicleCreationDate,
+                            'title':'vehicle.creationDate.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.vehicleDecommissionDate,
+                            'title':'vehicle.decommissionDate.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.vehicleDestructionDate,
+                            'title':'vehicle.destructionDate.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.owner,
+                            'title':'vehicle.owner',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.crew,
+                            'title':'Crew'
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.organization,
+                            'title':'vehicle.owning_organization',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.militaryFormationsUsage,
+                            'title':'vehicle.formationsUsage.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.vehicleLocation,
+                            'title':'vehicle.location.name',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.myths,
+                            'title':'Related Myths'
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.professions,
+                            'title':'Related Professions'
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.price,
+                            'title':'vehicle.price',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.rarity,
+                            'title':'vehicle.rarity',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.technologiesUsed,
+                            'title':'vehicle.technologiesUsed.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.beam,
+                            'title':'vehicle.beam',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.length,
+                            'title':'vehicle.length',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.height,
+                            'title':'vehicle.height',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.weight,
+                            'title':'vehicle.weight',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.speed,
+                            'title':'vehicle.speed',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.compliment,
+                            'title':'vehicle.complement',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.cargocapacity,
+                            'title':'vehicle.cargo_passengers_capacity',
+                            'locale': locale
+                        } only %}
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

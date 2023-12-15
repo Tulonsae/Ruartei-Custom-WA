@@ -1,0 +1,199 @@
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.ecosystem,
+            'title':'location.ecosystem',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.ecosystemCycles,
+            'title':'location.ecosystemCycles',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.localizedPhenomena,
+            'title':'location.localizedPhenomena',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.climate,
+            'title':'location.climate',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.florafauna,
+            'title':'location.florafauna',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.naturalresources,
+            'title':'location.natural_resources',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.history,
+            'title':'location.history',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.tourism,
+            'title':'location.tourism',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1 %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'location'  }) ) }}
+
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.alternativename,
+                            'title':'location.aternative_names',
+                            'locale': locale
+                        } only %}
+
+                        {% if article.type  %}
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.type.name,
+                                'title':'location.type',
+                                'locale': locale
+                            } only %}
+                        {% endif %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehiclesPresent,
+                            'title':'vehicle.location.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.parent, 'title':'location.location_under','article': article,'locale': locale } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.children, 'title': 'location.included_locations','locale': locale } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.includedOrganizations,
+                            'title': 'location.included_organizations',
+                            'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.person,
+                            'title':'location.owner_ruler',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.additionalRulers,
+                            'title':'location.additionalRulers.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.rank,
+                            'title':'location.rank',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.organization,
+                            'title':'location.owning_organization',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title':'ethnicity.locations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.contenders, 'title':'Contested By'} only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.people,
+                            'title': 'location.characters_in_location',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.rituals,
+                            'title': 'ritual.related_location.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.importantTraditions,
+                            'title': 'ritual.important_locations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.reportprimarylocations,
+                            'title': 'location.related_reports_primary',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.reportsecondarylocations,
+                            'title': 'location.related_reports_secondary',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.species,
+                            'title': 'location.species',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.myths,
+                            'title': 'location.related_myths',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.plots,
+                            'title': 'article.related_plots',
+                            'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.professions, 'title':'Related Professions'} only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.materials, 'title':'Related Materials'} only %}
+
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

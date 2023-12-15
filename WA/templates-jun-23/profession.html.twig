@@ -1,0 +1,169 @@
+<div class="row">
+	<div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+		<div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+		{% if article.qualifications|length > 0 or article.structure|length > 0  or article.pay|length > 0  or article.benefits|length > 0  %}
+			<h2>{{ 'profession.career'|trans({},'presentation') }}</h2>
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.qualifications,
+				'title':'profession.qualifications',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.structure,
+				'title':'profession.career_progression',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.pay,
+				'title':'profession.payment_&_reimbursement',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.benefits,
+				'title':'profession.other_benefits',
+				'locale': locale
+			} only %}
+		{% endif %}
+
+		{% if article.purpose|length > 0 or article.socialStatus|length > 0  or article.demographics|length > 0  or article.history|length > 0  %}
+			<h2>{{ 'profession.perception'|trans({},'presentation') }}</h2>
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.purpose,
+				'title':'profession.purpose',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.socialStatus,
+				'title':'profession.social_status',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.demographics,
+				'title':'profession.demographics',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.history,
+				'title':'profession.history',
+				'locale': locale
+			} only %}
+		{% endif %}
+
+		{% if article.tools|length > 0 or article.materials|length > 0  or article.workplace|length > 0  or article.services|length > 0 or article.hazards|length > 0 %}
+			<h2>{{ 'profession.operations'|trans({},'presentation') }}</h2>
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.tools,
+				'title':'profession.tools',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.materials,
+				'title':'profession.materials',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.workplace,
+				'title':'profession.workplace',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.services,
+				'title':'profession.provided_services',
+				'locale': locale
+			} only %}
+
+			{% include 'PresentationBundle:Helpers:section.html.twig' with {
+				'value': article.hazards,
+				'title':'profession.dangers_&_hazards',
+				'locale': locale
+			} only %}
+		{% endif %}
+
+		{% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+	</div>
+	{% if article.displaySidebar == 1  %}
+		<div class="col-md-4  article-content-right">
+			{% if article.world.globalAnnouncement|length > 0 %}
+				<div class="world-global-annnouncement">
+					{{ article.world.globalAnnouncement|BBcode }}
+				</div>
+			{% endif %}
+			{% if article.sidebarcontent|length > 0 %}
+				<div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+			{% endif %}
+			{% if
+				article.sidepanelcontenttop|length > 0 or
+				article.sidepanelcontent|length > 0 or
+				article.alternativeNames|length > 0 or
+				article.type|length > 0 or
+				article.demand|length > 0 or
+				article.legality|length > 0 or
+				article.holders|length > 0 or
+				article.relatedprofessions|length > 0 or
+				article.relatedlocations|length > 0 or
+				article.relatedorganizations|length > 0 or
+				article.relatedranks|length > 0 or
+				article.relatedvehicles|length > 0 or
+				article.relatedtechnologies|length > 0
+			%}
+				<div class="panel panel-default card mb-3">
+					<div class="panel-body card-body">
+						{{ article.sidepanelcontenttop|BBcode }}
+						<div>
+							{% include 'PresentationBundle:Helpers:value.html.twig' with {
+								'value': article.alternativeNames,
+								'title':'profession.alternative_names',
+								'locale': locale
+							} only %}
+
+							{% include 'PresentationBundle:Helpers:value.html.twig' with {
+								'value': article.type,
+								'title':'profession.type',
+								'locale': locale
+							} only %}
+
+							{% include 'PresentationBundle:Helpers:value.html.twig' with {
+								'value': article.demand,
+								'title':'profession.demand',
+								'locale': locale
+							} only %}
+
+							{% include 'PresentationBundle:Helpers:value.html.twig' with {
+								'value': article.legality,
+								'title':'profession.legality',
+								'locale': locale
+							} only %}
+
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.holders, 'title':'profession.famous','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedprofessions, 'title':'profession.associated','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedlocations, 'title':'profession.locations','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedorganizations, 'title':'profession.usedby','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedranks, 'title':'profession.ranks','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedvehicles, 'title':'profession.relatedvehicles','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedtechnologies, 'title':'profession.relatedtechnologies','locale': locale } only %}
+							{% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.rawmaterials, 'title':'profession.relatedmaterials','locale': locale } only %}
+						</div>
+						{{ article.sidepanelcontent|BBcode }}
+					</div>
+				</div>
+			{% endif %}
+			{{ article.sidebarcontentbottom|BBcode }}
+			<div class="world-global-article-additional">
+				{{ article.world.globalSidebarFooter|BBcode }}
+			</div>
+		</div>
+	{% endif %}
+</div>
