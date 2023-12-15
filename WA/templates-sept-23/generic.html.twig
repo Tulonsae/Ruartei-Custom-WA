@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="article-content-left col-md-{%
+        if  article.displaySidebar == 0
+            and article.sidepanelcontent|length == 0
+            and article.sidepanelcontenttop|length == 0
+            and article.sidebarcontent|length == 0
+            and article.sidebarcontentbottom|length == 0
+            and article.world.globalAnnouncement|length == 0  %}12
+        {% else %}8
+        {% endif %}">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1 %}
+        <div class="article-content-right col-md-4">
+            <div class="world-global-article-announcement world-global-annnouncement">
+                {{ article.world.globalAnnouncement|BBcode }}
+            </div>
+            {{ article.sidebarcontent|BBcode }}
+            {% if article.sidepanelcontent|length > 0 or article.sidepanelcontenttop|length  > 0 or article.histories|length > 0 %}
+                <div class="mt-3 m-t-10 panel panel-default  card">
+                    <div class="panel-body card-body">
+                        {{ article.sidepanelcontenttop|BBcode }}
+                        {{ article.sidepanelcontent|BBcode }}
+
+                        {# Related Historical Events #}
+                        {% include 'PresentationBundle:Helpers:noslugrelationlist.html.twig' with {
+                            'value': article.histories,
+                            'title':'article.related_historical_events',
+                            'locale': locale
+                        } only %}
+                    
+                    </div>
+                </div>
+            {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

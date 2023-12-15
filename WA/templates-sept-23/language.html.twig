@@ -1,0 +1,153 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% if article.alphabet|length > 0 %}
+            <h3>{{ 'language.alphabet'|trans({},'presentation') }}</h3>
+            <p>{{ article.alphabet|BBcode  }}</p>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.geographicdistribution,
+            'title':'language.geographical.distribution',
+            'locale': locale
+        } only %}
+
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.phonology,
+            'title':'language.phonology',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.morphology,
+            'title':'language.morphology',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.syntax,
+            'title':'language.syntax',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.vocabulary,
+            'title':'language.vocabulary',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.phonetics,
+            'title':'language.phonetics',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.tenses,
+            'title':'language.tenses',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.sentenceStructure,
+            'title':'language.sentenceStructure',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.adjectiveOrder,
+            'title':'language.adjectiveOrder',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.structuralMarkers,
+            'title':'language.structuralMarkers',
+            'locale': locale
+        } only %}
+
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+    </div>
+    {% if article.displaySidebar == 1  %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode }}</div>
+            {% endif %}
+
+
+            {% if article.dictionary %}
+                {% set dictionary = article.dictionary %}
+                {% if dictionary.words|length > 0 %}
+                    <div class="panel panel-default dictionary-panel">
+                        <div class="panel-body card-body">
+                            <h3>Dictionary</h3>
+                            <div class="pull-right">
+                                <input type="text" data-url="{{ path('presentation_dictionary_search',{'id': dictionary.id })}}" class="form-control dictionary-search" placeholder="Search Dictionary...">
+                            </div>
+                            <strong>{{ dictionary.words|length }}</strong> Words.
+                            <div class="dictionary-search-results">
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.parents, 'title':'Root Languages'} only %}
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.children, 'title':'Successor Languages'} only %}
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.ethnicities, 'title':'Spoken by'} only %}
+
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.phrases,
+                        'title':'language.sidebar.common.phrases',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.femalenames,
+                        'title':'language.sidebar.common.female.names',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.malenames,
+                        'title':'language.sidebar.common.male.names',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.unisexnames,
+                        'title':'language.sidebar.common.unisex.names',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.familynames,
+                        'title':'language.sidebar.common.family.names',
+                        'locale': locale
+                    } only %}
+
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

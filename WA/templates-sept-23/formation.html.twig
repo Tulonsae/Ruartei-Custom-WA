@@ -1,0 +1,183 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% if article.manpower|length > 0  or article.equipment|length > 0  or  article.weaponry|length > 0  or article.vehicles|length > 0 or article.structure|length > 0 or article.tactics|length > 0 or article.training|length > 0 %}
+            <h2>Composition</h2>
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.manpower,
+                'title':'formation.manpower',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.equipment,
+                'title':'formation.equipment',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.weaponry,
+                'title':'formation.weaponry',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.vehicles,
+                'title':'formation.vehicles',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.structure,
+                'title':'formation.structure',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.tactics,
+                'title':'formation.tactics',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.training,
+                'title':'formation.training',
+                'locale': locale
+            } only %}
+        {% endif %}
+        {% if  article.logistics|length > 0  or article.support|length > 0  or article.upkeep|length > 0 or article.recruitment|length > 0   %}
+            <h2>{{ 'formation.logistics'|trans({},'presentation') }}</h2>
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.logistics,
+                'title':'formation.logistical.support',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.support,
+                'title':'formation.auxilia',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.upkeep,
+                'title':'formation.upkeep',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.recruitment,
+                'title':'formation.recruitment',
+                'locale': locale
+            } only %}
+        {% endif %}
+
+        {% if article.history|length > 0  or article.loyalties|length > 0 %}
+            <h2>{{ 'formation.history'|trans({},'presentation') }}</h2>
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.history,
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.loyalties,
+                'title':'formation.historical.loyalties',
+                'locale': locale
+            } only %}
+        {% endif %}
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+
+    </div>
+    {% if article.displaySidebar == 1  %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.flag %}
+                <div id="{{ article.flag.filename|HashString }}" class="visibility-toggler organization-flag">
+                    <img class="img-fluid img-responsive m-b-20" src="{{ asset( article.flag.path ~ '/' ~  article.flag.filename) }}" alt="">
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.type,
+                            'title':'formation.sidebar.type',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehiclesUsed,
+                            'title':'vehicle.formationsUsage.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.foundingDate,
+                            'title':'formation.sidebar.founding',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.dissolutionDate,
+                            'title':'formation.sidebar.dissolution',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.trainingLevel,
+                            'title':'formation.sidebar.overall.training.level',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.veterancy,
+                            'title':'formation.sidebar.assumed.veterancy',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.parent,
+                            'title':'formation.sidebar.parent.formation',
+                            'article': article,'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedorganizations,
+                            'title': 'formation.sidebar.usedby',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedranks,
+                            'title': 'formation.sidebar.ranks.titles',
+                            'locale': locale
+                        } only %}
+
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>
+
