@@ -36,11 +36,13 @@
 
                 {% include 'PresentationBundle:Helpers:section.html.twig' with {
                     'value': article.conditions,
+                    'title':'military_conf.conditions',
                     'locale': locale
                 } only %}
 
                 {% include 'PresentationBundle:Helpers:section.html.twig' with {
                     'value': article.engagement,
+                    'title':'military_conf.the_engagement',
                     'locale': locale
                 } only %}
 
