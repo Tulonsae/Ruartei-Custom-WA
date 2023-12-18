@@ -15,48 +15,107 @@
                 or article.outcome|length > 0
                 or article.aftermath|length > 0 %}
 
-                <h2>{{ 'military_conf.the_conflict'|trans({},'presentation') }}</h2>
+                {% if article.type == "Sports Event" %}
 
-                {% if article.prelude|length > 0 %}
-                    <h3>{{ 'military_conf.prelude'|trans({},'presentation') }}</h3>
-                    <p>{{ article.prelude|BBcode }}</p>
+                    <h2>The Match</h2>
+
+                    {# Prelude #}
+                    {% if article.prelude|length > 0 %}
+                        <h3>{{ 'military_conf.prelude'|trans({},'presentation') }}</h3>
+                        {{ article.prelude|BBcode }}
+                    {% endif %}
+
+                    {# Publicity #}
+                    {% if article.conditions|length > 0 %}
+                        <h3>Publicity</h3>
+                        {{ article.conditions|BBcode }}
+                    {% endif %}
+
+                    {# Lineup #}
+                    {% if article.deployment|length > 0 %}
+                        <h3>Lineup</h3>
+                        {{ article.deployment|BBcode }}
+                    {% endif %}
+
+                    {# Playing Field #}
+                    {% if article.battlefield|length > 0 %}
+                        <h3>Playing Field</h3>
+                        {{ article.battlefield|BBcode }}
+                    {% endif %}
+
+                    {# The Encounter #}
+                    {% if article.engagement|length > 0 %}
+                        <h3>The Encounter</h3>
+                        {{ article.engagement|BBcode }}
+                    {% endif %}
+
+                    {# Outcome #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.outcome,
+                        'title':'military_conf.outcome',
+                        'locale': locale
+                    } only %}
+
+                    {# Aftermath #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.aftermath,
+                        'title':'military_conf.aftermath',
+                        'locale': locale
+                    } only %}
+
+                {% else %} {# regular military conflict #}
+
+                    <h2>{{ 'military_conf.the_conflict'|trans({},'presentation') }}</h2>
+
+                    {# Prelude #}
+                    {% if article.prelude|length > 0 %}
+                        <h3>{{ 'military_conf.prelude'|trans({},'presentation') }}</h3>
+                        {{ article.prelude|BBcode }}
+                    {% endif %}
+
+                    {# Deployment #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.deployment,
+                        'title':'military_conf.deployment',
+                        'locale': locale
+                    } only %}
+
+                    {# Battlefield #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.battlefield,
+                        'title':'military_conf.battlefield',
+                        'locale': locale
+                    } only %}
+
+                    {# Conditions #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.conditions,
+                        'title':'military_conf.conditions',
+                        'locale': locale
+                    } only %}
+
+                    {# Engagement #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.engagement,
+                        'title':'military_conf.the_engagement',
+                        'locale': locale
+                    } only %}
+
+                    {# Outcome #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.outcome,
+                        'title':'military_conf.outcome',
+                        'locale': locale
+                    } only %}
+
+                    {# Aftermath #}
+                    {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                        'value': article.aftermath,
+                        'title':'military_conf.aftermath',
+                        'locale': locale
+                    } only %}
+
                 {% endif %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.deployment,
-                    'title':'military_conf.deployment',
-                    'locale': locale
-                } only %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.battlefield,
-                    'title':'military_conf.battlefield',
-                    'locale': locale
-                } only %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.conditions,
-                    'title':'military_conf.conditions',
-                    'locale': locale
-                } only %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.engagement,
-                    'title':'military_conf.the_engagement',
-                    'locale': locale
-                } only %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.outcome,
-                    'title':'military_conf.outcome',
-                    'locale': locale
-                } only %}
-
-                {% include 'PresentationBundle:Helpers:section.html.twig' with {
-                    'value': article.aftermath,
-                    'title':'military_conf.aftermath',
-                    'locale': locale
-                } only %}
 
             {% endif %}
 
@@ -69,18 +128,21 @@
 
                 {{ article.history|BBcode }}
 
+                {# Legacy #}
                 {% include 'PresentationBundle:Helpers:section.html.twig' with {
                     'value': article.legacy,
                     'title':'military_conf.legacy',
                     'locale': locale
                 } only %}
 
+                {# In Literature #}
                 {% include 'PresentationBundle:Helpers:section.html.twig' with {
                     'value': article.literature,
                     'title':'military_conf.in_literature',
                     'locale': locale
                 } only %}
 
+                {# Technological Advancement #}
                 {% include 'PresentationBundle:Helpers:section.html.twig' with {
                     'value': article.technology,
                     'title':'military_conf.techological_advancement',
