@@ -25,6 +25,12 @@
                         {{ article.prelude|BBcode }}
                     {% endif %}
 
+                    {# Playing Field #}
+                    {% if article.battlefield|length > 0 %}
+                        <h3>Playing Field</h3>
+                        {{ article.battlefield|BBcode }}
+                    {% endif %}
+
                     {# Publicity #}
                     {% if article.conditions|length > 0 %}
                         <h3>Publicity</h3>
@@ -35,12 +41,6 @@
                     {% if article.deployment|length > 0 %}
                         <h3>Lineup</h3>
                         {{ article.deployment|BBcode }}
-                    {% endif %}
-
-                    {# Playing Field #}
-                    {% if article.battlefield|length > 0 %}
-                        <h3>Playing Field</h3>
-                        {{ article.battlefield|BBcode }}
                     {% endif %}
 
                     {# The Encounter #}
