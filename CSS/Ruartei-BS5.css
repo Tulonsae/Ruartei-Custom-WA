@@ -263,16 +263,6 @@
 
 }
 
-/* FIXES */
-
-/* Fix the extra space at the end of various links */
-.user-css.page-world-homepage .world-category-link,
-.user-css-presentation #world-navigation-sidebar .world-category-link,
-.user-css-presentation .tooltipster-content a,
-.user-css div.user-css-vignette {
-  display: inline-block;
-}
-
 /* PAGE */
 
 .user-css-presentation {
