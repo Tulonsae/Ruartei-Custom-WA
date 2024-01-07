@@ -1051,6 +1051,18 @@
   display: block;
 }
 
+/* FLAG IMAGES */
+.user-css .organization-flag {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 5px solid var(--main-border-color);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--Black60);
+}
+.user-css .jek-flag-image {
+  border-radius: 10px;
+}
+
 /* FOLLOWERS */
 
 /* DIALOG ?? */
