@@ -5,59 +5,136 @@
 
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.geography,
-            'title':'location.geography',
-            'locale': locale
-        } only %}
+        {% if article.type.name == 'Star System' %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.ecosystem,
-            'title':'location.ecosystem',
-            'locale': locale
-        } only %}
+            {# Astrography #}
+            {% if article.geography|length > 0
+                or article.ecosystem|length > 0
+                or article.ecosystemCycles > 0 %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.ecosystemCycles,
-            'title':'location.ecosystemCycles',
-            'locale': locale
-        } only %}
+                <h2>Astrography</h2>
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.localizedPhenomena,
-            'title':'location.localizedPhenomena',
-            'locale': locale
-        } only %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.climate,
-            'title':'location.climate',
-            'locale': locale
-        } only %}
+                {# Astrography Overview #}
+                {% if article.geography|length > 0 %}
+                    <div>{{ article.geography|BBcode }}</div>
+                {% endif %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.florafauna,
-            'title':'location.florafauna',
-            'locale': locale
-        } only %}
+                {# Population Centers #}
+                {% if article.ecosystem|length > 0 %}
+                    <h3>Population Centers</h3>
+                    <div>{{ article.ecosystem|BBcode }}</div>
+                {% endif %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.naturalresources,
-            'title':'location.natural_resources',
-            'locale': locale
-        } only %}
+                {# Notable Orbitals #}
+                {% if article.ecosystemCycles|length > 0 %}
+                    <h3>Notable Orbitals</h3>
+                    <div>{{ article.ecosystemCycles|BBcode }}</div>
+                {% endif %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.history,
-            'title':'location.history',
-            'locale': locale
-        } only %}
+                {# Phenomena #}
+                {% if article.localizedPhenomena|length > 0 %}
+                    <h3>Phenomena</h3>
+                    <div>{{ article.localizedPhenomena|BBcode }}</div>
+                {% endif %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.tourism,
-            'title':'location.tourism',
-            'locale': locale
-        } only %}
+            {% endif %}
+
+            {# Governance #}
+            {% if article.climate|length > 0 %}
+                <h2>Governance</h2>
+                <div>{{ article.climate|BBcode }}</div>
+            {% endif %}
+
+            {# Commerce #}
+            {% if article.florafauna|length > 0
+                or article.naturalresources|length > 0
+                or article.tourism > 0 %}
+
+                <h2>Commerce</h2>
+
+                {# Commerce Overview #}
+                {% if article.florafauna|length > 0 %}
+                    <div>{{ article.florafauna|BBcode }}</div>
+                {% endif %}
+
+                {# Imports and Exports #}
+                {% if article.ecosystem|length > 0 %}
+                    <h3>Imports and Exports</h3>
+                    <div>{{ article.naturalresources|BBcode }}</div>
+                {% endif %}
+
+                {# Notable Characteristics #}
+                {% if article.tourism|length > 0 %}
+                    <h3>Notable Characteristics</h3>
+                    <div>{{ article.tourism|BBcode }}</div>
+                {% endif %}
+
+            {% endif %}
+
+            {# History #}
+            {% if article.history|length > 0 %}
+                <h2>{{ 'location.history'|trans({},'presentation') }}</h2>
+                <div>{{ article.history|BBcode }}</div>
+            {% endif %}
+
+        {% else %} {# other orbital #}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.geography,
+                'title':'location.geography',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.ecosystem,
+                'title':'location.ecosystem',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.ecosystemCycles,
+                'title':'location.ecosystemCycles',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.localizedPhenomena,
+                'title':'location.localizedPhenomena',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.climate,
+                'title':'location.climate',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.florafauna,
+                'title':'location.florafauna',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.naturalresources,
+                'title':'location.natural_resources',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.history,
+                'title':'location.history',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.tourism,
+                'title':'location.tourism',
+                'locale': locale
+            } only %}
+
+        {% endif %}
 
         {% if article.footnotes %}
             <div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>
@@ -90,12 +167,48 @@
                     <div class="jek-key-facts-content">
                         <h3 class="jek-key-facts-heading">Key Facts</h3>
 
+                        {# Alternate Names #}
+                        {% if article.alternativename|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Alternate Name(s)</div>
+                                <div class="jek-key-facts-indent">{{ article.alternativename }}</div>
+                            </div>
+                        {% endif %}
+
+                        {# Status #}
+                        {% if usermetadata.status|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Status:</span>
+                                {{ usermetadata.status }}
+                            </div>
+                        {% endif %}
+
                         {# Type #}
-                        {% if article.type|length > 0 %}
+                        {% if article.type|length > 0 or usermetadata.spectralType|length > 0 %}
                             <div class="jek-key-facts-info">
                                 <span class="jek-key-facts-label">Type:</span>
-                                {{ article.type.name }}
+                                {% if usermetadata.spectralType|length > 0 %}
+                                    {{ usermetadata.spectralType }}
+                                {% endif %}
+                                {% if article.type|length > 0 %}
+                                    {{ article.type.name }}
+                                {% endif %}
                             </div>
+                        {% endif %}
+
+                        {# Coordinates #}
+                        {% if usermetadata.coordinates|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Coordinates</span>
+                                <div class="jek-key-facts-indent">{{ usermetadata.coordinates }}</div>
+                            </div>
+                        {% endif %}
+
+                        {# Member Of #}
+                        {% if usermetadata.memberOf|length > 0 %}
+                            <div class="jek-key-facts-label">Member Of</div>
+                            <ul class="jek-key-facts-list">
+                            </ul>
                         {% endif %}
 
                         {# Included Locations #}
@@ -109,12 +222,6 @@
                         {% endif %}
 
                         {{ article.sidepanelcontenttop|BBcode }}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.alternativename,
-                            'title':'location.aternative_names',
-                            'locale': locale
-                        } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.vehiclesPresent,
