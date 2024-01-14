@@ -5,27 +5,58 @@
 
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.purpose,
-            'title':'landmark.purpose',
-            'locale': locale
-        } only %}
+        {% if article.purpose|length > 0
+            or article.design|length > 0
+            or article.properties|length > 0
+            or article.hazards|length > 0  %}
+            <h2>Functional Aspects</h2>
+        {% endif %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.design,
-            'title':'landmark.design',
-            'locale': locale
-        } only %}
+        {% if article.purpose|length > 0 %}
+            <h3>Purpose and Function</h3>
+            <div>{{ article.purpose|BBcode }}</div>
+        {% endif %}
 
+        {% if article.design|length > 0 %}
+            <h3>Technology and Operation</h3>
+            <div>{{ article.design|BBcode }}</div>
+        {% endif %}
+
+        {% if article.properties|length > 0 %}
+            <h3>Special Properties</h3>
+            <div>{{ article.properties|BBcode }}</div>
+        {% endif %}
+
+        {% if article.hazards|length > 0 %}
+            <h3>Hazards and Effects</h3>
+            <div>{{ article.hazards|BBcode }}</div>
+        {% endif %}
+
+        {% if article.sensory|length > 0
+            or article.tourism|length > 0
+            or article.history|length > 0  %}
+            <h2>Cultural Significance</h2>
+        {% endif %}
+
+        {% if article.sensory|length > 0 %}
+            <h3>Sensory and Appearance</h3>
+            <div>{{ article.sensory|BBcode }}</div>
+        {% endif %}
+
+        {% if article.tourism|length > 0 %}
+            <h3>Tourism</h3>
+            <div>{{ article.tourism|BBcode }}</div>
+        {% endif %}
+
+        {% if article.history|length > 0 %}
+            <h3>History</h3>
+            <div>{{ article.history|BBcode }}</div>
+        {% endif %}
+
+{# JEK BEGIN UNUSED/IGNORED 
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.entries,
             'title':'landmark.entries',
-            'locale': locale
-        } only %}
-
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.sensory,
-            'title':'landmark.sensory',
             'locale': locale
         } only %}
 
@@ -48,18 +79,6 @@
         } only %}
 
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.hazards,
-            'title':'landmark.hazards',
-            'locale': locale
-        } only %}
-
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.properties,
-            'title':'landmark.properties',
-            'locale': locale
-        } only %}
-
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.alterations,
             'title':'landmark.alterations',
             'locale': locale
@@ -76,18 +95,7 @@
             'title':'landmark.defences',
             'locale': locale
         } only %}
-
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.history,
-            'title':'history',
-            'locale': locale
-        } only %}
-
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.tourism,
-            'title':'location.tourism',
-            'locale': locale
-        } only %}
+JEK END UNUSED/IGNORED #}
 
         {% if article.footnotes %}
             <div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>
@@ -110,172 +118,185 @@
 
             {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'location'  }) ) }}
 
-            <div class="panel panel-default card mb-3">
+            {# BEGIN JEK=SIDEPANEL #}
+            <div class="panel panel-default card mb-3 jek-sidepanel">
 
-                <div class="panel-body card-body">
+                {# BEGIN JEK-KEY-FACTS-SIDEPANEL #}
+                <div class="panel-body card-body jek-key-facts-sidepanel">
 
-                    {{ article.sidepanelcontenttop|BBcode }}
+                    {# BEGIN JEK-KEY-FACTS-CONTENT #}
+                    <div class="jek-key-facts-content">
+                        <h3 class="jek-key-facts-heading">Key Facts</h3>
 
-                    {% if article.ruined|length > 0 %}
-                        <div class="panel panel-danger">
-                            <div class="panel-body text-center">
-                                <strong class="text-danger">RUINED STRUCTURE</strong>
-                                <br />
-                                {{ article.ruined|BBcode }}
+                        {{ article.sidepanelcontenttop|BBcode }}
+
+{# JEK - change this to read from usermetadata, Nonfunctional, Destroyed, Disappeared ?? #}
+                        {% if article.ruined|length > 0 %}
+                            <div class="panel panel-danger">
+                                <div class="panel-body text-center">
+                                    <strong class="text-danger">RUINED STRUCTURE</strong>
+                                    <br />
+                                    {{ article.ruined|BBcode }}
+                                </div>
                             </div>
+                        {% endif %}
+
+                        <div>
+                            {# JEK - change this to discovered #}
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.constructed,
+                                'title':'settlement.founding',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.alternativename,
+                                'title':'alternativenames',
+                                'locale': locale
+                            } only %}
+
+{# JEK - change this to read usermetadata for subtype: Dimensional, Gate?? #}
+                            {% include 'PresentationBundle:Helpers:typeRelation.html.twig' with {
+                                'value': article.type,
+                                'title':'type',
+                                'article': article,
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parent,
+                                'title':'landmark.parent',
+                                'article': article,
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.children,
+                                'title':'landmark.children',
+                                'locale': locale
+                            } only %}
+
+{# JEK BEGIN UNUSED/IGNORED 
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.effects,
+                                'title':'landmark.effects',
+                                'locale': locale
+                            } only %}
+JEK END UNUSED/IGNORED #}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.connectedRooms,
+                                'title':'landmark.connectedrooms',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.professions,
+                                'title':'landmark.professions',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.person,
+                                'title':'landmark.owner',
+                                'article': article.person,
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.additionalRulers,
+                                'title':'location.additionalRulers.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.ethnicities,
+                                'title':'ethnicity.locations.reflexive.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.rank,
+                                'title':'location.rank',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.vehicle,
+                                'title':'landmark.vehicle',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.vehiclesPresent,
+                                'title':'vehicle.location.reflexive.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.organization,
+                                'title':'landmark.organization',
+                                'article': article.organization ,
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.contenders,
+                                'title':'landmark.contenders',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.people,
+                                'title': 'landmark.charactersinlocation',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.rituals,
+                                'title': 'ritual.related_location.reflexive.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.importantTraditions,
+                                'title': 'ritual.important_locations.reflexive.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.reportprimarylocations,
+                                'title': 'landmark.reportprimarylocations',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.reportsecondarylocations,
+                                'title': 'landmark.reportsecondarylocations',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.materials,
+                                'title': 'landmark.materials',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.plots,
+                                'title': 'article.related_plots',
+                                'locale': locale
+                            } only %}
+
                         </div>
-                    {% endif %}
 
-                    <div>
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.constructed,
-                            'title':'settlement.founding',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.alternativename,
-                            'title':'alternativenames',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:typeRelation.html.twig' with {
-                            'value': article.type,
-                            'title':'type',
-                            'article': article,
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.parent,
-                            'title':'landmark.parent',
-                            'article': article,
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.children,
-                            'title':'landmark.children',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.effects,
-                            'title':'landmark.effects',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.connectedRooms,
-                            'title':'landmark.connectedrooms',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.professions,
-                            'title':'landmark.professions',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.person,
-                            'title':'landmark.owner',
-                            'article': article.person,
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.additionalRulers,
-                            'title':'location.additionalRulers.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.ethnicities,
-                            'title':'ethnicity.locations.reflexive.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.rank,
-                            'title':'location.rank',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.vehicle,
-                            'title':'landmark.vehicle',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.vehiclesPresent,
-                            'title':'vehicle.location.reflexive.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.organization,
-                            'title':'landmark.organization',
-                            'article': article.organization ,
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.contenders,
-                            'title':'landmark.contenders',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.people,
-                            'title': 'landmark.charactersinlocation',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.rituals,
-                            'title': 'ritual.related_location.reflexive.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.importantTraditions,
-                            'title': 'ritual.important_locations.reflexive.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.reportprimarylocations,
-                            'title': 'landmark.reportprimarylocations',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.reportsecondarylocations,
-                            'title': 'landmark.reportsecondarylocations',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.materials,
-                            'title': 'landmark.materials',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.plots,
-                            'title': 'article.related_plots',
-                            'locale': locale
-                        } only %}
-
-                    </div>
+                    </div> {# END JEK-KEY-FACTS-CONTENT #}
 
                     {{ article.sidepanelcontent|BBcode }}
 
-                </div>
+                </div> {# END JEK-KEY-FACTS-SIDEPANEL #}
 
-            </div>
+            </div> {# END JEK=SIDEPANEL #}
 
             {{ article.sidebarcontentbottom|BBcode }}
 
