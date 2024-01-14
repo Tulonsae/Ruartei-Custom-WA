@@ -1,0 +1,288 @@
+{# revised from Sep 2023 version of landmark.html.twig #}
+<div class="row">
+
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.purpose,
+            'title':'landmark.purpose',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.design,
+            'title':'landmark.design',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.entries,
+            'title':'landmark.entries',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.sensory,
+            'title':'landmark.sensory',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.denizens,
+            'title':'landmark.denizens',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.contents,
+            'title':'landmark.contents',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.valuables,
+            'title':'landmark.valuables',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.hazards,
+            'title':'landmark.hazards',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.properties,
+            'title':'landmark.properties',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.alterations,
+            'title':'landmark.alterations',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.architecture,
+            'title':'landmark.architecture',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.defences,
+            'title':'landmark.defences',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.history,
+            'title':'history',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.tourism,
+            'title':'location.tourism',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}
+            <div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>
+        {% endif %}
+
+    </div>
+
+    {% if  article.displaySidebar == 1 %}
+
+        <div class="col-md-4 article-content-right">
+            {% if  article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+
+            {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'location'  }) ) }}
+
+            <div class="panel panel-default card mb-3">
+
+                <div class="panel-body card-body">
+
+                    {{ article.sidepanelcontenttop|BBcode }}
+
+                    {% if article.ruined|length > 0 %}
+                        <div class="panel panel-danger">
+                            <div class="panel-body text-center">
+                                <strong class="text-danger">RUINED STRUCTURE</strong>
+                                <br />
+                                {{ article.ruined|BBcode }}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div>
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.constructed,
+                            'title':'settlement.founding',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.alternativename,
+                            'title':'alternativenames',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:typeRelation.html.twig' with {
+                            'value': article.type,
+                            'title':'type',
+                            'article': article,
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.parent,
+                            'title':'landmark.parent',
+                            'article': article,
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.children,
+                            'title':'landmark.children',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.effects,
+                            'title':'landmark.effects',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.connectedRooms,
+                            'title':'landmark.connectedrooms',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.professions,
+                            'title':'landmark.professions',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.person,
+                            'title':'landmark.owner',
+                            'article': article.person,
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.additionalRulers,
+                            'title':'location.additionalRulers.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title':'ethnicity.locations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.rank,
+                            'title':'location.rank',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.vehicle,
+                            'title':'landmark.vehicle',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehiclesPresent,
+                            'title':'vehicle.location.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.organization,
+                            'title':'landmark.organization',
+                            'article': article.organization ,
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.contenders,
+                            'title':'landmark.contenders',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.people,
+                            'title': 'landmark.charactersinlocation',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.rituals,
+                            'title': 'ritual.related_location.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.importantTraditions,
+                            'title': 'ritual.important_locations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.reportprimarylocations,
+                            'title': 'landmark.reportprimarylocations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.reportsecondarylocations,
+                            'title': 'landmark.reportsecondarylocations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.materials,
+                            'title': 'landmark.materials',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.plots,
+                            'title': 'article.related_plots',
+                            'locale': locale
+                        } only %}
+
+                    </div>
+
+                    {{ article.sidepanelcontent|BBcode }}
+
+                </div>
+
+            </div>
+
+            {{ article.sidebarcontentbottom|BBcode }}
+
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+
+        </div>
+    {% endif %}
+</div>
