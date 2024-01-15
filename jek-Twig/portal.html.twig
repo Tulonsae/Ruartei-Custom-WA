@@ -6,9 +6,9 @@
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
 
         {% if article.purpose|length > 0
-            or article.design|length > 0
-            or article.properties|length > 0
-            or article.hazards|length > 0  %}
+              or article.design|length > 0
+              or article.properties|length > 0
+              or article.hazards|length > 0  %}
             <h2>Functional Aspects</h2>
         {% endif %}
 
@@ -141,84 +141,189 @@ JEK END UNUSED/IGNORED #}
                             </div>
                         {% endif %}
 
-                        <div>
-                            {# JEK - change this to discovered #}
-                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                'value': article.constructed,
-                                'title':'settlement.founding',
-                                'locale': locale
-                            } only %}
+                        {# Altername Name #}
+                        {# add processing for multiple names, separated by semicolon #}
+                        {% if article.alternativename|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Alternate Name</div>
+                                <div class="jek-key-facts-indent">{{ article.alternativename }}</div>
+                            </div>
+                        {% endif %}
 
-                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                'value': article.alternativename,
-                                'title':'alternativenames',
-                                'locale': locale
-                            } only %}
+                        {# Portal Type #}
+                        {% if article.type|length > 0 or usermetadata.portalType|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Type:</span>
+                                {% if usermetadata.portalType|length > 0 %}
+                                    {{ usermetadata.portalType }}
+                                {% else %}
+                                    {{ article.type.name }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
 
-{# JEK - change this to read usermetadata for subtype: Dimensional, Gate?? #}
-                            {% include 'PresentationBundle:Helpers:typeRelation.html.twig' with {
-                                'value': article.type,
-                                'title':'type',
-                                'article': article,
-                                'locale': locale
-                            } only %}
+                        {# Discovery Date #}
+                        {% if article.constructed|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Discovery Date</div>
+                                <div class="jek-key-facts-indent">{{ article.constructed }}</div>
+                            </div>
+                        {% endif %}
 
-                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                                'value': article.parent,
-                                'title':'landmark.parent',
-                                'article': article,
-                                'locale': locale
-                            } only %}
+                        {# Location Under #}
+                        {% if article.parent|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Location Under:</span>
+                                {% if article.parent|length > 0
+                                      and article.parent.state != 'archived'
+                                      and article.parent|CheckAccess == true
+                                      or article.parent|length > 0
+                                      and article.parent.state != 'archived'
+                                      and article.parent.world.displaySecureLinks == true %}
+                                    <a class="article-link article-explorer-link"
+                                       data-article-privacy="{{ article.parent.state }}"
+                                       data-article-id="{{ article.parent.id }}"
+                                       data-template-type="{{ article.parent.templateType }}"
+                                       data-article="{{ article.parent.id }}"
+                                       href="{{ path('presentation_article', {'worldslug': article.parent.world.slug,'articleslug': article.parent.slug})}}">{{ article.parent.title }}</a>
+                                {% else %}
+                                    {{ article.parent }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
 
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.children,
-                                'title':'landmark.children',
-                                'locale': locale
-                            } only %}
+                        {# Included Locations #}
+                        {% if article.children|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Included Locations</div>
+                                <ul class="jek-key-facts-list">
+                                {% for child in article.children %}
+                                    {% if child|length > 0
+                                          and child.state != 'archived'
+                                          and child|CheckAccess == true
+                                          or child|length > 0
+                                          and child.state != 'archived'
+                                          and child.world.displaySecureLinks == true %}
+                                        <li><a class="article-link article-explorer-link"
+                                               data-article-privacy="{{ child.state }}"
+                                               data-article-id="{{ child.id }}"
+                                               data-template-type="{{ child.templateType }}"
+                                               data-article="{{ child.id }}"
+                                               href="{{ path('presentation_article', {'worldslug': child.world.slug,'articleslug': child.slug})}}">{{ child.title }}</a></li>
+                                    {% else %}
+                                        <li>{{ child.title }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        {# Principal Manager #}
+                        {% set linkPerson = false %}
+                        {% if article.person|length > 0
+                              and article.person.state != 'archived'
+                              and article.person|CheckAccess == true
+                              or article.person|length > 0
+                              and article.person.state != 'archived'
+                              and article.person.world.displaySecureLinks == true %}
+                            {% set linkPerson = true %}
+                        {% endif %}
+                        {% set linkRank = false %}
+                        {% if article.rank|length > 0
+                              and article.rank.state != 'archived'
+                              and article.rank|CheckAccess == true
+                              or article.rank|length > 0
+                              and article.rank.state != 'archived'
+                              and article.rank.world.displaySecureLinks == true %}
+                            {% set linkRank = true %}
+                        {% endif %}
+                        {% if article.person|length > 0 or article.rank|length > 0 %}                        
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Principal Manager</div>
+                                <div class="jek-key-facts-indent">
+                                {% if article.rank|length > 0 %}
+                                    {% if linkRank == true %}
+                                        <a class="article-link article-explorer-link"
+                                           data-article-privacy="{{ article.rank.state }}"
+                                           data-article-id="{{ article.rank.id }}"
+                                           data-template-type="{{ article.rank.templateType }}"
+                                           data-article="{{ article.rank.id }}"
+                                           href="{{ path('presentation_article', {'worldslug': article.rank.world.slug,'articleslug': article.rank.slug})}}">{{ article.rank.title }}</a>
+                                    {% else %}
+                                        {{ article.rank }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if article.person|length > 0 %}
+                                    {% if linkRank == true %}
+                                        <a class="article-link article-explorer-link"
+                                           data-article-privacy="{{ article.person.state }}"
+                                           data-article-id="{{ article.person.id }}"
+                                           data-template-type="{{ article.person.templateType }}"
+                                           data-article="{{ article.person.id }}"
+                                           href="{{ path('presentation_article', {'worldslug': article.person.world.slug,'articleslug': article.person.slug})}}">{{ article.person.title }}</a>
+                                    {% else %}
+                                         {{ article.person }}
+                                    {% endif %}
+                                {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {# Governing Organization #}
+                        {% if article.organization|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Governing Organization</div>
+                                <div class="jek-key-facts-indent">
+                                {% if article.organization|length > 0
+                                      and article.organization.state != 'archived'
+                                      and article.organization|CheckAccess == true
+                                      or article.organization|length > 0
+                                      and article.organization.state != 'archived'
+                                      and article.organization.world.displaySecureLinks == true %}
+                                    <a class="article-link article-explorer-link"
+                                       data-article-privacy="{{ article.organization.state }}"
+                                       data-article-id="{{ article.organization.id }}"
+                                       data-template-type="{{ article.organization.templateType }}"
+                                       data-article="{{ article.organization.id }}"
+                                       href="{{ path('presentation_article', {'worldslug': article.organization.world.slug,'articleslug': article.organization.slug})}}">{{ article.organization.title }}</a>
+                                {% else %}
+                                    {{ article.organization }}
+                                {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {# Contesting Organizations #}
+                        {% if article.contenders|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Contesting Organizations</div>
+                                <ul class="jek-key-facts-list">
+                                {% for org in article.contenders %}
+                                    {% if org|length > 0
+                                          and org.state != 'archived'
+                                          and org|CheckAccess == true
+                                          or org|length > 0
+                                          and org.state != 'archived'
+                                          and org.world.displaySecureLinks == true %}
+                                        <li><a class="article-link article-explorer-link"
+                                               data-article-privacy="{{ org.state }}"
+                                               data-article-id="{{ org.id }}"
+                                               data-template-type="{{ org.templateType }}"
+                                               data-article="{{ org.id }}"
+                                               href="{{ path('presentation_article', {'worldslug': org.world.slug,'articleslug': org.slug})}}">{{ org.title }}</a></li>
+                                    {% else %}
+                                        <li>{{ org.title }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
 
 {# JEK BEGIN UNUSED/IGNORED 
                             {% include 'PresentationBundle:Helpers:value.html.twig' with {
                                 'value': article.effects,
                                 'title':'landmark.effects',
                                 'locale': locale
-                            } only %}
-JEK END UNUSED/IGNORED #}
-
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.connectedRooms,
-                                'title':'landmark.connectedrooms',
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.professions,
-                                'title':'landmark.professions',
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                                'value': article.person,
-                                'title':'landmark.owner',
-                                'article': article.person,
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.additionalRulers,
-                                'title':'location.additionalRulers.name',
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.ethnicities,
-                                'title':'ethnicity.locations.reflexive.name',
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                                'value': article.rank,
-                                'title':'location.rank',
-                                'article': article,'locale': locale
                             } only %}
 
                             {% include 'PresentationBundle:Helpers:relation.html.twig' with {
@@ -233,22 +338,36 @@ JEK END UNUSED/IGNORED #}
                                 'locale': locale
                             } only %}
 
-                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                                'value': article.organization,
-                                'title':'landmark.organization',
-                                'article': article.organization ,
-                                'locale': locale
-                            } only %}
-
-                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                                'list': article.contenders,
-                                'title':'landmark.contenders',
-                                'locale': locale
-                            } only %}
-
                             {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                                 'list': article.people,
                                 'title': 'landmark.charactersinlocation',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.ethnicities,
+                                'title':'ethnicity.locations.reflexive.name',
+                                'locale': locale
+                            } only %}
+JEK END UNUSED/IGNORED #}
+
+                        <div>
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.additionalRulers,
+                                'title':'location.additionalRulers.name',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.connectedRooms,
+                                'title':'landmark.connectedrooms',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.professions,
+                                'title':'landmark.professions',
                                 'locale': locale
                             } only %}
 
