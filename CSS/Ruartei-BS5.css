@@ -206,6 +206,7 @@
   --main-bgcolor: var(--DeepCove);
   --main-border-color: var(--NileBlue);
   --main-text-color: var(--Champagne);
+  --main-mark-color: var(--Ronchi);
   --main-link-color: var(--Malibu);
   --main-hover-color: var(--Ronchi);
   --main-h1-color: var(--AztecGold);
@@ -323,26 +324,9 @@
 }
 
 .user-css .article-content mark {
-  background: var(--Janna);
-  border: 0 solid;
-  border-radius: 6px;
-  color: var(--DeepCove);
-}
-/* TODO set the link and hover colors
-  var(--sidebar-link-color);
-  var(--sidebar-hover-color);
-*/
-.user-css .article-content em mark {
-  padding-top: .2em;
-  padding-bottom: .1em;
-  padding-left: .25em;
-  padding-right: .35em;
-}
-.user-css .article-content b mark {
-  padding-top: .2em;
-  padding-bottom: .1em;
-  padding-left: .25em;
-  padding-right: .25em;
+  background: var(--main-bgcolor);
+  padding: 0;
+  color: var(--main-mark-color);
 }
 
 .user-css hr {
