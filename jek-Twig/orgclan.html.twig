@@ -205,7 +205,7 @@
             {% endif %}
 
             {% if article.sidebarcontent|length > 0 %}
-                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode }}</div>
             {% endif %}
 
             {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'organization' }) ) }}
@@ -215,7 +215,6 @@
 
                 {# BEGIN JEK-KEY-FACTS-SIDEPANEL #}
                 <div class="panel-body card-body jek-key-facts-sidepanel">
-                    {{ article.sidepanelcontenttop|BBcode }}
 
                     {# BEGIN JEK-KEY-FACTS-CONTENT #}
                     <div class="jek-key-facts-content">
@@ -548,6 +547,9 @@
                             'title': 'article.related_plots',
                             'locale': locale
                         } only %}
+
+                         {# Sidebar Content Top #}
+                        {{ article.sidepanelcontenttop|BBcode }}
 
                     </div> {# END JEK-KEY-FACTS-CONTENT #}
 
