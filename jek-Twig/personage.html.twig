@@ -558,20 +558,43 @@
                             'locale': locale
                         } only %}
 
+                        {# Date of Birth #}
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.dobDisplay,
                             'title':'person.birthday',
                             'locale': locale
                             } only %}
 
+                        {# Date of Death #}
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.dodDisplay,
                             'title':'person.death',
                             'locale': locale
                         } only %}
 
-                        {% if article.dod  or  article.dob and not article.age  %}
+                        {# Life / Year of Birth / Year of Death #}
+                        {% if article.dod or article.dob and not article.age %}
+
+                            {# Years calculated from usermetadata (approx years) #}
+                            {% set ageYears = 0 %}
+                            {% if usermetadata.birthJS|length > 0 %}
+                                {% set JSdate = usermetadata.birthJS|split(".") %}
+                                {% set birthJSdays = ((JSdate[0] - 1) * 625) + ((JSdate[1] - 1) * 25) + JSdate[2] %}
+                                {# age at death #}
+                                {% if usermetadata.deathJS|length > 0 %}
+                                    {% set JSdate = usermetadata.deathJS|split(".") %}
+                                    {% set deathJSdays = ((JSdate[0] - 1) * 625) + ((JSdate[1] - 1) * 25) + JSdate[2] %}
+                                    {% set ageYears = ((deathJSdays - birthJSdays) / 350)|round(0, 'floor') %}
+                                {# age at current date #}
+                                {% else %}
+                                    {% set currentJSdays = ((article.world.timeCurrentYear - 1) * 625) + ((article.world.timeCurrentMonth - 1) * 25) + article.world.timeCurrentDay %}
+                                    {% set ageYears = ((currentJSdays - birthJSdays) / 350)|round(0, 'floor') %}
+                                {% endif %}
+                            {% endif %}
+
                             <div id="{{ article.title ~ article.dob|HashString }}" class="visibility-toggler">
+
+                                {# Life (calculates age) #}
                                 {% if article.dob and article.dod
                                     or article.dob and article.dod == 0 and article.dod is not empty
                                     or article.dob == 0 and article.dob is not empty and article.dod  %}
@@ -584,7 +607,7 @@
                                         {% if article.dob > 0 %}
                                             {{ article.dob }} {{ article.world.timePosAbbr }}
                                         {% else %}
-                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
+                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr }}
                                         {% endif %}
 
                                         <i class="fas fa-long-arrow-alt-right"></i>
@@ -592,15 +615,16 @@
                                         {% if article.dod > 0 %}
                                             {{ article.dod }} {{ article.world.timePosAbbr }}
                                         {% else %}
-                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
+                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr }}
                                         {% endif %}
 
                                         {% if article.world.timeCurrentYear|length > 0 %}
-                                            <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob  }} cycles old</small>
+                                            <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob }} cycles{% if usermetadata.birthJS is not empty %} / {{ ageYears }} years{% endif %} old</small>
                                         {% endif %}
 
                                     </div>
 
+                                {# Year of Death #}
                                 {% elseif article.dod|length and not article.dob %}
 
                                     <div class="section-title">
@@ -616,6 +640,7 @@
 
                                     </div>
 
+                                {# Year of Birth (calculates age) #}
                                 {% elseif article.dob|length and not article.dod %}
 
                                     <div class="section-title">
@@ -626,14 +651,13 @@
                                         {% if article.dob > 0 %}
                                             {{ article.dob }} {{ article.world.timePosAbbr }}
                                         {% else %}
-                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
+                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr }}
                                         {% endif %}
 
                                         {% if article.world.timeCurrentYear %}
-                                            {% set age = article.world.timeCurrentYear - article.dob  %}
-                                            <small><i class="fas fa-heartbeat"></i> {{ age  }} Cycles old</small>
+                                            {% set age = article.world.timeCurrentYear - article.dob %}
+                                            <small><i class="fas fa-heartbeat"></i> {{ age }} cycles{% if usermetadata.birthJS is not empty %} / {{ ageYears }} years{% endif %} old</small>
                                         {% endif  %}
-
                                     </div>
 
                                 {% endif %}
