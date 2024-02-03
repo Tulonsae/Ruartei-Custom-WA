@@ -468,6 +468,10 @@
   color: var(--main-h1-ipa-color);
 }
 
+.user-css .article-subheading {
+  text-transform: none;
+}
+
 /* WORLD MENU */
 
 .user-css .world-menu h5,
