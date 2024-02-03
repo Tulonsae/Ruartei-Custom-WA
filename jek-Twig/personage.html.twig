@@ -596,7 +596,7 @@
                                         {% endif %}
 
                                         {% if article.world.timeCurrentYear|length > 0 %}
-                                            <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob  }} years old</small>
+                                            <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob  }} cycles old</small>
                                         {% endif %}
 
                                     </div>
@@ -631,7 +631,7 @@
 
                                         {% if article.world.timeCurrentYear %}
                                             {% set age = article.world.timeCurrentYear - article.dob  %}
-                                            <small><i class="fas fa-heartbeat"></i> {{ age  }} Years old</small>
+                                            <small><i class="fas fa-heartbeat"></i> {{ age  }} Cycles old</small>
                                         {% endif  %}
 
                                     </div>
@@ -725,19 +725,19 @@
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.gender,
-                            'title':'person.biological_sex',
+                            'title':'Gender',
                             'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.sexuality,
-                            'title':'person.sexuality',
+                            'value': article.sex,
+                            'title':'Sex',
                             'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.genderidentity,
-                            'title':'person.gender_identity',
+                            'value': article.presentation,
+                            'title':'Presentation',
                             'locale': locale
                         } only %}
 
