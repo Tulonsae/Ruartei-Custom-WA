@@ -1039,7 +1039,8 @@
   display: block;
 }
 
-/* FLAG IMAGES */
+/* CHARACTER ARTICLE PORTRAIT AND FLAG IMAGES */
+.user-css .jek-character-article-portrait,
 .user-css .organization-flag {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1047,6 +1048,7 @@
   border-radius: 10px;
   box-shadow: 4px 4px 8px var(--Black60);
 }
+.user-css .character-article-portrait,
 .user-css .jek-flag-image {
   border-radius: 10px;
 }
