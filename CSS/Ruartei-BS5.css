@@ -584,6 +584,12 @@
   padding: 0px;
 }
 
+/* display articles before categories */
+.user-css .world-menu-subcategory {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 /* ARTICLE BLOCKS */
 
 .user-css .article-panel {
@@ -652,6 +658,7 @@
 }
 
 /* fix - do not break after spanned icons */
+/* TODO - may not need this fix with toggler turned off */
 .user-css-presentation .tooltipster-content span {
   display: inline-flex;
 }
