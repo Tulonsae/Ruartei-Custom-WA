@@ -176,6 +176,7 @@
     {% if article.displaySidebar == 1  %}
 
         <div class="col-md-4 article-content-right">
+
             {% if  article.world.globalAnnouncement|length > 0 %}
                 <div class="world-global-annnouncement">
                     {{ article.world.globalAnnouncement|BBcode }}
@@ -558,6 +559,7 @@
             </div> {# END JEK=SIDEPANEL #}
 
             {{ article.sidebarcontentbottom|BBcode }}
+
             <div class="world-global-article-additional">
                 {{ article.world.globalSidebarFooter|BBcode }}
             </div>
