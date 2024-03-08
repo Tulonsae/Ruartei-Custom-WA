@@ -66,12 +66,28 @@
                     <div class="jek-key-facts-content">
                         <h3 class="jek-key-facts-heading">Key Facts</h3>
 
-                        {% if article.type  %}
-                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                'value': article.type.name,
-                                'title':'item.sidebar.itemtype',
-                                'locale': locale
-                            } only %}
+                        {# Type #}
+                        {% if article.type|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Type:</span>
+                                {{ article.type.name }}
+                            </div>
+                        {% endif %}
+
+                        {# Base Price #}
+                        {% if article.price|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Base Price</div>
+                                {{ article.price }}
+                            </div>
+                        {% endif %}
+
+                        {# Rarity #}
+                        {% if article.rarity|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label"> Rarity </div>
+                                {{ article.rarity|BBcode }}
+                            </div>
                         {% endif %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
@@ -147,12 +163,6 @@
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.rarity,
-                            'title':'item.sidebar.rarity',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.weight,
                             'title':'item.sidebar.weight',
                             'locale': locale
@@ -161,12 +171,6 @@
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.dimensions,
                             'title':'item.sidebar.dimensions',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.price,
-                            'title':'item.sidebar.base.price',
                             'locale': locale
                         } only %}
 
