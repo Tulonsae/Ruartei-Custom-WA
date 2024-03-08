@@ -431,7 +431,6 @@
   margin-bottom: 0;
   font-family: var(--hdFont);
   font-weight: var(--normal);
-  text-transform: capitalize;
 }
 
 .user-css h1 {
