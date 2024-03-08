@@ -3,3 +3,51 @@ How to put articles above categories in the TOC list
   display: flex;
   flex-direction: column-reverse;
 }
+
+This changes the background of the timeline back to whatever-image-you-want 
+.timeline-container .horae-list-wrapper {
+    background-image: url(insert image url here);
+}
+
+And this will hide the right hand navigation:
+.timeline-container .horae-list-navigator-wrapper {
+display: none;
+}
+
+Example of how to limit the anchor tag
+.user-css .world-timelines h5 a[href*=chronicle] {
+  color: green;
+}
+
+.user-css .world-timelines h5 a[href*=timeline] {
+  color: blue;
+}
+
+How to change where an anchor scrolls to
+.user-css h1,
+.user-css h2,
+.user-css h3,
+.user-css h4,
+.user-css h5 {
+ scroll-margin-top: 50px;
+}
+
+Hide entire pop-up on all maps:
+.map-context-user-css .leaflet-popup-pane {
+ display: none;
+}
+
+Hide just the title on all maps:
+.map-context-user-css .leaflet-popup-pane .marker-content h5 {
+ display: none;
+}
+
+Hide entire pop-up on just this map:
+.map-f8d3c2ac-9d2f-4e65-98c3-e7ea145c5f4a.map-context-user-css .leaflet-popup-pane {
+ display: none;
+}
+
+To limit the popup hiding to an individual pin, add a custom class to the pin(s) 'pin-hide-popup' and then add this CSS to your world CSS:
+.map-context-user-css .leaflet-marker-pane:has(.pin-hide-popup) + div + .leaflet-popup-pane {
+ display: none;
+}
