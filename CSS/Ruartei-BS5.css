@@ -491,6 +491,12 @@
   color: var(--main-h5-hover-color);
 }
 
+/* display articles before categories */
+.user-css .world-menu-subcategory {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 /* WORLD MENU POPUP */
 
 .user-css #world-category-content .panel {
@@ -584,10 +590,9 @@
   padding: 0px;
 }
 
-/* display articles before categories */
-.user-css .world-menu-subcategory {
-  display: flex;
-  flex-direction: column-reverse;
+/* use this to hide the article block which is essentially the same as the category */
+.user-css #world-category-content .jek-hide-in-toc {
+  display: none;
 }
 
 /* ARTICLE BLOCKS */
