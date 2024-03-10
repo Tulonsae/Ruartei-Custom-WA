@@ -1,0 +1,57 @@
+/* reduce opacity on Era background images */
+.eraBg {
+  opacity: .3;
+}
+
+/* fix positions of icons */
+.ra-2x.ra-player-shot {
+  padding-bottom: .3em;
+}
+.ra-2x.ra-capitol {
+  padding-bottom: .25em;
+}
+.ra-2x.ra-dripping-sword,
+.ra-2x.ra-crossed-swords,
+.ra-2x.ra-pine-tree,
+.ra-2x.ra-x-mark,
+.ra-2x.ra-tentacle,
+.ra-2x.ra-biohazard,
+.ra-2x.ra-telescope,
+.ra-2x.ra-tower,
+.ra-2x.ra-player-king,
+.ra-2x.ra-dead-tree,
+.ra-2x.ra-compass,
+.ra-2x.ra-burning-book,
+.ra-2x.ra-wooden-sign {
+  padding-bottom: .2em;
+}
+.ra-2x.ra-crown,
+.ra-2x.ra-explosion,
+.ra-2x.ra-aura {
+  padding-bottom: .1em;
+}
+.ra-3x.ra-capitol,
+.ra-3x.ra-dripping-sword {
+  padding-bottom: .4em;
+}
+.horae-sidepanel .ra-3x.ra-crossed-swords,
+.horae-sidepanel .ra-3x.ra-x-mark,
+.horae-sidepanel .ra-3x.ra-biohazard,
+.horae-sidepanel .ra-3x.ra-telescope,
+.horae-sidepanel .ra-3x.ra-tower,
+.horae-sidepanel .ra-3x.ra-player-king,
+.horae-sidepanel .ra-3x.ra-dead-tree,
+.horae-sidepanel .ra-3x.ra-compass,
+.ra-3x.ra-burning-book,
+.ra-3x.ra-player-shot {
+  padding-bottom: .3em;
+}
+.ra-3x.ra-crown,
+.ra-3x.ra-pine-tree,
+.ra-3x.ra-explosion,
+
+.ra-3x.ra-wooden-sign,
+.ra-3x.ra-skull,
+.ra-3x.ra-aura {
+  padding-bottom: .2em;
+}
