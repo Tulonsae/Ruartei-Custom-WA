@@ -14,7 +14,6 @@
 
                 <h2>Astrography</h2>
 
-
                 {# Astrography Overview #}
                 {% if article.geography|length > 0 %}
                     <div>{{ article.geography|BBcode }}</div>
@@ -155,7 +154,7 @@
                 <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
             {% endif %}
 
-            {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'location'  }) ) }}
+            {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'location' }) ) }}
 
             {# BEGIN JEK=SIDEPANEL #}
             <div class="panel panel-default card mb-3 jek-sidepanel">
@@ -208,7 +207,58 @@
                         {% if usermetadata.memberOf|length > 0 %}
                             <div class="jek-key-facts-label">Member Of</div>
                             <ul class="jek-key-facts-list">
+                                {% for item in usermetadata.memberOf%}
+                                    {% set memberData = item|split(':') %}
+                                    {% if memberData[1]|length > 0 %}
+                                        {% set memberBBcode = "@["~memberData[0]~"](organization:"~memberData[1]~")" %}
+                                        <li>{{ memberBBcode|BBcode }}</li>
+                                    {% else %}
+                                        <li>{{ memberData[0] }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
+                        {% endif %}
+
+                        {# Location Under #}
+                        {% if article.parent|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Location Under:</span>
+                                <a class="" href="{{ path('presentation_article', {'worldslug': article.parent.world.slug,'articleslug': article.parent.slug})}}">{{ article.parent.title }}</a>
+                            </div>
+                        {% endif %}
+
+                        {# Owner/Ruler/LeaderType #}
+                        {% if article.person |length > 0 %}
+                            <div class="jek-key-facts-info">
+                                {% if usermetadata.leaderType|length > 0 %}
+                                    <span class="jek-key-facts-label">{{ usermetadata.leaderType }}:</span>
+                                {% else %}
+                                    <span class="jek-key-facts-label">Owner/Ruler:</span>
+                                {% endif %}
+                                <a class="" href="{{ path('presentation_article', {'worldslug': article.person.world.slug,'articleslug': article.person.slug})}}">{{ article.person.title }}</a>
+                            </div>
+                        {% endif %}
+
+                        {# Key Features / Features / Known For #}
+                        {% if article.sidepanelcontenttop|length > 0 %}
+                            {% set features = article.sidepanelcontenttop|split('\n') %}
+                            {% for line in features %}
+                                {% set item = line|trim %}
+                                {% if item == "[container:key-features]" %}
+                                    <div class="jek-key-facts-label">Key Features</div>
+                                    <ul class="jek-key-facts-list">
+                                {% elseif item == "[container:known-for]" %}
+                                    <div class="jek-key-facts-label">Known For</div>
+                                    <ul class="jek-key-facts-list">
+                                {% elseif item == "[container:features]" %}
+                                    <div class="jek-key-facts-label">Features</div>
+                                    <ul class="jek-key-facts-list">
+                                {% elseif item == "[/container]" %}
+                                    </ul>
+                                {% else %}
+                                    <li>{{ item|BBcode }}</li>
+                                {% endif %}
+                           {% endfor %}
                         {% endif %}
 
                         {# Included Locations #}
@@ -221,7 +271,24 @@
                             </ul>
                         {% endif %}
 
-                        {{ article.sidepanelcontenttop|BBcode }}
+                        {# Warp Paths #}
+                        {% if usermetadata.warpPaths|length > 0 %}
+                            <div class="jek-key-facts-label">Warp Paths</div>
+                            <ul class="jek-key-facts-list">
+                                {% for wp in usermetadata.warpPaths %}
+                                    {% set wpData = wp|split(':') %}
+                                    <li>
+                                    {% if wpData[2]|length > 0 %}
+                                        {% set starSysBBcode = "@["~wpData[0]~"](location:"~wpData[2]~")" %}
+                                        {{ starSysBBcode|BBcode }}:
+                                    {% else %}
+                                        {{ wpData[0] }}:
+                                    {% endif %}
+                                    {{ wpData[1] }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+{# TOHERE #}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.vehiclesPresent,
@@ -229,23 +296,10 @@
                             'locale': locale
                         } only %}
 
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.parent,
-                            'title':'location.location_under',
-                            'article': article,
-                            'locale': locale
-                        } only %}
-
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.includedOrganizations,
                             'title': 'location.included_organizations',
                             'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.person,
-                            'title':'location.owner_ruler',
-                            'article': article,'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
