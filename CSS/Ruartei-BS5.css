@@ -290,6 +290,11 @@
   border-radius: 15px 15px 0px 0px;
 }
 
+/* turn off all world editor buttons */
+.user-css a.world-editor-link {
+  display: none !important;
+}
+
 /* NAV SIDEBAR */
 
 .user-css-presentation #world-navigation-sidebar {
@@ -966,6 +971,19 @@
 }
 .user-css-presentation #comments .comment-box a:hover {
   color: var(--main-hover-color);
+}
+
+/* WORLD META */
+
+.world-meta-section h3 {
+  text-transform: capitalize;
+}
+
+.world-meta-section .panel {
+  background: var(--sidebar-bgcolor);
+  border: 0 solid;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--Black60);
 }
 
 /* CATEGORY PAGES - JEK */
