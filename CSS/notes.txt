@@ -1,3 +1,4 @@
+
 How to put articles above categories in the TOC list
 .user-css .world-menu-subcategory {
   display: flex;
@@ -50,4 +51,14 @@ Hide entire pop-up on just this map:
 To limit the popup hiding to an individual pin, add a custom class to the pin(s) 'pin-hide-popup' and then add this CSS to your world CSS:
 .map-context-user-css .leaflet-marker-pane:has(.pin-hide-popup) + div + .leaflet-popup-pane {
  display: none;
+}
+
+How to modify the title on Historical Event Pages
+The Title/Header of Historical Entries can be targeted via:
+.user-css .justify-content-center h1 {
+ background-color: red;
+}
+This won't affect the Title of articles (they don't use the justify-content-center class).  But it will affect the Title on the Home Page.  So you'll first have to make changes to all h1 elements inside justify-content-center and then "fix" the h1 elements on the Home Page (and maybe another spot I didn't find):
+.user-css.page-world-homepage .justify-content-center h1 {
+ background-color: white;
 }
