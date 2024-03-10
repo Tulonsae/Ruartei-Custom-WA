@@ -62,3 +62,8 @@ This won't affect the Title of articles (they don't use the justify-content-cent
 .user-css.page-world-homepage .justify-content-center h1 {
  background-color: white;
 }
+
+The character portrait is in the sidebar, which is a separate column in the article template.  So there's a couple ways to proceed.  If you want the entire sidebar on the left side instead of the right on Character articles, then insert this CSS into your World CSS (you can insert this into Article CSS to only affect a single article):
+.user-css.template-person .article-content-left {
+ float: right;
+}
