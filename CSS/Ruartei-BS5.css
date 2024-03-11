@@ -975,6 +975,16 @@
 
 /* WORLD META */
 
+.world-meta-section h3.world-currentDate {
+  display:none;
+}
+.world-meta-section .panel {
+  margin-top: 3em;
+}
+.world-meta-section h2:first-of-type {
+  margin-top: 2.5em;
+}
+
 .world-meta-section h3 {
   text-transform: capitalize;
 }
@@ -984,6 +994,22 @@
   border: 0 solid;
   border-radius: 10px;
   box-shadow: 5px 5px 10px var(--Black60);
+}
+.world-meta-section .panel .list-box.selected {
+  background: var(--sidebar-bgcolor);
+}
+
+.world-meta-section .panel h3 {
+  color: var(--main-h4-color);
+}
+
+.world-meta-section .panel h5,
+.world-meta-section .panel a {
+  font-weight: var(--nearly-bold);
+  color: var(--sidebar-link-color);
+}
+.world-meta-section .panel a:hover {
+  color: var(--sidebar-hover-color);
 }
 
 /* CATEGORY PAGES - JEK */
