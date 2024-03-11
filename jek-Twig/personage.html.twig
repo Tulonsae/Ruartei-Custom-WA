@@ -583,24 +583,40 @@ JEK END NOT DISPLAYED #}
                         } only %}
 
                         {# Life / Year of Birth / Year of Death #}
+                        {#   note: this expects RCT years in the Year of Birth/Death fields #}
                         {% if article.dod
                            or article.dob and not article.age %}
 
-                            {# Years calculated from usermetadata (approx years) #}
-                            {% set ageYears = 0 %}
-                            {% if usermetadata.birthJS|length > 0 %}
-                                {% set JSdate = usermetadata.birthJS|split(".") %}
-                                {% set birthJSdays = ((JSdate[0] - 1) * 625) + ((JSdate[1] - 1) * 25) + JSdate[2] %}
-                                {# age at death #}
-                                {% if usermetadata.deathJS|length > 0 %}
-                                    {% set JSdate = usermetadata.deathJS|split(".") %}
-                                    {% set deathJSdays = ((JSdate[0] - 1) * 625) + ((JSdate[1] - 1) * 25) + JSdate[2] %}
-                                    {% set ageYears = ((deathJSdays - birthJSdays) / 350)|round(0, 'floor') %}
-                                {# age at current date #}
+                            {# Calculate days at birth - note this handles RCT leap years #}
+                            {% set daysAtBirth = 0 %}
+                            {% if article.dob|length > 0 %}
+                                {% if article.dobDisplay|length > 0 %}
+                                    {% set RCTdate = article.dobDisplay|split(" ") %}
+                                    {% set RCTdate = RCTDate[0]|split(".") %}
+                                    {% set daysAtBirth = ((article.dob - 1) * 350) + (((article.dob - 1) // 350) * 3) + ((RTCdate[1] - 1) * 25) + RCTdate[2] %}
                                 {% else %}
-                                    {% set currentJSdays = ((article.world.timeCurrentYear - 1) * 625) + ((article.world.timeCurrentMonth - 1) * 25) + article.world.timeCurrentDay %}
-                                    {% set ageYears = ((currentJSdays - birthJSdays) / 350)|round(0, 'floor') %}
+                                    {# if only know the year, calculate the full last year #}
+                                    {% set daysAtBirth = (article.dob * 350) + ((article.dob // 350) * 3) %}
                                 {% endif %}
+                            {% endif %}
+
+                            {# Calculate days at death - note this handles RCT leap years #}
+                            {% set daysAtDeath = 0 %}
+                            {% if article.dod|length > 0 %}
+                                {% if article.dodDisplay|length > 0 %}
+                                    {% set RCTdate = article.dodDisplay|split(" ") %}
+                                    {% set RCTdate = RCTDate[0]|split(".") %}
+                                    {% set daysAtDeath = ((article.dod - 1) * 350) + (((article.dod - 1) // 350) * 3) + ((RTCdate[1] - 1) * 25) + RCTdate[2] %}
+                                {% else %}
+                                    {# if only know the year, calculate the full last year #}
+                                    {% set daysAtDeath = (article.dod * 350) + ((article.dod // 350) * 3) %}
+                                {% endif %}
+                            {% endif %}
+
+                            {# Calculate days at current world date - note this handles RCT leap years #}
+                            {% set daysAtCurrent = 0 %}
+                            {% if article.world.timeCurrentYear|length > 0 %}
+                                {% set daysAtCurrent = ((article.world.timeCurrentYear - 1) * 350) + (((article.world.timeCurrentYear - 1) // 350) * 3) + ((article.world.timeCurrentMonth - 1) * 25) + article.world.timeCurrentDay %}
                             {% endif %}
 
                             <div id="{{ article.title ~ article.dob|HashString }}" class="visibility-toggler">
@@ -615,10 +631,11 @@ JEK END NOT DISPLAYED #}
                                     </div>
 
                                     <div class="section-payload">
+
                                         {% if article.dob > 0 %}
                                             {{ article.dob }} {{ article.world.timePosAbbr }}
                                         {% else %}
-                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr }}
+                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
                                         {% endif %}
 
                                         <i class="fas fa-long-arrow-alt-right"></i>
@@ -626,11 +643,12 @@ JEK END NOT DISPLAYED #}
                                         {% if article.dod > 0 %}
                                             {{ article.dod }} {{ article.world.timePosAbbr }}
                                         {% else %}
-                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr }}
+                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
                                         {% endif %}
 
                                         {% if article.world.timeCurrentYear|length > 0 %}
-                                            <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob }} cycles{% if usermetadata.birthJS is not empty %} / {{ ageYears }} years{% endif %} old</small>
+                                            {# note: this isn't handling RCT leap days #}
+                                            <small><i class="fas fa-tombstone-alt"></i> {{ (daysAtDeath - daysAtBirth) // 350 }} years / {{ (daysAtDeath - daysAtBirth) // 625 }} cycles</small>
                                         {% endif %}
 
                                     </div>
@@ -648,7 +666,6 @@ JEK END NOT DISPLAYED #}
                                         {% else %}
                                             {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
                                         {% endif %}
-
                                     </div>
 
                                 {# Year of Birth (calculates age) #}
@@ -666,9 +683,9 @@ JEK END NOT DISPLAYED #}
                                         {% endif %}
 
                                         {% if article.world.timeCurrentYear %}
-                                            {% set age = article.world.timeCurrentYear - article.dob %}
-                                            <small><i class="fas fa-heartbeat"></i> {{ age }} cycles{% if usermetadata.birthJS is not empty %} / {{ ageYears }} years{% endif %} old</small>
-                                        {% endif  %}
+                                            {# note: this isn't handling RCT leap days #}
+                                            <small><i class="fas fa-heartbeat"></i> {{ (daysAtCurrent - daysAtBirth) // 350 }} Years / {{ (daysAtCurrent - daysAtBirth) // 625 }} cycles</small>
+                                        {% endif %}
                                     </div>
 
                                 {% endif %}
@@ -676,7 +693,6 @@ JEK END NOT DISPLAYED #}
                             </div>
 
                         {% endif %}
-
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.circumstancesBirth,
                             'title':'person.circumstances_of_birth',
