@@ -1,0 +1,192 @@
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.qualifications,
+            'title':'rank.qualifications',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.requirements,
+            'title':'rank.requirements',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.appointment,
+            'title':'rank.appointment',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.duties,
+            'title':'rank.duties',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.responsibilities,
+            'title':'rank.responsibilities',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.benefits,
+            'title':'rank.benefits',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.equipment,
+            'title':'rank.accoutrements_&_equipment',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.removal,
+            'title':'rank.grounds_for_removal_dismissal',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.history,
+            'title':'rank.history',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.culturalSignificance,
+            'title':'rank.cultural_significance',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.notableHolders,
+            'title':'rank.notable_holders',
+            'locale': locale
+        } only %}
+
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+    </div>
+    {% if article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            {% if article.sidepanelcontent|length > 0
+                or article.sidepanelcontenttop|length > 0
+                or article.type|length > 0
+                or article.rankStatus|length > 0
+                or article.rankCreation|length > 0
+                or  article.alternativeTitle|length > 0
+                or  article.formofaddress|length > 0
+                or article.equatesTo|length > 0
+                or article.authoritySource|length > 0
+                or  article.lengthOfTerm|length > 0
+                or article.firstholder|length > 0
+                or article.currentHolders|length > 0
+                or article.pastHolders|length > 0
+                or article.parent|length > 0
+                or article.relatedorganizations|length > 0
+                or article.rankformations|length > 0
+            %}
+                <div class="panel panel-default card mb-3">
+                    <div class="panel-body card-body">
+                        {{ article.sidepanelcontenttop|BBcode }}
+                        <div>
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.type,
+                                'title':'rank.type',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.rankStatus,
+                                'title':'rank.status',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.rankCreation,
+                                'title':'rank.creation',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.formofaddress,
+                                'title':'rank.formofaddress',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.alternativeTitle,
+                                'title':'rank.alternative_naming',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.equatesTo,
+                                'title':'rank.equates_to',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.authoritySource,
+                                'title':'rank.source_of_authority',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.lengthOfTerm,
+                                'title':'rank.length_of_term',
+                                'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.firstholder,
+                                'title':'rank.first_holder',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.currentHolders, 'title':'Current Holders'} only %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.pastholders, 'title':'Past Holders'} only %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parent,
+                                'title':'rank.reports_directly_to',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedlocations, 'title':'Related Locations'} only %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.relatedorganizations, 'title':'Related Organizations'} only %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.professions, 'title':'Related Professions'} only %}
+
+
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.rankformations,
+                                'title': 'rank.related_formations',
+                                'locale': locale
+                            } only %}
+
+
+                        </div>
+                        {{ article.sidepanelcontent|BBcode }}
+                    </div>
+                </div>
+            {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

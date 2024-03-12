@@ -1,0 +1,482 @@
+<div class="row">
+    <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.structure,
+            'title':'organisation.structure',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.culture,
+            'title':'organisation.culture',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.publicAgenda,
+            'title':'organisation.public_agenda',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.assets,
+            'title':'organisation.assets',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.history,
+            'title':'organisation.history',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.disbandment,
+            'title':'organisation.disbandment',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.demographics,
+            'title':'organisation.demography_and_population',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.territory,
+            'title':'organisation.territories',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.military,
+            'title':'organisation.military',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.technology,
+            'title':'organisation.technological_level',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.religion,
+            'title':'organisation.religion',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.foreignrelations,
+            'title':'organisation.foreign_relations',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.laws,
+            'title':'organisation.laws',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.agricultureAndIndustry,
+            'title':'organisation.agriculture_industry',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.tradeAndTransport,
+            'title':'organisation.trade_transport',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.education,
+            'title':'organisation.education',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.infrastructure,
+            'title':'organisation.infrastructure',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.mythos,
+            'title':'organisation.mythology_lore',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.origins,
+            'title':'organisation.divine_origins',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.cosmology,
+            'title':'organisation.cosmological_views',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.tenets,
+            'title':'organisation.tenets_of_faith',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.ethics,
+            'title':'organisation.ethics',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.worship,
+            'title':'organisation.worship',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.priesthood,
+            'title':'organisation.priesthood',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.divinepowers,
+            'title':'organisation.granted_divine_powers',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.intrigue,
+            'title':'organisation.political_influence_intrigue',
+            'locale': locale
+        } only %}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.sects,
+            'title':'organisation.sects',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1  %}
+        <div class="col-md-4 article-content-right">
+            {% if  article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.disbandment|length > 0 %}
+                <div id="{{ "organisation.disbanded_dissolved"|HashString }}" class="visibility-toggler organization-disbanded ">
+                    <strong class="text-danger">{{ 'organisation.disbanded_dissolved'|trans({},'presentation') }}</strong>
+                </div>
+            {% endif %}
+            {% if article.flag %}
+                <div id="{{ article.flag.filename|HashString }}" class="visibility-toggler organization-flag">
+                    <img class="img-fluid img-responsive m-b-20" src="{{ asset( article.flag.path ~ '/' ~  article.flag.filename) }}" alt="">
+                </div>
+            {% endif %}
+            {% if article.motto %}
+                <div id="{{ article.motto|HashString }}" class="visibility-toggler organization-motto">
+                    <div class="organization-motto text-center">
+                        <h4><em>{{ article.motto|BBcode }}</em> </h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+
+            {{ render( controller('PresentationBundle:Default:maplist', {'article': article, 'template':'organization' }) ) }}
+
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+                        {% if article.foundingDate|length > 0 and article.dissolutionDate|length > 0 %}
+                            <div id="{{ article.foundingDate|HashString }}" class="visibility-toggler">
+                                <div class="panel-body text-center organization-lifespan-dates    ">
+                                    <h4>{{ article.foundingDate|BBcode }} - {{ article.dissolutionDate|BBcode }}</h4>
+                                </div>
+                            </div>
+                        {% else %}
+                            {% if article.foundingDate|length > 0 %}
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.foundingDate,
+                                    'title':'organisation.founding_date',
+                                    'locale': locale
+                                } only %}
+                            {% endif %}
+                            {% if article.dissolutionDate|length > 0 %}
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.dissolutionDate,
+                                    'title':'organisation.dissolution_date',
+                                    'locale': locale
+                                } only %}
+                            {% endif %}
+                        {% endif %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.type,
+                            'title':'organisation.type',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.capital,
+                            'title':'organisation.capital',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.alternativeNames,
+                            'title':'organisation.alternative_names',
+                            'locale': locale
+                        } only %}
+
+                        {% if article.predecessors|length == 1  %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.predecessors,
+                                'title': 'organisation.predecessor',
+                                'locale': locale
+                            } only %}
+                        {% else %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.predecessors,
+                                'title': 'organisation.predecessors',
+                                'locale': locale
+                            } only %}
+                        {% endif  %}
+
+                        {% if article.successors|length == 1  %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.successors,
+                                'title': 'organisation.successor',
+                                'locale': locale
+                            } only %}
+                        {% else %}
+                            {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                                'list': article.successors,
+                                'title': 'organisation.successors',
+                                'locale': locale
+                            } only %}
+                        {% endif  %}
+
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.formation,
+                            'title':'organisation.formation_type',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.trainingLevel,
+                            'title':'organisation.training_level',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.veterancy,
+                            'title':'organisation.veterancy_level',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.demonym,
+                            'title':'organisation.demonym',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.leader,
+                            'title':'organisation.leader',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.rulingorganization,
+                            'title':'organisation.rulingorganization',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.leadertitle,
+                            'title':'organisation.leader.title',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.familyleader,
+                            'title':'organisation.familyleader',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.founders,
+                            'title': 'organisation.founders',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.headofstate,
+                            'title':'organisation.head_of_state',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.headofgovernment,
+                            'title':'organisation.head_of_government',
+                            'article': article,'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.governmentsystem,
+                            'title':'organisation.government_system',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.powerstructure,
+                            'title':'organisation.power_structure',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.economicsystem,
+                            'title':'organisation.economic_system',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.gazetteer,
+                            'title':'organisation.gazetteer',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.currency,
+                            'title':'organisation.currency',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.exports,
+                            'title':'organisation.major_exports',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.imports,
+                            'title':'organisation.major_imports',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.legislative,
+                            'title':'organisation.legislative_body',
+                            'locale': locale
+                        } only %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.judicial,
+                            'title':'organisation.judicial_body',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.executive,
+                            'title':'organisation.executive_body',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.statereligion, 'title':'organisation.official_religion','article': article,'locale': locale } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.parent, 'title':'organisation.parent_organization','article': article,'locale': locale } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.children, 'title': 'organisation.subsidiary_organizations','locale': locale} only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.permeatedOrganizations, 'title': 'organisation.permeated_organizations','locale': locale} only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.deities, 'title':'Deities'} only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.divines,
+                            'title': 'organisation.divines',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.geographicLocation,
+                            'title':'organisation.location',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.languages,
+                            'title': 'organisation.official_languages',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.traditions,
+                            'title': 'ritual.related_organizations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.organizationranks,
+                            'title': 'organisation.related_ranks_titles',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.professions, 'title':'Related Professions'} only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.locations,
+                            'title': 'organisation.controlled_territories',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.neighbors,
+                            'title': 'organisation.neighboring_nations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.manufactureditems,
+                            'title': 'organisation.manufactured_items',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.items,
+                            'title': 'organisation.related_items',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehicles,
+                            'title': 'organisation.organization_vehicles',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.people,
+                            'title': 'organisation.notable_members',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedSpecies,
+                            'title': 'organization.relatedSpecies.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title': 'organisation.related_ethnicities',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.myths,
+                            'title': 'organisation.related_myths',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.plots,
+                            'title': 'article.related_plots',
+                            'locale': locale
+                        } only %}
+
+
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+            {% if article.showDiplomacy == 1  %}
+                {{ render( controller('PresentationBundle:Default:OrganizationRelations', {'article': article }) ) }}
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

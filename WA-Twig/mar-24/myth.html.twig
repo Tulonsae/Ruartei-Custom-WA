@@ -1,0 +1,142 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.summary,
+            'title':'myth.summary',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.historicalbasis,
+            'title':'myth.historical_basis',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.spread,
+            'title':'myth.spread',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.variations,
+            'title':'myth.variations_mutation',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.culturalreception,
+            'title':'myth.cultural_reception',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.literature,
+            'title':'myth.in_literature',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.art,
+            'title':'myth.in_art',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+
+    </div>
+    {% if  article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            <div class="world-global-annnouncement">
+                {{ article.world.globalAnnouncement|BBcode }}
+            </div>
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            {% if article.dateofrecording|length > 0 or article.dateofsetting|length > 0 or
+                article.telling|length > 0 or article.ethnicities|length > 0 or
+                article.species|length > 0 or article.locations|length > 0 or
+                article.people|length > 0 or article.organizations|length > 0 or
+                article.items|length > 0 or article.vehicles|length >  0 or
+                article.sidepanelcontenttop|length > 0 or article.sidepanelcontent|length > 0 %}
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.dateofrecording,
+                            'title':'myth.date_of_first_recording',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.dateofsetting,
+                            'title':'myth.date_of_setting',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.telling,
+                            'title':'myth.telling_prose',
+                            'article': article,
+                            'locale': locale
+                        } only %}
+
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title': 'myth.related_ethnicities',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.species,
+                            'title': 'myth.related_species',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.locations,
+                            'title': 'myth.related_locations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.people,
+                            'title': 'myth.related_people',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.organizations,
+                            'title': 'myth.related_organizations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.items,
+                            'title': 'myth.related_items',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehicles,
+                            'title': 'myth.related_vehicles',
+                            'locale': locale
+                        } only %}
+
+                    </div>
+                  {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {% endif %}
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

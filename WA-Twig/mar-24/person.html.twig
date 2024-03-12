@@ -1,0 +1,858 @@
+<div class="row ">
+    <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        {% if article.firstname|length > 0 or article.honorific|length > 0  or article.maidenname|length > 0  or article.middlename|length > 0  or article.lastname|length > 0  or article.nickname|length > 0  or article.pronouns|length > 0 or article.suffix  %}
+            <h3 class="person-fullname">
+                <span class="person-honorific">{{ article.honorific|BBcode }}</span><span class="person-firstname"> {{ article.firstname|BBcode }}</span><span class="person-middlename"> {{ article.middlename|BBcode }}</span><span class="person-lastname"> {{ article.lastname|BBcode }}</span>{% if article.maidenname|length > 0   %}<span class="person-maidenname-connector">-</span><span class="person-maidenname"> {{ article.maidenname|BBcode }}</span>{% endif  %}{% if article.suffix %}<span class="person-suffix-separator">, </span><span class="person-suffix">{{ article.suffix }}</span>{% endif%}
+                {% if article.nickname|length > 0 %}<span class="person-nickname">(a.k.a. {{article.nickname|BBcode}})</span>{% endif %} {% if article.pronouns %}({{ article.pronouns }}){% endif%}   </h3>
+        {% endif %}
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        {# Divine #}
+        {% if
+            article.domains|length > 0  or
+            article.codes|length > 0  or
+            article.artifacts|length > 0  or
+            article.holysymbols|length > 0  or
+            article.tenets|length > 0  or
+            article.goals|length > 0  or
+            article.holidays|length > 0
+        %}
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.domains,
+                'title':'person.divine_domains',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.artifacts,
+                'title':'person.artifacts',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.codes,
+                'title':'person.holy_books_codes',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.holysymbols,
+                'title':'person.divine_symbols_sigils',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.tenets,
+                'title':'person.tenets_faith',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.holidays,
+                'title':'person.holidays',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.goals,
+                'title':'person.divine_goals_aspirations',
+                'locale': locale
+            } only %}
+        {% endif %}
+        {# Physical #}
+        {% if
+            article.physique|length > 0 or
+            article.bodyFeatures|length > 0  or
+            article.facialFeatures|length > 0 or
+            article.identifyingCharacteristics|length > 0 or
+            article.quirksPhysical|length > 0 or
+            article.perceptionPhysical|length > 0 or
+            article.specialAbilities|length > 0 or
+            article.clothing|length > 0 or
+            article.items|length > 0
+        %}
+            <h2>{{ 'person.physical_description'|trans({},'presentation') }} </h2>
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.physique,
+                'title':'person.general_condition',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.bodyFeatures,
+                'title':'person.body_features',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.facialFeatures,
+                'title':'person.facial_features',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.identifyingCharacteristics,
+                'title':'person.identifying_characteristics',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.quirksPhysical,
+                'title':'person.physical_quirks',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.perceptionPhysical,
+                'title':'person.sensory_perception',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.specialAbilities,
+                'title':'person.special_abilities',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.clothing,
+                'title':'person.clothing_apparel_accessories',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.items,
+                'title':'person.items_specialized_equipment',
+                'locale': locale
+            } only %}
+        {% endif %}
+        {# Mental #}
+        {% if
+            article.history|length > 0 or
+            article.employment|length > 0 or
+            article.achievements|length > 0  or
+            article.failures|length > 0  or
+            article.mentalTraumas|length > 0 or
+            article.intellectualCharacteristics|length > 0 or
+            article.morality|length > 0 or
+            article.taboos|length > 0 or
+            article.education|length > 0
+        %}
+            <h2>{{ 'person.mental_characteristics'|trans({},'presentation') }}</h2>
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {'value': article.history, 'title':'person.personal_history','locale': locale} only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.education,
+                'title':'person.education',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.employment,
+                'title':'person.employment',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.achievements,
+                'title':'person.accomplishments_achievements',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.failures,
+                'title':'person.failures_embarrassments',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.mentalTraumas,
+                'title':'person.mental_trauma',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.intellectualCharacteristics,
+                'title':'person.intellectual_characteristics',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.morality,
+                'title':'person.morality_philosophy',
+                'locale': locale
+            } only %}
+
+            {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                'value': article.taboos,
+                'title':'person.taboos',
+                'locale': locale
+            } only %}
+
+        {% endif %}
+
+        {# Personality #}
+        {% if
+            article.motivation|length > 0  or
+            article.savviesIneptitudes|length > 0 or
+            article.likesDislikes|length > 0 or
+            article.virtues|length > 0 or
+            article.vices|length > 0  or
+            article.quirksPersonality|length > 0  or
+            article.hygiene|length > 0 or
+            article.representationLegacy|length > 0
+        %}
+            <h2>{{ 'person.personality_characteristics'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.motivation,
+            'title':'person.motivation',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.savviesIneptitudes,
+            'title':'person.savvies_ineptitudes',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.likesDislikes,
+            'title':'person.likes_dislikes',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.virtues,
+            'title':'person.virtues_personality_perks',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.vices,
+            'title':'person.vices_personality_flaws',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.quirksPersonality,
+            'title':'person.personality_quirks',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.hygiene,
+            'title':'person.hygiene',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.representationLegacy,
+            'title':'person.representation_legacy',
+            'locale': locale
+        } only %}
+        {# Social #}
+        {% if
+            article.religion|length > 0 or
+            article.socialAptitude|length > 0  or
+            article.mannerisms|length > 0  or
+            article.hobbies|length > 0 or
+            article.speech|length > 0 or
+            article.relations|length > 0 or
+            article.family|length > 0
+        %}
+            <h2>{{ 'person.social'|trans({},'presentation') }}</h2>
+        {% endif %}
+
+         {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.reign,
+            'title':'person.reign.name',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.relations,
+            'title':'person.contacts_relations',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.family,
+            'title':'person.family_ties',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.religion,
+            'title':'person.religious_views',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.socialAptitude,
+            'title':'person.social_aptitude',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.mannerisms,
+            'title':'person.mannerisms',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.hobbies,
+            'title':'person.hobbies_pets',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.speech,
+            'title':'person.speech',
+            'locale': locale
+        } only %}
+
+        {{ render( controller('PresentationBundle:Default:CharacterRelations', {'article': article, 'world': article.world }) ) }}
+
+        {# Wealth #}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.wealth,
+            'title':'person.wealth_financial_state',
+            'locale': locale
+        } only %}
+
+        {# Datasheet #}
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.datasheet,
+            'title':'person.rpg_character_sheet',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if  article.displaySidebar == 1   %}
+        <div class="col-md-4 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+
+            {% if article.character %}
+                {% if article.character and article.character.portrait %}
+                    <a target="_blank" href="{% if article.character.slug %}{{ path('heroes_hero', {'slug': article.character.slug })}}{% else %}#{% endif %}">
+                        <img src="{{ asset( article.character.portrait.path ~ '/' ~  article.character.portrait.filename) }}" class="character-heroes-portrait img-responsive img-fluid  m-b-20"/>
+                        <img class="character-article-portrait hidden d-none img-fluid img-responsive m-b-20" src="{{ asset( article.character.portrait.path ~ '/' ~  article.character.portrait.filename) }}" alt="" />
+                    </a>
+                {% elseif article.portrait %}
+                    <img class="character-article-portrait img-fluid img-responsive m-b-20" src="{{ asset( article.portrait.path ~ '/' ~  article.portrait.filename) }}" alt="">
+                {% endif %}
+                <div class="panel panel-default card mb-3">
+                    <div class="panel-body card-body">
+                        {% if article.character.bio %}
+                            <p>{{ article.character.bio }}</p>
+                        {% endif %}
+
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.character.location,
+                                'title':'Character Location',
+                                'article': article,'locale': locale
+                            } only %}
+
+                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                'value': article.character.locationText,
+                                'title':'Current Location',
+                                'locale': locale
+                            } only %}
+                        {% if article.character.slug and article.character.state == 'visible' %}
+                            <a class="btn btn-block d-block  btn-primary" href="{{ path('heroes_hero', {'slug': article.character.slug })}}">View Character Profile</a>
+                        {% endif %}
+                        <hr>
+                        <h5>DM-only Information</h5>
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.character.scrapbook,
+                            'title':'Secret Notes',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.character.state,
+                            'title':'State',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.character.type,
+                            'title':'Type',
+                            'locale': locale
+                        } only %}
+                        <div class="m-t-20">
+                            {% if article.character.sheet  %}
+                                <a class="btn btn-primary btn-block d-block " href="{{ path('heroes_sheet_view', {'id': article.character.sheet.id }) }}">View Statblock</a>
+                            {% endif %}
+                            {% if article.character.playedCampaigns|length > 0  and article.character.playedCampaigns.0 %}
+                                <a class="btn btn-secondary btn-block d-block " href="{{ path('heroes_campaign_dashboard', {'id': article.character.playedCampaigns.0.id }) }}">Go to Campaign Dashboard</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            {% elseif article.portrait %}
+                <img class="character-article-portrait  img-fluid img-responsive m-b-20" src="{{ asset( article.portrait.path ~ '/' ~  article.portrait.filename) }}" alt="">
+            {% endif %}
+
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.classification,
+                        'title':'person.divine_classification',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.religions, 'title':'Religions'} only %}
+
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.rpgAlignment,
+                        'title':'person.alignment',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.currentstatus,
+                        'title':'person.currentstatus',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.currentLocation,
+                        'title':'person.current_location',
+                        'article': article,'locale': locale
+                    } only %}
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.vehicle,
+                        'title':'person.current_vehicle',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.species, 'title':'person.species','article': article,'locale': locale } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.conditions,
+                        'title': 'person.conditions',
+                        'locale': locale
+                    } only %}
+
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.ethnicity,
+                        'title':'person.ethnicity',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.otherethnicities,
+                        'title': 'person.otherethnicities',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.realm,
+                        'title':'person.realm',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.church,
+                        'title':'person.church_cult',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.titles,
+                        'title':'person.honorary_occupational_titles',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.professions, 'title':'Professions'} only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.currentRanks,
+                        'title': 'person.currently_held_titles',
+                        'locale': locale
+                    } only %}
+
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.pastRanks,
+                        'title': 'person.previously_held_ranks_titles',
+                        'locale': locale
+                    } only %}
+
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.age,
+                        'title':'person.age',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.dobDisplay,
+                        'title':'person.birthday',
+                        'locale': locale
+                        } only %}
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.dodDisplay,
+                        'title':'person.death',
+                        'locale': locale
+                    } only %}
+
+
+                    {% if article.dod  or  article.dob and not article.age  %}
+                        <div id="{{ article.title ~ article.dob|HashString }}" class="visibility-toggler">
+                            {% if article.dob and article.dod or
+                                article.dob and article.dod == 0 and article.dod  is not empty  or
+                                article.dob == 0 and article.dob  is not empty  and article.dod   %}
+                                <div class="section-title">
+                                    <strong class="section-heading">{{ 'person.life'|trans({},'presentation') }}</strong>
+                                </div>
+                                <div class="section-payload">
+                                    {% if article.dob > 0 %}
+                                        {{ article.dob }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                    {% if article.dod > 0 %}
+                                        {{ article.dod }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
+
+                                    {% if article.world.timeCurrentYear|length > 0 %}
+                                        <small><i class="fas fa-tombstone-alt"></i> {{ article.dod - article.dob  }} years old</small>
+                                    {% endif %}
+                                </div>
+                            {% elseif article.dod|length  and not  article.dob %}
+                                <div class="section-title">
+                                    <strong class="section-heading">{{'person.year_of_death'|trans({},'presentation') }}</strong>
+                                </div>
+                                <div class="section-payload">
+                                    {% if article.dod > 0 %}
+                                        {{ article.dod }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
+                                </div>
+                            {% elseif article.dob|length and not  article.dod %}
+                                <div class="section-title">
+                                    <strong class="section-heading">{{'person.year_of_birth'|trans({},'presentation') }}</strong>
+                                </div>
+                                <div class="section-payload">
+
+                                    {% if article.dob > 0 %}
+                                        {{ article.dob }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
+                                    {% if article.world.timeCurrentYear %}
+                                        {% set age = article.world.timeCurrentYear - article.dob  %}
+                                        <small><i class="fas fa-heartbeat"></i> {{ age  }} Years old</small>
+                                    {% endif  %}
+                                </div>
+                            {% endif  %}
+                        </div>
+                    {% endif %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.circumstancesBirth,
+                        'title':'person.circumstances_of_birth',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.circumstancesDeath,
+                        'title':'person.circumstances_of_death',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.birthplace,
+                        'title':'person.birthplace',
+                        'locale': locale
+                    } only %}
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.deathplace,
+                        'title':'person.deathplace',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.familyorganization,
+                        'title':'person.family',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% if  article.parentBiological1 or  article.parentBiological2 %}
+                        <div class="character-relationships">
+                            <dt>
+                                {{ 'person.parents'|trans({},'presentation', article.world.locale ) }}
+                            </dt>
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parentBiological1,
+                                'title':'',
+                                'article': article,'locale': locale
+                            } only %}
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parentBiological2,
+                                'title':'',
+                                'article': article,'locale': locale
+                            } only %}
+                        </div>
+                    {% endif %}
+                    {% if  article.parentAdopting1 or  article.parentAdopting2 %}
+                        <div class="character-relationships">
+                            <dt>
+                                {{ 'person.parents_adopting'|trans({},'presentation', article.world.locale ) }}
+                            </dt>
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parentAdopting1,
+                                'title':'',
+                                'article': article,'locale': locale
+                            } only %}
+                            {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                                'value': article.parentAdopting2,
+                                'title':'',
+                                'article': article,'locale': locale
+                            } only %}
+                        </div>
+                    {% endif %}
+
+                    {{ render( controller('PresentationBundle:Default:CharacterRelationsSidebar', {'article': article, 'world': article.world, 'type': 'spouses' }) ) }}
+                    {{ render( controller('PresentationBundle:Default:CharacterRelationsSidebar', {'article': article, 'world': article.world, 'type': 'siblings' }) ) }}
+                    {{ render( controller('PresentationBundle:Default:CharacterRelationsSidebar', {'article': article, 'world': article.world, 'type': 'children' }) ) }}
+
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.residence,
+                        'title':'person.current_residence',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.gender,
+                        'title':'person.biological_sex',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.sexuality,
+                        'title':'person.sexuality',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.genderidentity,
+                        'title':'person.gender_identity',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.eyes,
+                        'title':'person.eyes',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.hair,
+                        'title':'person.hair',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.skin,
+                        'title':'person.skin',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.height,
+                        'title':'person.height',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.weight,
+                        'title':'person.weight',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.quotes,
+                        'title':'person.quotes_catchphrases',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.vehicles, 'title':'Owned Vehicles'} only %}
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.deity,
+                        'title':'person.deity',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                        'value': article.organization,
+                        'title':'person.aligned_organization',
+                        'article': article,'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.relatedorganizations,
+                        'title': 'person.other_affiliations',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.myths,
+                        'title': 'person.related_myths',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.plots,
+                        'title': 'article.related_plots',
+                        'locale': locale
+                    } only %}
+
+                     {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.relatedReports,
+                        'title': 'report.relatedPersons.reflexive.name',
+                        'locale': locale
+                    } only %}
+
+                    {% if article.languages|length > 0  %}
+                        <dt>{{ 'person.known_languages'|trans({},'presentation') }}</dt>
+                        <dd>{{ article.languages|BBcode }}</dd>
+                    {% endif %}
+
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.foundedLocations,
+                        'title': 'person.founded_settlements',
+                        'locale': locale
+                    } only %}
+
+                    {# Ruled locations #}
+
+                    {% set title = 'location.additionalRulers.reflexive.name' %}
+                    {% if article.locations|length > 0 or article.ruledLocations|length > 0 %}
+                        {% set counterPrimary = 0 %}
+                        {% for entity in article.locations %}
+                            {% if entity.state != 'archived' and entity.slug and entity|CheckAccess == true or entity.state != 'archived' and entity.slug and entity.world.displaySecureLinks == true   %}
+                                {% set counterPrimary = 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% set counterSecondary = 0 %}
+                        {% for entity in article.ruledLocations %}
+                            {% if entity.state != 'archived' and entity.slug and entity|CheckAccess == true or entity.state != 'archived' and entity.slug and entity.world.displaySecureLinks == true   %}
+                                {% set counterSecondary = 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if counterPrimary == 1 or counterSecondary == 1 %}
+                            <div id="{{ title|HashString }}" class="visibility-toggler">
+                                <div class="section-title">
+                                    <strong class="section-heading">
+                                        {% if locale is defined %}
+                                            {{ title|trans({},'presentation', locale )}}
+                                        {% else %}
+                                            {{ title }}
+                                        {% endif %}
+                                    </strong>
+                                </div>
+                                <div class="section-payload">
+                                    <ul class="list-unstyled mb-0 m-b-0">
+                                        {% if counterPrimary == 1 %}
+                                            {% for entity in article.locations %}
+                                                {% if entity.state != 'archived' and entity.slug and entity|CheckAccess == true 
+                                                or entity.state != 'archived' and entity.slug and entity.world.displaySecureLinks == true  %}
+                                                    <li id="{{ entity.id|HashString }}" class="visibility-toggler">
+
+                                                        <a  data-article-privacy="{{  entity.state  }}"
+                                                            data-article-id="{{  entity.id  }}"
+                                                            data-template-type="{{  entity.templateType }}"
+                                                            {% if entity.excerpt|length > 0 %}
+                                                                class="article-explorer-link"
+                                                                title="{{ entity.excerpt }}"
+                                                            {% else %}
+                                                                class="article-explorer-link"
+                                                            {% endif %}
+                                                            href="{{ path('presentation_article', {'articleslug': entity.slug,'worldslug': entity.world.slug  }) }}"   >{{ entity.title }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% if counterPrimary == 1 and counterSecondary == 1 %}
+                                            <hr style="border-top: 1px dashed; margin: 1px;">
+                                        {% endif %}
+                                        {% if counterSecondary == 1 %}
+                                            {% for entity in article.ruledLocations %}
+                                                {% if entity.state != 'archived' and entity.slug and entity|CheckAccess == true 
+                                                or entity.state != 'archived' and entity.slug and entity.world.displaySecureLinks == true  %}
+                                                    <li id="{{ entity.id|HashString }}" class="visibility-toggler">
+
+                                                        <a  data-article-privacy="{{  entity.state  }}"
+                                                            data-article-id="{{  entity.id  }}"
+                                                            data-template-type="{{  entity.templateType }}"
+                                                            {% if entity.excerpt|length > 0 %}
+                                                                class="article-explorer-link"
+                                                                title="{{ entity.excerpt }}"
+                                                            {% else %}
+                                                                class="article-explorer-link"
+                                                            {% endif %}
+                                                            href="{{ path('presentation_article', {'articleslug': entity.slug,'worldslug': entity.world.slug  }) }}"   >{{ entity.title }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>           
+                        {% endif %}
+                    {% endif %}
+
+                    {% include 'PresentationBundle:Helpers:noslugrelationlist.html.twig' with {
+                        'value': article.historicalEntries,
+                        'title':'article.related_historical_events',
+                        'locale': locale
+                    } only %}
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                        'list': article.proses,
+                        'title': 'person.appears_in',
+                        'locale': locale
+                    } only %}
+
+
+                    {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                        'value': article.characterPrototype,
+                        'title':'person.character_prototype',
+                        'locale': locale
+                    } only %}
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,134 @@
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}7{% endif %} article-content-left ">
+        {% if article.content|length > 0 %}
+            <h2>{{ 'report.general_summary'|trans({},'presentation') }}</h2>
+            <div>{{ article.content|BBcode  }}</div>
+        {% endif %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.rewards,
+            'title':'report.rewards_granted',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.quests,
+            'title':'report.missions_quests_completed',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.interactions,
+            'title':'report.characters_interacted_with',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.createdContent,
+            'title':'report.created_content',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.relatedReports,
+            'title':'report.related_reports',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.reportNotes,
+            'title':'report.notes',
+            'locale': locale
+        } only %}
+
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1   %}
+        <div class="col-md-5 article-content-right">
+            {% if article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+                    <div>
+                        {% if article.session %}
+                            <dt>{{ 'report.campaign'|trans({},'presentation') }}</dt>
+                            <dd><a href="{{ path('heroes_campaign_view_homepage',{'slug': article.session.campaign.slug }) }}">{{ article.session.campaign.name }}</a></dd>
+                            <dt>Protagonists</dt>
+                            <dd class="text-center">
+                                {% for character in article.session.characters %}
+                                    {% if character.person and character.person.world %}
+                                        <a href="{{ path('presentation_article', {'articleslug': character.person.slug,'worldslug': character.person.world.slug }) }}">
+                                            {% if character.person.portrait.filename is defined %}
+                                                <img class="padding-10 p-5 img-responsive img-fluid" src="{{ asset( character.person.portrait.path ~ '/' ~  character.person.portrait.filename) }}" alt="">
+                                            {% elseif character.portrait.filename   %}
+                                                <img class="padding-10 p-5  img-responsive img-fluid" src="{{ asset( character.portrait.path ~ '/' ~  character.portrait.filename) }}" alt="">
+                                            {% else %}
+                                                <img  class="padding-10 p-5  img-responsive img-fluid" src="/images/placeholder-character.jpg" alt="">
+                                            {% endif %}
+                                        </a>
+                                        <div>
+                                            <h5 class="m-b-0 ">{{ character.person.title }}</h5>
+                                            {% if character.sheet %}
+                                                {% set sheet = '[block:' ~ character.sheet.id ~ '|badge]' %}
+                                                {{ sheet|BBcode }}
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </dd>
+                            {% if article.session.journals|length > 0 %}
+                                <dt>{{ 'report.player_journals'|trans({},'presentation') }}</dt>
+                                <dd>
+                                    {% for journal in article.session.journals %}
+                                        <a href="{{ path('heroes_character_journal_entry_view', {'id': journal.id } ) }}">{{ journal.title }}</a> by  <a   href="{{ path('presentation_article', {'articleslug': journal.character.person.slug,'worldslug': journal.character.person.world.slug }) }}">{{ journal.character.person.title }}</a> <br>
+                                    {% endfor %}
+                                </dd>
+                            {% endif %}
+                        {% endif %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.reportDate|date('d M Y'),
+                            'title':'report.report_date',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.primarygeographicLocation, 'title':'report.primary_location','article': article,'locale': locale } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {'value': article.secondarygeographicLocation, 'title':'report.secondary_location','article': article,'locale': locale } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.plots,
+                            'title': 'report.related_plots',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedPersons,
+                            'title': 'report.relatedPersons.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:noslugrelationlist.html.twig' with {
+                            'value': article.relatedHistories,
+                            'title':'article.related_historical_events',
+                            'locale': locale
+                        } only %}
+
+                    </div>
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,382 @@
+
+<div class="row">
+    <div class="col-md-{% if article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
+        <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+        {% if article.anatomy|length > 0  or article.behaviour  |length > 0 or article.genetics|length > 0  or article.ecology|length > 0 or  article.diet|length > 0  or  article.traits|length > 0 or  article.growthrate|length > 0 or  article.biocycle|length > 0 %}
+            <h2>{{ 'species.Basic Information'|trans({},'presentation') }}</h2>
+            <div class="">
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.anatomy,
+                    'title':'species.anatomy',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.traits,
+                    'title':'species.biological_traits',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.genetics,
+                    'title':'species.genetics_and_reproduction',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.growthrate,
+                    'title':'species.growth_rate_stages',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.ecology,
+                    'title':'species.ecology_and_habitats',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.diet,
+                    'title':'species.dietary_needs_and_habits',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.biocycle,
+                    'title':'species.biological_cycle',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.behaviour,
+                    'title':'species.behaviour',
+                    'locale': locale
+                } only %}
+
+
+
+            </div>
+        {% endif %}
+        {% if article.facialCharacteristics|length > 0 or article.geographicalOrigin|length > 0 or article.perception|length > 0 or article.symbiotic|length > 0 or article.uses|length > 0 or article.domestication|length > 0  or article.socialstructure|length > 0  or article.averageIntelligence|length > 0 %}
+            <h2>{{ 'species.additional_information'|trans({},'presentation') }}</h2>
+            <div class="">
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.socialstructure,
+                    'title':'species.social_structure',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.domestication,
+                    'title':'species.domestication',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.uses,
+                    'title':'species.uses_products_exploitation',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.facialCharacteristics,
+                    'title':'species.facial_characteristics',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.geographicalOrigin,
+                    'title':'species.geographic_origin_and_distribution',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.averageIntelligence,
+                    'title':'species.average_intelligence',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.perception,
+                    'title':'species.perception_and_sensory_capabilities',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.symbiotic,
+                    'title':'species.symbiotic_and_parasitic_organisms',
+                    'locale': locale
+                } only %}
+            </div>
+        {% endif %}
+        {% if
+            article.namingTraditions|length > 0 or
+            article.majorOrganizations|length > 0  or
+            article.beautyIdeals|length > 0 or
+            article.genderIdeals|length > 0 or
+            article.courtshipIdeals|length > 0  or
+            article.relationshipsIdeals|length > 0 or
+            article.technologicalLevel|length > 0 or
+            article.languages|length > 0 or
+            article.etiquette|length > 0 or
+            article.dresscode|length > 0  or
+            article.culture|length > 0  or
+            article.customs|length > 0  or
+            article.taboos|length > 0 or
+            article.mythsAndLegends|length > 0 or
+            article.historicalFigures|length > 0 or
+            article.history|length > 0 or
+            article.interspeciesRelations|length > 0
+         %}
+            <h2>{{ 'species.civilization_and_culture'|trans({},'presentation') }}</h2>
+            <div class="">
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.namingTraditions,
+                    'title':'species.naming_traditions',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.majorOrganizations,
+                    'title':'species.major_organizations',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.beautyIdeals,
+                    'title':'species.beauty_ideals',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.genderIdeals,
+                    'title':'species.gender_ideals',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.courtshipIdeals,
+                    'title':'species.courtship_ideals',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.relationshipsIdeals,
+                    'title':'species.relationship_ideals',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.technologicalLevel,
+                    'title':'species.average_technological_level',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.languages,
+                    'title':'species.major_language_groups_dialects',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.etiquette,
+                    'title':'species.common_etiquette_rules',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.dresscode,
+                    'title':'species.common_dress_code',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.culture,
+                    'title':'species.culture_and_cultural_heritage',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.customs,
+                    'title':'species.common_customs_traditions_rituals',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.taboos,
+                    'title':'species.common_taboos',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.history,
+                    'title':'species.history',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.historicalFigures,
+                    'title':'species.historical_figures',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.mythsAndLegends,
+                    'title':'species.common_myths_and_legends',
+                    'locale': locale
+                } only %}
+
+                {% include 'PresentationBundle:Helpers:section.html.twig' with {
+                    'value': article.interspeciesRelations,
+                    'title':'species.interspecies_relations_assumptions',
+                    'locale': locale
+                } only %}
+            </div>
+        {% endif %}
+        {% if article.datasheet|length > 0 %}
+            <h2>{{ 'species.rpg_datasheet'|trans({},'presentation') }}</h2>
+            <p>{{ article.datasheet|BBcode  }}</p>
+        {% endif %}
+        {% if article.footnotes %}<div class="user-css article-footnotes">{{ article.footnotes|BBcode }}</div>{% endif %}
+    </div>
+    {% if article.displaySidebar == 1  %}
+        <div class="col-md-4 article-content-right">
+            {% if  article.world.globalAnnouncement|length > 0 %}
+                <div class="world-global-annnouncement">
+                    {{ article.world.globalAnnouncement|BBcode }}
+                </div>
+            {% endif %}
+            {% if article.sidebarcontent|length > 0 %}
+                <div class="m-b-20">{{ article.sidebarcontent|BBcode  }}</div>
+            {% endif %}
+
+            {% if article.isExtinct %}
+                <div class="extinction-display">
+                    <div class="p-3 p-20 mb-3 mb-2 display-block label label-danger badge bg-danger h3">
+                        {{ 'species.extinct'|trans({},'presentation') }}
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="panel panel-default card mb-3">
+                <div class="panel-body card-body">
+                    {{ article.sidepanelcontenttop|BBcode }}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.parents,
+                            'title': 'species.genetic_ancestor_s',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.children,
+                            'title': 'species.genetic_descendants',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.trinominal,
+                            'title':'species.scientific_name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.ancenstry,
+                            'title':'species.origin_ancestry',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.lifespan,
+                            'title':'species.lifespan',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.conservation,
+                            'title':'species.conservation_status',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.averageHeight,
+                            'title':'species.average_height',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.averageWeight,
+                            'title':'species.average_weight',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.averageLength,
+                            'title':'species.average_length',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.averagePhysique,
+                            'title':'species.average_physique',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.skinHairColor,
+                            'title':'species.body_tint_colouring_marking',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.locations,
+                            'title': 'species.locations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedOrganizations,
+                            'title': 'organization.relatedSpecies.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title': 'species.related_ethnicities',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.myths,
+                            'title': 'species.related_myths',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.discoverer,
+                            'title':'species.discoverer',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.relatedTechnologies,
+                            'title':'technology.relatedSpecies.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+
+
+                    {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {'list': article.materials, 'title':'Related Materials'} only %}
+
+                    {{ article.sidepanelcontent|BBcode }}
+                </div>
+            </div>
+            {{ article.sidebarcontentbottom|BBcode }}
+            <div class="world-global-article-additional">
+                {{ article.world.globalSidebarFooter|BBcode }}
+            </div>
+        </div>
+    {% endif %}
+</div>
