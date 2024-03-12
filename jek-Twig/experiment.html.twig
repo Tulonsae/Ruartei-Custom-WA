@@ -1,10 +1,161 @@
-{# revised from Mar 2024 version of militaryConflict.html.twig #}
+{# revised from militaryConflict.html.twig, Sep 2023 #}
 <div class="row">
 
 {# remove belligerents here ? #}
     <div class="col-md-{% if article.displaySidebar == 0 %}12{% elseif article.belligerents|length == 2 %}7{% elseif article.belligerents|length == 2 %}{% else %}8{% endif %} article-content-left">
 
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
+
+<div>
+<h2>Templates</h2>
+
+<h3>RelationList</h3>
+{{ source('PresentationBundle:Helpers:relationlist.html.twig')|e }}
+
+<h3>Relation</h3>
+{{ source('PresentationBundle:Helpers:relation.html.twig')|e }}
+
+<h3>Value</h3>
+{{ source('PresentationBundle:Helpers:value.html.twig')|e }}
+
+<h3>Section</h3>
+{{ source('PresentationBundle:Helpers:section.html.twig')|e }}
+
+<h3>Tests</h3>
+<h4>Members Of</h4>
+{% for name in usermetadata.memberOf %}
+{{ name }} = 
+{% set member = world.articles|map((v, k) => "#{k} #{v}")|filter(v => name in v)|join(',')|split(' ', 2) %}
+ {% set id = member[0] %}
+ {% set link = "@["~name~"]("~world.articles[id].slug|split('-')|last~":"~world.articles[id].id~")" %}
+{{ link|BBcode }}<br>
+{% endfor %}
+
+<h4>Member</h4>
+{% for name in usermetadata.memberOf %}
+{% set member = world.articles|map((v, k) => "#{k} #{v}")|filter(v => name in v)|join(',')|split(' ', 2) %}
+{% for item in member %}
+{{ item }}<br>
+{% endfor %}
+{% endfor %}
+
+<h4>Master</h4>
+{% set master = usermetadata.master %}
+{{ master }}<br>
+{% set id = "" %}
+{% for key, value in world.articles %}
+  {% if master == value %}
+     {% set id = key %}
+     {{ id }}<br>
+  {% endif %}
+{% endfor %}
+ID = {{ id }}<br>
+Name = {{ world.articles[id] }}<br>
+Slug = {{ world.articles[id].slug }}<br>
+Data = {{ world.articles[id].usermetadata }}<br><br>
+{% set temp = world.articles[id].usermetadata|json_encode() %}
+Json = {{ temp }}<br><br>
+
+{% set temp1 = world.articles[id].usermetadata|split(',') %}
+length = {{ temp1|length }}<br>
+{% set map = "" %}
+{% for item in temp1 %}
+{{ item }}<br>
+{% set mapItem = item|split(":") %}
+{% for key, value in mapItem %}
+key = {{ key }}, value = {{ value }}<br>
+{% endfor %}
+{% endfor %}
+
+<h4>Another Test</h4>
+{% set masterSlug = master|lower~"-organization" %}
+{% set masterList = "" %}
+{% for item in world.articles %}
+{{ item }}<br>
+{% if item.slug == masterSlug %}
+item and slug = {{ item }} {{ item.slug }}<br>
+masterSlug = {{ masterSlug }}<br>
+{% set masterList = item %}
+{% endif %}
+{% endfor %}<br>
+masterList = {{ masterList }}<br>
+slug = {{ masterList.slug }}<br>
+id = {{ masterList.id }}<br><br><br>
+
+Data = {{ masterList.usermetadata }}<br>
+{% set mapList = masterList.usermetadata|split(',') %}
+{% for item in mapList %}
+item = {{ item }}<br>
+{% set name = item|split(':')|first|split('"')|join()|trim %}
+name = "{{ name|trim }}"<br>
+{% set uuid = item|split(':')|last|split('"')|join() %}
+{{ "@["~name~"](a:"~uuid~")" }}<br>
+{% set temp5 = "@["~name~"](a:"~uuid~")" %}
+link = {{ temp5|BBcode }}<br>
+{% endfor %}
+
+<b>Members Of</b><br>
+{% for name in usermetadata.memberOf %}
+{% for item in mapList %}
+{% set itemName = item|split(':')|first|split('"')|join()|trim %}
+{% if name == itemName %}
+{% set uuid = item|split(':')|last|split('"')|join() %}
+{% set link = "@["~name~"](a:"~uuid~")" %}
+{{ link|BBcode }}<br>
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+<h3>Article List</h3>
+{{ world.articles|map((value, key) => "#{key} #{value}")|join(', ') }}<br>
+<ol>
+  {% for key, value in world.articles %}
+      <li>{{ key }} / {{ value }} // {{ world.articles[key].id }}</li>
+  {% endfor %}
+</ol>
+
+<h3>Warp Paths</h3>
+<h4>Old</h4>
+                        {% if usermetadata.warpPaths|length > 0 %}
+                            <div class="jek-key-facts-label">Warp Paths</div>
+                            <ul class="jek-key-facts-list">
+                                {% for wp in usermetadata.warpPaths %}
+                                    {% set wpData = wp|split(':') %}
+                                    {% set name = wpData[0] %}
+                                    {% set wpFactor = wpData[1] %}
+                                    {% set mapping = world.articles|map((v, k) => "#{k} #{v}")|filter(v => name in v)|join(',')|split(' ', 2) %}
+                                    {% set id = mapping[0] %}
+                                    {% set link = "@["~name~"]("~world.articles[id].slug|split('-')|last~":"~world.articles[id].id~")" %}
+                                    <li>{{ link|BBcode }}: {{ wpFactor }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+<h4>New</h4>
+                        {% if usermetadata.warpPaths|length > 0 %}
+                            <div class="jek-key-facts-label">Warp Paths</div>
+                            <ul class="jek-key-facts-list">
+                                {% for wp in usermetadata.warpPaths %}
+                                    {% set wpData = wp|split(':') %}
+                                    {% set name = wpData[0] %}
+                                    {% set wpFactor = wpData[1] %}
+                                    {% set notFound = true %}
+                                    {% for key, value in world.articles %}
+                                        {% if name == value %}
+                                            {% set link = "@["~name~"]("~world.articles[key].slug|split('-')|last~":"~world.articles[key].id~")" %}
+                                            <li>{{ link|BBcode }}: {{ wpFactor }}</li>
+                                            {% set notFound = false %}
+                                         {% endif %}
+                                    {% endfor %}
+                                    {% if notFound == true %}
+                                        <li><b>{{ name }}</b>: {{ wpFactor }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+</div>
 
         <div class="">
 
@@ -25,12 +176,6 @@
                         {{ article.prelude|BBcode }}
                     {% endif %}
 
-                    {# Playing Field #}
-                    {% if article.battlefield|length > 0 %}
-                        <h3>Playing Field</h3>
-                        {{ article.battlefield|BBcode }}
-                    {% endif %}
-
                     {# Publicity #}
                     {% if article.conditions|length > 0 %}
                         <h3>Publicity</h3>
@@ -41,6 +186,12 @@
                     {% if article.deployment|length > 0 %}
                         <h3>Lineup</h3>
                         {{ article.deployment|BBcode }}
+                    {% endif %}
+
+                    {# Playing Field #}
+                    {% if article.battlefield|length > 0 %}
+                        <h3>Playing Field</h3>
+                        {{ article.battlefield|BBcode }}
                     {% endif %}
 
                     {# The Encounter #}
@@ -239,6 +390,51 @@
                                 </div>
                             {% endif %}
 
+{{ usermetadata.index }}<br>
+{{ article.id }}<br>
+{# Member Of #}
+{% if usermetadata.memberOf|length > 0 %}
+<div class="jek-key-facts-label">Member Of</div>
+{% for name in usermetadata.memberOf %}
+{% set member = world.articles|map((v, k) => "#{k} #{v}")|filter(v => name == "#{ v }")|join(',')|split(' ', 2) %}
+                                    {% set id = member[0] %}
+{{ member|length }}<br>{{ member[1] }}<br>
+{% if name == member[1] %}TRUE<br>{% endif %}
+                                    {% set link = "@["~name~"]("~world.articles[id].slug|split('-')|last~":"~world.articles[id].id~")" %}
+                                    {{ link|BBcode }}<br>
+{% for k in world.articles|map((v, k) => "#{k} #{v}")|filter(v => name == "#{v}")|join(',')|split(' ', 2)  %}
+<a class="" href="{{ path('presentation_article', {'worldslug': world.articles[k].world.slug,'articleslug': world.articles[k].slug})}}">{{ world.articles[k].title }}</a><br>
+{% endfor %}
+{% endfor %}
+{% endif %}
+TEST: {{  article.id }}<br>
+CONTEXT:
+<ol>
+  {% for key, value in _context  %}
+    <li>{{ key }}</li>
+  {% endfor %}
+</ol>
+WORLD: {{ world|length }} / {{ world }}<br>
+{{ world.articles|map((value, key) => "#{key} #{value}")|join(', ') }}<br>
+<ol>
+  {% for key, value in world.articles %}
+      <li>{{ key }} / {{ value }} // {{ world.articles[key].id }}</li>
+  {% endfor %}
+</ol>
+{% set list = world.articles|map((value, key) => "#{key}, #{value}") %}
+Count = {{ list|length }}<br>
+{% for item in list %}
+{{ item|length }} / {{ item }}<br>
+{% endfor %}
+{% for item in world.articles|filter((v, k) => v == "Vecu") %}
+{{ item }} / {{ k }}<br>
+{%endfor %}
+NEW:<br>
+{% set list1 = world.articles|map((value, key) => "#{key}: #{value}") %}
+{% for item in list1 %}
+{{ item }}<br>
+{%endfor %}
+
                             {# Included Under Conflict #}
                             {% if article.parent|length > 0 %}
                                 <div class="jek-key-facts-info">
@@ -283,7 +479,7 @@
                                    <div class="col-md-6 text-center">
                                        <h5>{{ b.name }}</h5>
                                        {% if b.organizations|length > 0 %}
-                                           <ul class="list-unstyled">
+                                           <ul class="list-un&nbsp;d">
                                                {% for org in b.organizations %}
                                                    <li><a class="" href="{{ path('presentation_article', {'worldslug': org.world.slug,'articleslug': org.slug})}}">{{ org.title }}</a></li>
                                                {% endfor %}
@@ -291,7 +487,7 @@
                                        {% endif %}
                                        {% if b.leaders|length > 0 %}
                                            <h4>{{ 'military_conf.led_by'|trans({},'presentation') }}</h4>
-                                           <ul class="list-unstyled">
+                                           <ul class="list-un&nbsp;d">
                                                {% for org in b.leaders %}
                                                    <li><a class="" href="{{ path('presentation_article', {'worldslug': org.world.slug,'articleslug': org.slug})}}">{{ org.title }}</a></li>
                                                {% endfor %}
@@ -384,13 +580,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h5>{{ b.name }}</h5>
-                                <ul class="list-unstyled">
+                                <ul class="list-un&nbsp;d">
                                     {% for org in b.organizations %}
                                         <li><a class="" href="{{ path('presentation_article', {'worldslug': org.world.slug,'articleslug': org.slug})}}">{{ org.title }}</a></li>
                                     {% endfor %}
                                 </ul>
                                 <h4>{{ 'military_conf.led_by'|trans({},'presentation') }}</h4>
-                                <ul class="list-unstyled">
+                                <ul class="list-un&nbsp;d">
                                     {% for org in b.leaders %}
                                         <li><a class="" href="{{ path('presentation_article', {'worldslug': org.world.slug,'articleslug': org.slug})}}">{{ org.title }}</a></li>
                                     {% endfor %}
