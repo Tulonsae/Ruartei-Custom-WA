@@ -205,8 +205,9 @@
                                         {{article.battlefieldtype }}<br>
                                     {% endif %}
                                     {% if article.location|length > 0 %}
+                                        {% set linkBBcode = "@["~article.location.title~"]("~article.location.templateType~":"~article.location.id~")" %}
                                         <span class="jek-key-facts-label">Location:</span>
-                                        {{ article.location }}
+                                        {{ linkBBcode|BBcode }}
                                     {% endif %}
                                 </div>
                             {% endif %}
@@ -242,8 +243,9 @@
                             {# Included Under Conflict #}
                             {% if article.parent|length > 0 %}
                                 <div class="jek-key-facts-info">
+                                    {% set linkBBcode = "@["~article.parent.title~"]("~article.parent.templateType~":"~article.parent.id~")" %}
                                     <span class="jek-key-facts-label">Included Under Conflict:</span>
-                                    <a class="" href="{{ path('presentation_article', {'worldslug': article.parent.world.slug,'articleslug': article.parent.slug})}}">{{ article.parent.title }}</a>
+                                    {{ linkBBcode|BBcode }}
                                 </div>
                             {% endif %}
 
@@ -252,7 +254,8 @@
                                 <div class="jek-key-facts-label">Included Conflicts</div>
                                 <ul class="jek-key-facts-list">
                                     {% for child in article.children %}
-                                        <li><a class="" href="{{ path('presentation_article', {'worldslug': child.world.slug,'articleslug': child.slug})}}">{{ child.title }}</a></li>
+                                        {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                        <li>{{ linkBBcode|BBcode }}</li>
                                     {% endfor %}
                                 </ul>
                             {% endif %}

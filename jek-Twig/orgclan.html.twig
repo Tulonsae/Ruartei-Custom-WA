@@ -268,44 +268,18 @@
                         {# Leader #}
                         {% if article.leader|length > 0 %}
                             <div class="jek-key-facts-info">
+                                {% set linkBBcode = "@["~article.leader.title~"]("~article.leader.templateType~":"~article.leader.id~")" %}
                                 <span class="jek-key-facts-label">Leader:</span>
-                                {% if article.leader|length > 0
-                                      and article.leader.state != 'archived'
-                                      and article.leader|CheckAccess == true
-                                      or article.leader|length > 0
-                                      and article.leader.state != 'archived'
-                                      and article.leader.world.displaySecureLinks == true %}
-                                    <a class="article-link article-explorer-link"
-                                       data-article-privacy="{{ article.leader.state }}"
-                                       data-article-id="{{ article.leader.id }}"
-                                       data-template-type="{{ article.leader.templateType }}"
-                                       data-article="{{ article.leader.id }}"
-                                       href="{{ path('presentation_article', {'worldslug': article.leader.world.slug,'articleslug': article.leader.slug})}}">{{ article.leader.title }}</a>
-                                {% else %}
-                                    {{ article.leader }}
-                                {% endif %}
+                                {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
 
                         {# Leader Title #}
                         {% if article.leadertitle|length > 0 %}
                             <div class="jek-key-facts-info">
+                                {% set linkBBcode = "@["~article.leadertitle.title~"]("~article.leadertitle.templateType~":"~article.leadertitle.id~")" %}
                                 <span class="jek-key-facts-label">Leader Title:</span>
-                                {% if article.leadertitle|length > 0
-                                      and article.leadertitle.state != 'archived'
-                                      and article.leadertitle|CheckAccess == true
-                                      or article.leadertitle|length > 0
-                                      and article.leadertitle.state != 'archived'
-                                      and article.leadertitle.world.displaySecureLinks == true %}
-                                    <a class="article-link article-explorer-link"
-                                       data-article-privacy="{{ article.leadertitle.state }}"
-                                       data-article-id="{{ article.leadertitle.id }}"
-                                       data-template-type="{{ article.leadertitle.templateType }}"
-                                       data-article="{{ article.leadertitle.id }}"
-                                       href="{{ path('presentation_article', {'worldslug': article.leadertitle.world.slug,'articleslug': article.leadertitle.slug})}}">{{ article.leadertitle.title }}</a>
-                                {% else %}
-                                    {{ article.leadertitle }}
-                                {% endif %}
+                                {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
 
@@ -315,21 +289,8 @@
                                 <div class="jek-key-facts-label">Founders</div>
                                 <ul class="jek-key-facts-list">
                                 {% for child in article.founders %}
-                                    {% if child|length > 0
-                                          and child.state != 'archived'
-                                          and child|CheckAccess == true
-                                          or child|length > 0
-                                          and child.state != 'archived'
-                                          and child.world.displaySecureLinks == true %}
-                                        <li><a class="article-link article-explorer-link"
-                                               data-article-privacy="{{ child.state }}"
-                                               data-article-id="{{ child.id }}"
-                                               data-template-type="{{ child.templateType }}"
-                                               data-article="{{ child.id }}"
-                                               href="{{ path('presentation_article', {'worldslug': child.world.slug,'articleslug': child.slug})}}">{{ child.title }}</a></li>
-                                    {% else %}
-                                        <li>{{ child.title }}</li>
-                                    {% endif %}
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
                                 {% endfor %}
                                 </ul>
                             </div>
