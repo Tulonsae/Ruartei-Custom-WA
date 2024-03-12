@@ -248,6 +248,15 @@
 
                         {% endif %}
 
+                        {# Altername Name #}
+                        {# add processing for multiple names, separated by semicolon #}
+                        {% if article.alternativeNames|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Alternate Name</div>
+                                <div class="jek-key-facts-indent">{{ article.alternativeNames }}</div>
+                            </div>
+                        {% endif %}
+
                         {# Type #}
                         {% if article.type|length > 0 %}
                             <div class="jek-key-facts-info">
@@ -256,16 +265,136 @@
                             </div>
                         {% endif %}
 
+                        {# Leader #}
+                        {% if article.leader|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Leader:</span>
+                                {% if article.leader|length > 0
+                                      and article.leader.state != 'archived'
+                                      and article.leader|CheckAccess == true
+                                      or article.leader|length > 0
+                                      and article.leader.state != 'archived'
+                                      and article.leader.world.displaySecureLinks == true %}
+                                    <a class="article-link article-explorer-link"
+                                       data-article-privacy="{{ article.leader.state }}"
+                                       data-article-id="{{ article.leader.id }}"
+                                       data-template-type="{{ article.leader.templateType }}"
+                                       data-article="{{ article.leader.id }}"
+                                       href="{{ path('presentation_article', {'worldslug': article.leader.world.slug,'articleslug': article.leader.slug})}}">{{ article.leader.title }}</a>
+                                {% else %}
+                                    {{ article.leader }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Leader Title #}
+                        {% if article.leadertitle|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Leader Title:</span>
+                                {% if article.leadertitle|length > 0
+                                      and article.leadertitle.state != 'archived'
+                                      and article.leadertitle|CheckAccess == true
+                                      or article.leadertitle|length > 0
+                                      and article.leadertitle.state != 'archived'
+                                      and article.leadertitle.world.displaySecureLinks == true %}
+                                    <a class="article-link article-explorer-link"
+                                       data-article-privacy="{{ article.leadertitle.state }}"
+                                       data-article-id="{{ article.leadertitle.id }}"
+                                       data-template-type="{{ article.leadertitle.templateType }}"
+                                       data-article="{{ article.leadertitle.id }}"
+                                       href="{{ path('presentation_article', {'worldslug': article.leadertitle.world.slug,'articleslug': article.leadertitle.slug})}}">{{ article.leadertitle.title }}</a>
+                                {% else %}
+                                    {{ article.leadertitle }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {# Founders #}
+                        {% if article.founders|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Founders</div>
+                                <ul class="jek-key-facts-list">
+                                {% for child in article.founders %}
+                                    {% if child|length > 0
+                                          and child.state != 'archived'
+                                          and child|CheckAccess == true
+                                          or child|length > 0
+                                          and child.state != 'archived'
+                                          and child.world.displaySecureLinks == true %}
+                                        <li><a class="article-link article-explorer-link"
+                                               data-article-privacy="{{ child.state }}"
+                                               data-article-id="{{ child.id }}"
+                                               data-template-type="{{ child.templateType }}"
+                                               data-article="{{ child.id }}"
+                                               href="{{ path('presentation_article', {'worldslug': child.world.slug,'articleslug': child.slug})}}">{{ child.title }}</a></li>
+                                    {% else %}
+                                        <li>{{ child.title }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+{# JEK BEGIN UNUSED/IGNORED 
                         {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.capital,
-                            'title':'organisation.capital',
+                            'value': article.familyleader,
+                            'title':'organisation.familyleader',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.headofstate,
+                            'title':'organisation.head_of_state',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.headofgovernment,
+                            'title':'organisation.head_of_government',
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.formation,
+                            'title':'organisation.formation_type',
                             'article': article,'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.alternativeNames,
-                            'title':'organisation.alternative_names',
+                            'value': article.trainingLevel,
+                            'title':'organisation.training_level',
                             'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.veterancy,
+                            'title':'organisation.veterancy_level',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.governmentsystem,
+                            'title':'organisation.government_system',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.powerstructure,
+                            'title':'organisation.power_structure',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': article.economicsystem,
+                            'title':'organisation.economic_system',
+                            'locale': locale
+                        } only %}
+JEK END UNUSED/IGNORED #}
+
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.capital,
+                            'title':'organisation.capital',
+                            'article': article,'locale': locale
                         } only %}
 
                         {% if article.predecessors|length == 1  %}
@@ -296,24 +425,6 @@
                             } only %}
                         {% endif  %}
 
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.formation,
-                            'title':'organisation.formation_type',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.trainingLevel,
-                            'title':'organisation.training_level',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.veterancy,
-                            'title':'organisation.veterancy_level',
-                            'locale': locale
-                        } only %}
-
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.demonym,
                             'title':'organisation.demonym',
@@ -321,63 +432,9 @@
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.leader,
-                            'title':'organisation.leader',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
                             'value': article.rulingorganization,
                             'title':'organisation.rulingorganization',
                             'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.leadertitle,
-                            'title':'organisation.leader.title',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.familyleader,
-                            'title':'organisation.familyleader',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.founders,
-                            'title': 'organisation.founders',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.headofstate,
-                            'title':'organisation.head_of_state',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.headofgovernment,
-                            'title':'organisation.head_of_government',
-                            'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.governmentsystem,
-                            'title':'organisation.government_system',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.powerstructure,
-                            'title':'organisation.power_structure',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.economicsystem,
-                            'title':'organisation.economic_system',
-                            'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
