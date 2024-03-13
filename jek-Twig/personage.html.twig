@@ -1,4 +1,4 @@
-{# revised from Sep 2023 version of person.html.twig #}
+{# revised from Mar 2024 version of person.html.twig #}
 <div class="row ">
 
     <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
@@ -234,7 +234,8 @@
             or article.virtues|length > 0
             or article.vices|length > 0
             or article.quirksPersonality|length > 0
-            or article.hygiene|length > 0 %}
+            or article.hygiene|length > 0
+            or article.representationLegacy|length > 0 %}
 
             <h2>{{ 'person.personality_characteristics'|trans({},'presentation') }}</h2>
 
@@ -279,6 +280,12 @@
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.hygiene,
             'title':'person.hygiene',
+            'locale': locale
+        } only %}
+
+        {% include 'PresentationBundle:Helpers:section.html.twig' with {
+            'value': article.representationLegacy,
+            'title':'person.representation_legacy',
             'locale': locale
         } only %}
 
@@ -444,7 +451,7 @@ JEK END NOT DISPLAYED #}
 
             {# Character Portrait #}
             {% elseif article.portrait %}
-                {# change this to be similar to organization flag so border can be added using the jek style,
+                {# changed this to be similar to organization flag so border can be added using the jek style,
                    remove m-b-20 so jek-character-article-portrait class can handle margins #}
                 <div class="jek-character-article-portrait">
                     <img class="character-article-portrait img-fluid img-responsive" src="{{ asset( article.portrait.path ~ '/' ~  article.portrait.filename) }}" alt="">
@@ -743,6 +750,7 @@ JEK END NOT DISPLAYED #}
 
                             </div>
                         {% endif %}
+
                         {% if article.parentAdopting1 or article.parentAdopting2 %}
                             <div class="character-relationships">
 
@@ -761,6 +769,7 @@ JEK END NOT DISPLAYED #}
                                     'title':'',
                                     'article': article,'locale': locale
                                 } only %}
+
                             </div>
                         {% endif %}
 
