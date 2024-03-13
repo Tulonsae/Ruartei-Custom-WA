@@ -265,16 +265,27 @@
                             </div>
                         {% endif %}
 
-                        {# Leader #}
-                        {% if article.leader|length > 0 %}
+                        {# Leader and Leader Title #}
+                        {% if article.leader|length > 0 or article.leadertitle|length > 0 %}
+                            {% set delim = "" %}
                             <div class="jek-key-facts-info">
-                                {% set linkBBcode = "@["~article.leader.title~"]("~article.leader.templateType~":"~article.leader.id~")" %}
-                                <span class="jek-key-facts-label">Leader:</span>
-                                {{ linkBBcode|BBcode }}
+                                <div class="jek-key-facts-label">Leader</div>
+                                <div class="jek-key-facts-indent">
+                                {% if article.leader|length > 0 %}
+                                    {% set leaderBBcode = "@["~article.leader.title~"]("~article.leader.templateType~":"~article.leader.id~")" %}
+                                {% endif %}
+                                {% if article.leader|length > 0 and article.leadertitle|length > 0 %}
+                                    {% set delim = ", " %}
+                                {% endif %}
+                                {% if article.leadertitle|length > 0 %}
+                                    {% set titleBBcode = "@["~article.leadertitle.title~"]("~article.leadertitle.templateType~":"~article.leadertitle.id~")" %}
+                                {% endif %}
+                                {{ leaderBBcode|BBcode }}{{ delim }}{{ titleBBcode|BBcode }}
                             </div>
                         {% endif %}
 
                         {# Leader Title #}
+{#
                         {% if article.leadertitle|length > 0 %}
                             <div class="jek-key-facts-info">
                                 {% set linkBBcode = "@["~article.leadertitle.title~"]("~article.leadertitle.templateType~":"~article.leadertitle.id~")" %}
@@ -282,6 +293,7 @@
                                 {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
+#}
 
                         {# Founders #}
                         {% if article.founders|length > 0 %}
