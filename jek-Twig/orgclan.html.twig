@@ -306,11 +306,11 @@
                             </div>
                         {% endif %}
 
-                        {# Main Zone #}
+                        {# Main Geographic Zone #}
                         {% if article.geographicLocation |length > 0 %}
                             <div class="jek-key-facts-info">
                                 {% set linkBBcode = "@["~article.geographicLocation.title~"]("~article.geographicLocation.templateType~":"~article.geographicLocation.id~")" %}
-                                <span class="jek-key-facts-label">Main Zone:</span>
+                                <span class="jek-key-facts-label">Main Geographic Zone:</span>
                                 {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
