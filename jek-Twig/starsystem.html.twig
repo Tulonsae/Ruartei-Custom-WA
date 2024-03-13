@@ -223,7 +223,8 @@
                         {% if article.parent|length > 0 %}
                             <div class="jek-key-facts-info">
                                 <span class="jek-key-facts-label">Location Under:</span>
-                                <a class="" href="{{ path('presentation_article', {'worldslug': article.parent.world.slug,'articleslug': article.parent.slug})}}">{{ article.parent.title }}</a>
+                                {% set linkBBcode = "@["~article.parent.title~"]("~article.parent.templateType~":"~article.parent.id~")" %}
+                                {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
 
@@ -235,7 +236,8 @@
                                 {% else %}
                                     <span class="jek-key-facts-label">Owner/Ruler:</span>
                                 {% endif %}
-                                <a class="" href="{{ path('presentation_article', {'worldslug': article.person.world.slug,'articleslug': article.person.slug})}}">{{ article.person.title }}</a>
+                                {% set linkBBcode = "@["~article.person.title~"]("~article.person.templateType~":"~article.person.id~")" %}
+                                {{ linkBBcode|BBcode }}
                             </div>
                         {% endif %}
 
@@ -266,7 +268,8 @@
                             <div class="jek-key-facts-label">Included Locations</div>
                             <ul class="jek-key-facts-list">
                                 {% for child in article.children %}
-                                    <li><a class="" href="{{ path('presentation_article', {'worldslug': child.world.slug,'articleslug': child.slug})}}">{{ child.title }}</a></li>
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
                                 {% endfor %}
                             </ul>
                         {% endif %}
