@@ -284,17 +284,6 @@
                             </div>
                         {% endif %}
 
-                        {# Leader Title #}
-{#
-                        {% if article.leadertitle|length > 0 %}
-                            <div class="jek-key-facts-info">
-                                {% set linkBBcode = "@["~article.leadertitle.title~"]("~article.leadertitle.templateType~":"~article.leadertitle.id~")" %}
-                                <span class="jek-key-facts-label">Leader Title:</span>
-                                {{ linkBBcode|BBcode }}
-                            </div>
-                        {% endif %}
-#}
-
                         {# Founders #}
                         {% if article.founders|length > 0 %}
                             <div class="jek-key-facts-info">
@@ -306,6 +295,40 @@
                                 {% endfor %}
                                 </ul>
                             </div>
+                        {% endif %}
+
+                        {# Headquarters #}
+                        {% if article.capital |length > 0 %}
+                            <div class="jek-key-facts-info">
+                                {% set linkBBcode = "@["~article.capital.title~"]("~article.capital.templateType~":"~article.capital.id~")" %}
+                                <span class="jek-key-facts-label">Headquarters:</span>
+                                {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
+
+                        {# Main Zone #}
+                        {% if article.geographicLocation |length > 0 %}
+                            <div class="jek-key-facts-info">
+                                {% set linkBBcode = "@["~article.geographicLocation.title~"]("~article.geographicLocation.templateType~":"~article.geographicLocation.id~")" %}
+                                <span class="jek-key-facts-label">Main Zone:</span>
+                                {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
+
+                        {# Members #}
+                        {% if usermetadata.members|length > 0 %}
+                            <div class="jek-key-facts-label">Members</div>
+                            <ul class="jek-key-facts-list">
+                                {% for item in usermetadata.members%}
+                                    {% set memberData = item|split(':') %}
+                                    {% if memberData[1]|length > 0 %}
+                                        {% set memberBBcode = "@["~memberData[0]~"](organization:"~memberData[1]~")" %}
+                                        <li>{{ memberBBcode|BBcode }}</li>
+                                    {% else %}
+                                        <li>{{ memberData[0] }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
                         {% endif %}
 
 {# JEK BEGIN UNUSED/IGNORED 
@@ -363,12 +386,6 @@
                             'locale': locale
                         } only %}
 JEK END UNUSED/IGNORED #}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.capital,
-                            'title':'organisation.capital',
-                            'article': article,'locale': locale
-                        } only %}
 
                         {% if article.predecessors|length == 1  %}
                             {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
@@ -487,12 +504,6 @@ JEK END UNUSED/IGNORED #}
                             'list': article.divines,
                             'title': 'organisation.divines',
                             'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.geographicLocation,
-                            'title':'organisation.location',
-                            'article': article,'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
