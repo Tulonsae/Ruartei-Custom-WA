@@ -193,51 +193,17 @@ JEK END UNUSED/IGNORED #}
                         {% endif %}
 
                         {# Principal Manager #}
-                        {% set linkPerson = false %}
-                        {% if article.person|length > 0
-                              and article.person.state != 'archived'
-                              and article.person|CheckAccess == true
-                              or article.person|length > 0
-                              and article.person.state != 'archived'
-                              and article.person.world.displaySecureLinks == true %}
-                            {% set linkPerson = true %}
-                        {% endif %}
-                        {% set linkRank = false %}
-                        {% if article.rank|length > 0
-                              and article.rank.state != 'archived'
-                              and article.rank|CheckAccess == true
-                              or article.rank|length > 0
-                              and article.rank.state != 'archived'
-                              and article.rank.world.displaySecureLinks == true %}
-                            {% set linkRank = true %}
-                        {% endif %}
                         {% if article.person|length > 0 or article.rank|length > 0 %}                        
                             <div class="jek-key-facts-info">
                                 <div class="jek-key-facts-label">Principal Manager</div>
                                 <div class="jek-key-facts-indent">
                                 {% if article.rank|length > 0 %}
-                                    {% if linkRank == true %}
-                                        <a class="article-link article-explorer-link"
-                                           data-article-privacy="{{ article.rank.state }}"
-                                           data-article-id="{{ article.rank.id }}"
-                                           data-template-type="{{ article.rank.templateType }}"
-                                           data-article="{{ article.rank.id }}"
-                                           href="{{ path('presentation_article', {'worldslug': article.rank.world.slug,'articleslug': article.rank.slug})}}">{{ article.rank.title }}</a>
-                                    {% else %}
-                                        {{ article.rank }}
-                                    {% endif %}
+                                    {% set linkBBcode = "@["~article.rank.title~"]("~article.rank.templateType~":"~article.rank.id~")" %}
+                                    {{ linkBBcode|BBcode }}
                                 {% endif %}
                                 {% if article.person|length > 0 %}
-                                    {% if linkRank == true %}
-                                        <a class="article-link article-explorer-link"
-                                           data-article-privacy="{{ article.person.state }}"
-                                           data-article-id="{{ article.person.id }}"
-                                           data-template-type="{{ article.person.templateType }}"
-                                           data-article="{{ article.person.id }}"
-                                           href="{{ path('presentation_article', {'worldslug': article.person.world.slug,'articleslug': article.person.slug})}}">{{ article.person.title }}</a>
-                                    {% else %}
-                                         {{ article.person }}
-                                    {% endif %}
+                                    {% set linkBBcode = "@["~article.person.title~"]("~article.person.templateType~":"~article.person.id~")" %}
+                                    {{ linkBBcode|BBcode }}
                                 {% endif %}
                                 </div>
                             </div>
