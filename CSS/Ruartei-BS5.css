@@ -1032,6 +1032,8 @@
   border: 0 solid;
   border-radius: 10px;
   box-shadow: 5px 5px 10px var(--Black60);
+  margin-top: 1.5em;
+  margin-bottom: .5em;
 }
 
 .user-css .panel .jek-key-facts-sidepanel {
@@ -1102,8 +1104,8 @@
 /* CHARACTER ARTICLE PORTRAIT AND FLAG IMAGES */
 .user-css .jek-character-article-portrait,
 .user-css .organization-flag {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: .5em;
+  margin-bottom: .5em;
   border: 5px solid var(--main-border-color);
   border-radius: 10px;
   box-shadow: 4px 4px 8px var(--Black60);
@@ -1111,6 +1113,16 @@
 .user-css .character-article-portrait,
 .user-css .jek-flag-image {
   border-radius: 10px;
+}
+
+/* SLOGANS, MOTTOS */
+.user-css .organization-motto {
+  margin-top: 0em;
+  margin-bottom: 1em;
+}
+.user-css .organization-motto h4 {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 /* FOLLOWERS */
