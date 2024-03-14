@@ -5,35 +5,47 @@
 
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
 
+        {# Family Life #}
+        {% if article.structure|length > 0
+              or article.culture|length > 0
+              or article.publicAgenda|length > 0
+              or article.assets|length > 0  %}
+            <h2>Family Life</h2>
+        {% endif %}
+
+        {# Structure #}
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.structure,
             'title':'organisation.structure',
             'locale': locale
         } only %}
 
+        {# Culture #}
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.culture,
             'title':'organisation.culture',
             'locale': locale
         } only %}
 
+        {# Status #}
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.publicAgenda,
-            'title':'organisation.public_agenda',
+            'title':'Status',
             'locale': locale
         } only %}
 
+        {# Assets #}
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.assets,
             'title':'organisation.assets',
             'locale': locale
         } only %}
 
-        {% include 'PresentationBundle:Helpers:section.html.twig' with {
-            'value': article.history,
-            'title':'organisation.history',
-            'locale': locale
-        } only %}
+        {# History #}
+        {% if article.history|length > 0 %}
+            <h2>Family History</h2>
+            <div>{{ article.history|BBcode }}</div>
+        {% endif %}
 
         {% include 'PresentationBundle:Helpers:section.html.twig' with {
             'value': article.disbandment,
