@@ -371,6 +371,11 @@
   padding-top: .25em;
 }
 
+.user-css blockquote .author {
+  text-align: right;
+  font-style: italic;
+}
+
 /* CREDITS */
 
 .user-css .artist-credits {
