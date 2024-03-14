@@ -67,3 +67,72 @@ The character portrait is in the sidebar, which is a separate column in the arti
 .user-css.template-person .article-content-left {
  float: right;
 }
+
+How to make a newsletter style heading
+[container:newspaper-header]
+  [container:title]
+      [h1]Andrawyn Telegraph[/h1]
+  [/container]
+  [container:date-subline]
+      [section: date] [/section]
+    [section: subtitle]Issue No. 146 [/section]
+  [/container]
+[/container]
+BB-Code for a global block, I took Footer
+.user-css .cover {
+height: 160px;
+}
+.user-css .cover img {
+display: none;
+}
+.user-css .newspaper-header {
+    z-index: 1;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: visible
+}
+.newspaper-header .title {
+border-top: 3px solid;
+border-bottom: 3px solid;
+}
+.newspaper-header .title h2 {
+border: none;
+font-size: 5em;
+color: black;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+margin-top: 7px;
+padding: 0;
+}
+.newspaper-header .date-subline {
+display: flex;
+justify-content: space-between;
+}
+.newspaper-header .subtitle{
+font-weight: 800;
+font-variant: small-caps;
+font-size: 1.25em;
+}
+@media screen and (max-width: 1000px) {
+.user-css .cover {
+height: 200px;
+}
+.user-css .newspaper-header {
+top: 10px;
+}
+}
+@media screen and (max-width: 500px) {
+.user-css .title h2 {
+font-size: 3em;
+}
+And the css hiding away the cover image, and placing the custom font-title
