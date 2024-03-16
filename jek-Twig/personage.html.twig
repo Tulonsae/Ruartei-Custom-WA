@@ -3,6 +3,7 @@
 
     <div class="col-md-{% if  article.displaySidebar == 0  %}12{% else  %}8{% endif %} article-content-left ">
 
+{# JEK BEGIN NOT DISPLAYED - Names are handled differently
         {% if article.firstname|length > 0
             or article.honorific|length > 0
             or article.maidenname|length > 0
@@ -33,6 +34,7 @@
                 {% endif%}
             </h3>
         {% endif %}
+JEK END NOT DISPLAYED #}
 
         <div class="user-css-vignette">{{ article.content|BBcode }}</div>
 
@@ -474,33 +476,60 @@ JEK END NOT DISPLAYED #}
 
                         <h3 class="jek-key-facts-heading">Key Facts</h3>
 
-                       {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.classification,
-                            'title':'person.divine_classification',
-                            'locale': locale
-                        } only %}
+                        {# Current Status #}
+                        {% if article.currentstatus|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Current Status:</span>
+                                {{ article.currentstatus }}
+                            </div>
+                        {% endif %}
 
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.religions,
-                            'title':'Religions'
-                        } only %}
+                        {# Current Location #}
+                        {% if article.currentLocation|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Current Location:</span>
+                                {% set linkBBcode = "@["~article.currentLocation.title~"]("~article.currentLocation.templateType~":"~article.currentLocation.id~")" %}
+                                {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
 
+                        {# Dimensional Type #}
+                        {% if article.classification|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Dimensional Type:</span>
+                                {{ article.classification|BBcode }}
+                            </div>
+                        {% endif %}
+
+                        {# Species #}
+                        {% if article.species|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Species:</span>
+                                {% set linkBBcode = "@["~article.species.title~"]("~article.species.templateType~":"~article.species.id~")" %}
+                                {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
+
+                        {# Ethnicity #}
+                        {% if article.ethnicity|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Ethnicity:</span>
+                                {% set linkBBcode = "@["~article.ethnicity.title~"]("~article.ethnicity.templateType~":"~article.ethnicity.id~")" %}
+                                {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
+
+{# JEK BEGIN UNUSED/IGNORED 
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.rpgAlignment,
                             'title':'person.alignment',
                             'locale': locale
                         } only %}
+JEK END UNUSED/IGNORED #}
 
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.currentstatus,
-                            'title':'person.currentstatus',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.currentLocation,
-                            'title':'person.current_location',
-                            'article': article,'locale': locale
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.religions,
+                            'title':'Religions'
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relation.html.twig' with {
@@ -509,22 +538,10 @@ JEK END NOT DISPLAYED #}
                             'article': article,'locale': locale
                         } only %}
 
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.species,
-                            'title':'person.species',
-                            'article': article,
-                            'locale': locale } only %}
-
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.conditions,
                             'title': 'person.conditions',
                             'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.ethnicity,
-                            'title':'person.ethnicity',
-                            'article': article,'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
@@ -576,18 +593,20 @@ JEK END NOT DISPLAYED #}
                         } only %}
 
                         {# Date of Birth #}
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.dobDisplay,
-                            'title':'person.birthday',
-                            'locale': locale
-                            } only %}
+                        {% if article.dobDisplay|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Date of Birth:</span>
+                                {{ article.dobDisplay }}
+                            </div>
+                        {% endif %}
 
                         {# Date of Death #}
-                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                            'value': article.dodDisplay,
-                            'title':'person.death',
-                            'locale': locale
-                        } only %}
+                        {% if article.dodDisplay|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <span class="jek-key-facts-label">Date of Death:</span>
+                                {{ article.dodDisplay }}
+                            </div>
+                        {% endif %}
 
                         {# Life / Year of Birth / Year of Death #}
                         {#   note: this expects RCT years in the Year of Birth/Death fields #}
@@ -626,80 +645,75 @@ JEK END NOT DISPLAYED #}
                                 {% set daysAtCurrent = ((article.world.timeCurrentYear - 1) * 350) + (((article.world.timeCurrentYear - 1) // 350) * 3) + ((article.world.timeCurrentMonth - 1) * 25) + article.world.timeCurrentDay %}
                             {% endif %}
 
-                            <div id="{{ article.title ~ article.dob|HashString }}" class="visibility-toggler">
+                            <div class="jek-key-facts-info">
 
                                 {# Life (calculates age) #}
                                 {% if article.dob and article.dod
                                     or article.dob and article.dod == 0 and article.dod is not empty
                                     or article.dob == 0 and article.dob is not empty and article.dod %}
 
-                                    <div class="section-title">
-                                        <strong class="section-heading">{{ 'person.life'|trans({},'presentation') }}</strong>
-                                    </div>
+                                    <span class="jek-key-facts-label">Life:</span>
 
-                                    <div class="section-payload">
+                                    {# lifespan dates #}
 
-                                        {% if article.dob > 0 %}
-                                            {{ article.dob }} {{ article.world.timePosAbbr }}
-                                        {% else %}
-                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
-                                        {% endif %}
+                                    {% if article.dob > 0 %}
+                                        {{ article.dob }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dob|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
 
-                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
 
-                                        {% if article.dod > 0 %}
-                                            {{ article.dod }} {{ article.world.timePosAbbr }}
-                                        {% else %}
-                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
-                                        {% endif %}
+                                    {% if article.dod > 0 %}
+                                        {{ article.dod }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
 
-                                        {% if article.world.timeCurrentYear|length > 0 %}
-                                            {# note: this isn't handling RCT leap days #}
+                                    {# lifespan age #}
+
+                                    {% if article.world.timeCurrentYear|length > 0 %}
+                                        {# note: this isn't handling RCT leap days #}
+                                        <div class="jek-key-facts-indent">
                                             <small><i class="fas fa-tombstone-alt"></i> {{ (daysAtDeath - daysAtBirth) // 350 }} years / {{ (daysAtDeath - daysAtBirth) // 625 }} cycles</small>
-                                        {% endif %}
-
-                                    </div>
+                                        </div>
+                                    {% endif %}
 
                                 {# Year of Death #}
                                 {% elseif article.dod|length and not article.dob %}
 
-                                    <div class="section-title">
-                                        <strong class="section-heading">{{'person.year_of_death'|trans({},'presentation') }}</strong>
-                                    </div>
+                                    <span class="jek-key-facts-label">Year of Death:</span>
 
-                                    <div class="section-payload">
-                                        {% if article.dod > 0 %}
-                                            {{ article.dod }} {{ article.world.timePosAbbr }}
-                                        {% else %}
-                                            {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
-                                        {% endif %}
-                                    </div>
+                                    {% if article.dod > 0 %}
+                                        {{ article.dod }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dod|abs }} {{ article.world.timeNegAbbr}}
+                                    {% endif %}
 
                                 {# Year of Birth (calculates age) #}
                                 {% elseif article.dob|length and not article.dod %}
 
-                                    <div class="section-title">
-                                        <strong class="section-heading">{{'person.year_of_birth'|trans({},'presentation') }}</strong>
-                                    </div>
+                                    <span class="jek-key-facts-label">Year of Birth:</span>
 
-                                    <div class="section-payload">
-                                        {% if article.dob > 0 %}
-                                            {{ article.dob }} {{ article.world.timePosAbbr }}
-                                        {% else %}
-                                            {{ article.dob|abs }} {{ article.world.timeNegAbbr }}
-                                        {% endif %}
+                                    {% if article.dob > 0 %}
+                                        {{ article.dob }} {{ article.world.timePosAbbr }}
+                                    {% else %}
+                                        {{ article.dob|abs }} {{ article.world.timeNegAbbr }}
+                                    {% endif %}
 
-                                        {% if article.world.timeCurrentYear %}
-                                            {# note: this isn't handling RCT leap days #}
+                                    {% if article.world.timeCurrentYear %}
+                                        {# note: this isn't handling RCT leap days #}
+                                        <div class="jek-key-facts-indent">
                                             <small><i class="fas fa-heartbeat"></i> {{ (daysAtCurrent - daysAtBirth) // 350 }} Years / {{ (daysAtCurrent - daysAtBirth) // 625 }} cycles</small>
-                                        {% endif %}
-                                    </div>
+                                        </div>
+                                    {% endif %}
 
                                 {% endif %}
 
                             </div>
 
                         {% endif %}
+
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.circumstancesBirth,
                             'title':'person.circumstances_of_birth',
