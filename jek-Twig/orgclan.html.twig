@@ -232,34 +232,6 @@
                     <div class="jek-key-facts-content">
                         <h3 class="jek-key-facts-heading">Key Facts</h3>
 
-                        {% if article.foundingDate|length > 0 and article.dissolutionDate|length > 0 %}
-
-                            <div id="{{ article.foundingDate|HashString }}" class="visibility-toggler">
-                                <div class="panel-body text-center organization-lifespan-dates">
-                                    <h4>{{ article.foundingDate|BBcode }} - {{ article.dissolutionDate|BBcode }}</h4>
-                                </div>
-                            </div>
-
-                        {% else %}
-
-                            {% if article.foundingDate|length > 0 %}
-                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                    'value': article.foundingDate,
-                                    'title':'organisation.founding_date',
-                                    'locale': locale
-                                } only %}
-                            {% endif %}
-
-                            {% if article.dissolutionDate|length > 0 %}
-                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                    'value': article.dissolutionDate,
-                                    'title':'organisation.dissolution_date',
-                                    'locale': locale
-                                } only %}
-                            {% endif %}
-
-                        {% endif %}
-
                         {# Altername Name #}
                         {# add processing for multiple names, separated by semicolon #}
                         {% if article.alternativeNames|length > 0 %}
@@ -296,19 +268,6 @@
                             </div>
                         {% endif %}
 
-                        {# Founders #}
-                        {% if article.founders|length > 0 %}
-                            <div class="jek-key-facts-info">
-                                <div class="jek-key-facts-label">Founders</div>
-                                <ul class="jek-key-facts-list">
-                                {% for child in article.founders %}
-                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
-                                    <li>{{ linkBBcode|BBcode }}</li>
-                                {% endfor %}
-                                </ul>
-                            </div>
-                        {% endif %}
-
                         {# Headquarters #}
                         {% if article.capital |length > 0 %}
                             <div class="jek-key-facts-info">
@@ -324,6 +283,46 @@
                                 {% set linkBBcode = "@["~article.geographicLocation.title~"]("~article.geographicLocation.templateType~":"~article.geographicLocation.id~")" %}
                                 <span class="jek-key-facts-label">Main Geographic Zone:</span>
                                 {{ linkBBcode|BBcode }}
+                            </div>
+                        {% endif %}
+
+                        {% if article.foundingDate|length > 0 and article.dissolutionDate|length > 0 %}
+
+                            <div id="{{ article.foundingDate|HashString }}" class="visibility-toggler">
+                                <div class="panel-body text-center organization-lifespan-dates">
+                                    <h4>{{ article.foundingDate|BBcode }} - {{ article.dissolutionDate|BBcode }}</h4>
+                                </div>
+                            </div>
+
+                        {% else %}
+
+                            {% if article.foundingDate|length > 0 %}
+                                <div class="jek-key-facts-info">
+                                    <span class="jek-key-facts-label">Founding Date:</span>
+                                    {{ article.foundingDate }}
+                                </div>
+                            {% endif %}
+
+                            {% if article.dissolutionDate|length > 0 %}
+                                {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                                    'value': article.dissolutionDate,
+                                    'title':'organisation.dissolution_date',
+                                    'locale': locale
+                                } only %}
+                            {% endif %}
+
+                        {% endif %}
+
+                        {# Founders #}
+                        {% if article.founders|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Founders</div>
+                                <ul class="jek-key-facts-list">
+                                {% for child in article.founders %}
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
+                                {% endfor %}
+                                </ul>
                             </div>
                         {% endif %}
 
