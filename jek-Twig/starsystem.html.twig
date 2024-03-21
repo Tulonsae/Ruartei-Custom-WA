@@ -263,17 +263,6 @@
                            {% endfor %}
                         {% endif %}
 
-                        {# Included Locations #}
-                        {% if article.children|length > 0 %}
-                            <div class="jek-key-facts-label">Included Locations</div>
-                            <ul class="jek-key-facts-list">
-                                {% for child in article.children %}
-                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
-                                    <li>{{ linkBBcode|BBcode }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-
                         {# Warp Paths #}
                         {% if usermetadata.warpPaths|length > 0 %}
                             <div class="jek-key-facts-label">Warp Paths</div>
@@ -291,17 +280,44 @@
                                 {% endfor %}
                             </ul>
                         {% endif %}
+
+                        {# Included Locations #}
+                        {% if article.children|length > 0 %}
+                            <div class="jek-key-facts-label">Included Locations</div>
+                            <ul class="jek-key-facts-list">
+                                {% for child in article.children %}
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {# Included Organizations #}
+                        {% if article.includedOrganizations|length > 0 %}
+                            <div class="jek-key-facts-label">Included Organizations</div>
+                            <ul class="jek-key-facts-list">
+                                {% for child in article.includedOrganizations %}
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {# Related Ethnicities #}
+                        {% if article.ethnicities|length > 0 %}
+                            <div class="jek-key-facts-label">Related Ethnicities</div>
+                            <ul class="jek-key-facts-list">
+                                {% for child in article.ethnicities %}
+                                    {% set linkBBcode = "@["~child.title~"]("~child.templateType~":"~child.id~")" %}
+                                    <li>{{ linkBBcode|BBcode }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
 {# TOHERE #}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.vehiclesPresent,
                             'title':'vehicle.location.reflexive.name',
-                            'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.includedOrganizations,
-                            'title': 'location.included_organizations',
                             'locale': locale
                         } only %}
 
@@ -321,12 +337,6 @@
                             'value': article.organization,
                             'title':'location.owning_organization',
                             'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.ethnicities,
-                            'title':'ethnicity.locations.reflexive.name',
-                            'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
