@@ -1,0 +1,29 @@
+/* fix positions of icons */
+.ra-2x.ra-tentacle,
+.ra-2x.ra-player-king,
+.ra-2x.ra-dead-tree,
+.ra-2x.ra-capitol {
+  padding-bottom: .4em;
+}
+.ra-2x.ra-crown,
+.ra-2x.ra-player-shot,
+.ra-2x.ra-explosion {
+  padding-bottom: .3em;
+}
+.ra-2x.ra-hearts,
+.ra-2x.ra-bleeding-hearts,
+.ra-2x.ra-dripping-sword,
+.ra-2x.ra-crossed-swords,
+.ra-2x.ra-pine-tree,
+.ra-2x.ra-x-mark,
+.ra-2x.ra-biohazard,
+.ra-2x.ra-telescope,
+.ra-2x.ra-tower,
+.ra-2x.ra-compass,
+.ra-2x.ra-burning-book,
+.ra-2x.ra-wooden-sign {
+  padding-bottom: .2em;
+}
+.ra-2x.ra-aura {
+  padding-bottom: .1em;
+}
