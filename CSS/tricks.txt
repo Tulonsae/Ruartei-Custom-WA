@@ -1,0 +1,40 @@
+Would something like this work:
+div {
+    background: url('http://dummyimage.com/100x100/000/fff');
+}
+div:hover {
+    background: url('http://dummyimage.com/100x100/eb00eb/fff');
+}
+where I have several buttons that change the background on mouseover (or something else).
+
+How to cycle through images, using animation
+@keyframes zigzag{
+    0%{
+        background-image: url('https://i.imgur.com/6z28Xcz.png');
+    }
+    25%{
+        background-image: url('https://i.imgur.com/A0d4DL0.png');
+    }
+    50%{
+        background-image: url('https://i.imgur.com/1QOJG9w.png');
+    }
+    100%{
+        background-image: url('https://i.imgur.com/zwjr693.png');
+    }
+}
+
+#logo{
+    width: 400px;
+    height: 170px;
+    border: 5px solid;
+    border-radius: 20%;
+    background-image: url('https://i.imgur.com/6z28Xcz.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#logo:hover{
+    animation: zigzag 2000ms ease-in infinite;
+}
+
+<div id="logo"></div>

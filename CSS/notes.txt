@@ -1,3 +1,7 @@
+In general, everything that has .user-css is pointing towards that main content box
+.user-css-extended will point to the comment, meta and other sections below your content
+.user-css-map-sidebar will be exactly what it says, the map sidebar
+and .user-css-presentation .tooltipster-content will affect the content preview popup for articles
 
 How to put articles above categories in the TOC list
 .user-css .world-menu-subcategory {
@@ -136,3 +140,40 @@ top: 10px;
 font-size: 3em;
 }
 And the css hiding away the cover image, and placing the custom font-title
+
+for those who haven't thought about this (like me...) if you don't want to have floating images, and are not on the limitation of container stacking (don't ask me why I know that there is a limitation...) you can easily get rid of the [row][col]-stuff, if you define a container with class col-two or col-three or anything and assign the following css: 
+.user-css .col-two { 
+column-count: 2;
+}
+` 
+Following that, just put your text in the container, and let the browser handle the column-part
+
+Is there any way with CSS to make it so that the Related Historical Events are on one line (Date then link) instead of two?
+(From Rin) To give an option in addition to what Buzzard has (there are probably several ways to do this, and I'm curious to compare a few of them), you can use a grid:
+.user-css .related-historical-entry {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+(From Buzzard) You'll have to adjust a little to fit your existing theme.
+.user-css .panel .related-historical-entry-date {
+ float: left;
+ padding-right: 6px;
+ clear: left;
+}
+In my theme, the dates are a little smaller.  So if that's the case, you may need to adjust the font-size some.
+(From Han) I would always avoid using floats for layout. They're for images in text only, these days. Floats for layout are pretty outdated and don't work well with adapting to mobile or other screen sizes.
+
+I can't figure out how to get this to work, so does anyone either already have code or an answer to how to column out the tagged articles list when its in blocks? I can get it to column but it puts two blocks in the first column before going to the second column. I'm trying to get it to be three columns if I have a smaller list of tagged articles.
+Give this a try:
+.user-css .tagged-articles-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-rows: minmax(0px, auto);
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+}
+
+From Tillerz:
+Some stuff could also need some additional css classes, like the boards. Or if you want an article to look the same in article view and in the mouseover popup, you have to use something complicated like 
+:is(.user-css-presentation .tooltipster-base .tooltipster-box .tooltipster-content, .user-css) { ... } 
+ in front. And then you'd also need to add some classes for the map sidebar, too ... 
