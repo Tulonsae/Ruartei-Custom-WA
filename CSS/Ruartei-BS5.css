@@ -244,6 +244,10 @@
   padding-bottom: 2rem;
 }
 
+.user-css-presentation .page ul {
+  margin-bottom: .5em;
+}
+
 .user-css .cover {
   background: var(--main-border-color);
   margin-left: var(--cover-side-space,-.75rem);
@@ -338,6 +342,65 @@
 .user-css blockquote .author {
   text-align: right;
   font-style: italic;
+}
+
+/* STORYTELLER SEED */
+
+.user-css .panel-greatgm {
+  margin: .75em;
+  background: var(--mouseover-bgcolor);
+  border-width: 2px;
+  border-color: var(--mouseover-border-color);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px var(--Black60);
+}
+
+.user-css .panel-greatgm .seed-content {
+  padding-top: 0;
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--txSize);
+  line-height: 1.5em;
+  color: var(--mouseover-text-color);
+}
+
+.user-css .panel-greatgm .seed-content p {
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+.user-css .panel-greatgm .seed-content .paragraph-indent {
+  margin-top: .25em;
+  margin-bottom: 0;
+  text-indent: 1.5em;
+}
+
+.user-css .panel-greatgm .seed-content ul {
+  padding-top: .5em;
+}
+
+.user-css .panel-greatgm .seed-content a {
+  color: var(--mouseover-link-color);
+}
+.user-css .panel-greatgm .seed-content a:hover {
+  color: var(--mouseover-hover-color);
+}
+
+.user-css .panel-greatgm .seed-content h2,
+.user-css .panel-greatgm .seed-content h3,
+.user-css .panel-greatgm .seed-content h4 {
+  margin-top: .5em;
+  margin-bottom: 0;
+  font-family: var(--hdFont);
+  font-weight: var(--normal);
+}
+.user-css .panel-greatgm .seed-content h2 {
+  color: var(--main-h2-color);
+}
+.user-css .panel-greatgm .seed-content h3 {
+  color: var(--main-h3-color);
+}
+.user-css .panel-greatgm .seed-content h4 {
+  color: var(--main-h4-color);
 }
 
 /* CREDITS */
@@ -1047,7 +1110,6 @@
 }
 
 .user-css .panel .jek-key-facts-list {
-  margin-bottom: .5em;
   padding-left: 1.5em;
 }
 
