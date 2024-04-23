@@ -258,3 +258,8 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px var(--LightSkyBlue50D);
 }
+
+.user-css .world-subtitle {
+  font-size: .75em;
+  letter-spacing: 0;
+}
