@@ -234,3 +234,12 @@
 .user-css-presentation .tooltipster-content h5 {
   color: var(--main-h5-color);
 }
+
+/* WHITE LABEL */
+
+.user-css.widget-white-label-mark {
+  writing-mode: sideways-lr;
+}
+.user-css.widget-white-label-mark ul {
+  display: none;
+}
