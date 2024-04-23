@@ -1,7 +1,24 @@
+From nnie
+On chrome-based browsers you can temporarily delete the code that hides [the pop-up] 
+Right click the tooltip and go to developer tools > inspect element.
+Find a tab called "Event Listeners" and open it
+Look for a dropdown menu called "mouseout" and open it
+Click 'remove' on all the event listeners.
+Voila! The next time you mouse over the tooltip it'll remain up.
+https://www.worldanvil.com/w/solaris-nnie/a/styling-tooltips-and-excerpts-article
+
 In general, everything that has .user-css is pointing towards that main content box
 .user-css-extended will point to the comment, meta and other sections below your content
 .user-css-map-sidebar will be exactly what it says, the map sidebar
 and .user-css-presentation .tooltipster-content will affect the content preview popup for articles
+
+How to target multiple classes:
+:is(user-css.map-sidebar, .user-css-sidebar .tab-content, .tooltipster-content, .user-css-presentation) .dropcap {
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  color: #962626 !important;
+}
 
 How to put articles above categories in the TOC list
 .user-css .world-menu-subcategory {
@@ -177,3 +194,19 @@ From Tillerz:
 Some stuff could also need some additional css classes, like the boards. Or if you want an article to look the same in article view and in the mouseover popup, you have to use something complicated like 
 :is(.user-css-presentation .tooltipster-base .tooltipster-box .tooltipster-content, .user-css) { ... } 
  in front. And then you'd also need to add some classes for the map sidebar, too ... 
+
+From Rin
+having images be desaturated until hovered is pretty simple.
+.user-css img {
+  filter: saturate(.5);
+}
+.user-css img:hover {
+  filter: saturate(1);
+}
+
+.user-css-presentation {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
