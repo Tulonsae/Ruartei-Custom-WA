@@ -84,6 +84,19 @@
 .user-css,
 .user-css-presentation {
 
+  /* fonts */
+  --txFont: Tomorrow, sans-serif;
+  --hdFont: Nova Flat, sans-serif;
+
+  /* font weights */
+  --normal: 400;
+  --semi-bold: 500;
+  --nearly-bold: 600;
+  --bold: 700;
+
+  /* font sizes */
+  --txSize: 1rem;
+
   /* color names */
   --DeepSpaceBlue: #1C2C40;
   --PaleYellowWhite: #FFF7D6;
@@ -98,19 +111,6 @@
   --LighterOrange: #FFDC5E;
   --DarkRedBrown: #401F1C;
   --LightBlueGrey: #CFE6FF;
-
-  /* fonts */
-  --txFont: Tomorrow, sans-serif;
-  --hdFont: Nova Flat, sans-serif;
-
-  /* font weights */
-  --normal: 400;
-  --semi-bold: 500;
-  --nearly-bold: 600;
-  --bold: 700;
-
-  /* font sizes */
-  --txSize: 1rem;
 
   /* colors */
   --main-bgcolor: var(--DeepSpaceBlue);
@@ -242,4 +242,14 @@
 }
 .user-css.widget-white-label-mark ul {
   display: none;
+}
+
+/* HOME PAGE TITLE */
+
+.user-css h1.world-title {
+  font-size: 4rem;
+  letter-spacing: .2rem;
+  background: -webkit-linear-gradient(-90deg, rgba(167,255,255,1) 0%, rgba(116,225,255,1) 35%, rgba(91,200,230,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
