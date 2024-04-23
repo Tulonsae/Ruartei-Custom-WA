@@ -103,6 +103,10 @@
   --LightOrange: #FFC244;
   --LimeGreen1: #66EBB9;
   --LightSkyBlue: #74E1FF;
+  --LightSkyBlue10L: #8EFBFF;
+  --LightSkyBlue20L: #A7FFFF;
+  --LightSkyBlue10D: #5BC8E6;
+  --LightSkyBlue50D: #006280;
   --LimeGreen2: #5BF3CB;
   --LightLemon: #FFFF8E;
   --YellowOrange: #F3CC5B;
@@ -249,7 +253,8 @@
 .user-css h1.world-title {
   font-size: 4rem;
   letter-spacing: .2rem;
-  background: -webkit-linear-gradient(-90deg, rgba(167,255,255,1) 0%, rgba(116,225,255,1) 35%, rgba(91,200,230,1) 100%);
+  background: -webkit-linear-gradient(-90deg, var(--LightSkyBlue20L) 0%, var(--LightSkyBlue) 35%, var(--LightSkyBlue10D) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px var(--LightSkyBlue50D);
 }
