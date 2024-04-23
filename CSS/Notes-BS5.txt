@@ -1,0 +1,236 @@
+/* bootstrap 5, default WA style loaded, no base font specified */
+
+/* FONTS */
+
+@font-face {
+  font-family: Nova Flat;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/novaflat/v24/QdVUSTc-JgqpytEbVeb0viFluW44JQ.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLmrETNbFtZCeGqgRXSe2DiLsip.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLgrETNbFtZCeGqgRXXS2LoKeqrgE8.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR0hWHXPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ5HLPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR0NX3XPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ73MPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR1pXnXPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ9nNPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* VARIABLES */
+
+.user-css,
+.user-css-presentation {
+
+  /* color names */
+  --DeepSpaceBlue: #1C2C40;
+  --PaleYellowWhite: #FFF7D6;
+  --LightOrange: #FFC244;
+  --LimeGreen1: #66EBB9;
+  --LightSkyBlue: #74E1FF;
+  --LimeGreen2: #5BF3CB;
+  --LightLemon: #FFFF8E;
+  --YellowOrange: #F3CC5B;
+  --DarkBlueGreen: #1C3F40;
+  --DarkBrown: #403A1C;
+  --LighterOrange: #FFDC5E;
+  --DarkRedBrown: #401F1C;
+  --LightBlueGrey: #CFE6FF;
+
+  /* fonts */
+  --txFont: Tomorrow, sans-serif;
+  --hdFont: Nova Flat, sans-serif;
+
+  /* font weights */
+  --normal: 400;
+  --semi-bold: 500;
+  --nearly-bold: 600;
+  --bold: 700;
+
+  /* font sizes */
+  --txSize: 1rem;
+
+  /* colors */
+  --main-bgcolor: var(--DeepSpaceBlue);
+  --main-text-color: var(--PaleYellowWhite);
+  --main-link-color: var(--LightOrange);
+  --main-hover-color: var(--LimeGreen1);
+  --main-h1-color: var(--LightSkyBlue);
+  --main-h2-color: var(--LimeGreen2);
+  --main-h3-color: var(--LightLemon);
+  --main-h4-color: var(--YellowOrange);
+  --main-h5-color: var(--LightSkyBlue);
+  --main-ipa-color: var(--LightBlueGrey);
+  --sidebar-bgcolor: var(--DarkBlueGreen);
+  --mouseover-bgcolor: var(--DarkRedBrown);
+
+  /* spacing */
+
+}
+
+/* PAGE */
+
+.user-css-presentation .page {
+  background: var(--main-bgcolor);
+}
+
+/* REGULAR TEXT */
+
+.user-css {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  color: var(--main-text-color);
+}
+
+.user-css a {
+  color: var(--main-link-color);
+}
+.user-css a:hover {
+  color: var(--main-hover-color);
+}
+
+/* HEADINGS */
+
+.user-css h1,
+.user-css h2,
+.user-css h3,
+.user-css h4,
+.user-css h5 {
+  font-family: var(--hdFont);
+  font-weight: var(--normal);
+  text-transform: none;
+}
+
+.user-css h1 {
+  color: var(--main-h1-color);
+}
+
+.user-css h2 {
+  color: var(--main-h2-color);
+}
+
+.user-css h3 {
+  color: var(--main-h3-color);
+}
+
+.user-css h4 {
+  color: var(--main-h4-color);
+}
+
+.user-css h5 {
+  color: var(--main-h5-color);
+}
+
+.user-css .article-content .pronunciation {
+  text-transform: none;
+  color: var(--main-ipa-color);
+}
+
+/* SIDEBAR */
+
+.user-css .panel.panel-default {
+  background: var(--sidebar-bgcolor);
+}
+
+/* MOUSEOVER */
+
+.user-css-presentation .tooltipster-sidetip .tooltipster-box {
+  background: var(--mouseover-bgcolor);
+}
+
+.user-css-presentation .tooltipster-sidetip .tooltipster-content {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  font-size: var(--txSize);
+  color: var(--main-text-color);
+}
+
+.user-css-presentation .tooltipster-content a {
+  color: var(--main-link-color);
+}
+.user-css-presentation .tooltipster-content a:hover {
+  color: var(--main-hover-color);
+}
+
+.user-css-presentation .tooltipster-content h2,
+.user-css-presentation .tooltipster-content h3,
+.user-css-presentation .tooltipster-content h4,
+.user-css-presentation .tooltipster-content h5 {
+  font-family: var(--hdFont);
+  font-weight: var(--normal);
+  text-transform: none;
+}
+.user-css-presentation .tooltipster-content h2 {
+  color: var(--main-h2-color);
+}
+.user-css-presentation .tooltipster-content h3 {
+  color: var(--main-h3-color);
+}
+.user-css-presentation .tooltipster-content h4 {
+  color: var(--main-h4-color);
+}
+.user-css-presentation .tooltipster-content h5 {
+  color: var(--main-h5-color);
+}
