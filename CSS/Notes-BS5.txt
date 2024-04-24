@@ -263,3 +263,8 @@
   font-size: .75em;
   letter-spacing: 0;
 }
+
+.user-css h3.world-currentdate {
+  font-size: 1.5rem;
+  letter-spacing: .1rem;
+}
