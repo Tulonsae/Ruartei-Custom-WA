@@ -136,8 +136,15 @@
 
 /* PAGE */
 
+/* setting the font size here fixes the home and category pages to regular text size */
 .user-css-presentation .page {
   background: var(--main-bgcolor);
+  font-size: var(--txSize);
+}
+
+/* setting the font size to inherit keeps the article pages to regular text size */
+.user-css .article-content {
+  font-size: inherit;
 }
 
 /* REGULAR TEXT */
