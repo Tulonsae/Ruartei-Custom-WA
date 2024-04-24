@@ -136,14 +136,15 @@
 
 /* PAGE */
 
-/* setting the font size here fixes the home and category pages to regular text size */
 .user-css-presentation .page {
   background: var(--main-bgcolor);
+  border: 5px solid var(--LightSkyBlue50D);
+  /* setting the font size here fixes the home and category pages to regular text size */
   font-size: var(--txSize);
 }
 
-/* setting the font size to inherit keeps the article pages to regular text size */
 .user-css .article-content {
+  /* setting the font size to inherit here keeps the article pages to regular text size */
   font-size: inherit;
 }
 
