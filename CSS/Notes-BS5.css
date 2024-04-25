@@ -259,7 +259,8 @@
 /* HOME PAGE TITLE */
 
 .user-css h1.world-title {
-  font-size: 4rem;
+  padding: 0;
+  font-size: 3rem;
   letter-spacing: .2rem;
   background: -webkit-linear-gradient(-90deg, var(--LightSkyBlue20L) 0%, var(--LightSkyBlue) 35%, var(--LightSkyBlue10D) 100%);
   -webkit-background-clip: text;
@@ -268,11 +269,17 @@
 }
 
 .user-css .world-subtitle {
-  font-size: .75em;
+  padding-top: .25em;
+  font-size: .5em;
+  line-height: 1.1em;
   letter-spacing: 0;
 }
 
-.user-css h3.world-currentdate {
-  font-size: 1.5rem;
+.user-css .world-subtitle small {
+  font-size: inherit;
+}
+
+.user-css h3.world-currentDate {
+  font-size: 1.25rem;
   letter-spacing: .1rem;
 }
