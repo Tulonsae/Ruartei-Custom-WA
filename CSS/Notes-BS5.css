@@ -110,6 +110,7 @@
   --LimeGreen2: #5BF3CB;
   --LightLemon: #FFFF8E;
   --YellowOrange: #F3CC5B;
+  --YellowOrange50D: #744D00;
   --DarkBlueGreen: #1C3F40;
   --DarkBrown: #403A1C;
   --LighterOrange: #FFDC5E;
@@ -262,10 +263,9 @@
   padding: 0;
   font-size: 3rem;
   letter-spacing: .2rem;
-  background: -webkit-linear-gradient(-90deg, var(--LightSkyBlue20L) 0%, var(--LightSkyBlue) 35%, var(--LightSkyBlue10D) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px var(--LightSkyBlue50D);
+  color: var(--YellowOrange);
+  -webkit-text-stroke: 1px var(--YellowOrange50D);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
 }
 
 .user-css .world-subtitle {
@@ -273,6 +273,9 @@
   font-size: .5em;
   line-height: 1.1em;
   letter-spacing: 0;
+  color: var(--LightSkyBlue);
+  -webkit-text-stroke: 1px var(--LightSkyBlue50D);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
 }
 
 .user-css .world-subtitle small {
