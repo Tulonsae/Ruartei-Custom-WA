@@ -189,29 +189,24 @@
 
 .user-css h1 {
   color: var(--main-h1-color);
-  -webkit-text-stroke: 1px var(--main-h1-stroke-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
 }
 
 .user-css h2 {
   color: var(--main-h2-color);
-  -webkit-text-stroke: 1px var(--main-h2-stroke-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
 }
 
 .user-css h3 {
   color: var(--main-h3-color);
-  -webkit-text-stroke: 1px var(--main-h3-stroke-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
 }
 
 .user-css h4 {
   color: var(--main-h4-color);
-  -webkit-text-stroke: 1px var(--main-h4-stroke-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
-/* text size is too small for the text stroke */
 .user-css h5 {
   color: var(--main-h5-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
@@ -220,12 +215,38 @@
 .user-css .article-content .pronunciation {
   text-transform: none;
   color: var(--main-ipa-color);
-  -webkit-text-stroke-width: 0;
   text-shadow: none;
+}
+
+/* use text stoke only on higher resolution devices */
+@media (min-resolution: 2dppx) {
+  .user-css h1 {
+    -webkit-text-stroke: 1px var(--main-h1-stroke-color);
+  }
+  .user-css h2 {
+    -webkit-text-stroke: 1px var(--main-h2-stroke-color);
+  }
+  .user-css h3 {
+    -webkit-text-stroke: 1px var(--main-h3-stroke-color);
+  }
+  .user-css h4 {
+    -webkit-text-stroke: 1px var(--main-h4-stroke-color);
+  }
+  /* h5 font size is too small for text stroke */
+  .user-css .article-content .pronunciation {
+    -webkit-text-stroke-width: 0;
+  }
+}
+
+/* CATEGORIES */
+
+.user-css .category-title-icon-wrapper {
+  display: inline;
 }
 
 /* CATEGORY LIST */
 
+.user-css .category-list,
 .user-css .category-list h5,
 .user-css .category-list a {
   color: var(--main-h4-color);
@@ -298,7 +319,6 @@
   font-size: 3rem;
   letter-spacing: .2rem;
   color: var(--YellowOrange);
-  -webkit-text-stroke: 1px var(--YellowOrange50D);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
 }
 
@@ -308,8 +328,17 @@
   line-height: 1.1em;
   letter-spacing: 0;
   color: var(--LightSkyBlue);
-  -webkit-text-stroke: 1px var(--LightSkyBlue50D);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
+}
+
+/* use text stoke only on higher resolution devices */
+@media (min-resolution: 2dppx) {
+  .user-css h1.world-title {
+    -webkit-text-stroke: 1px var(--YellowOrange50D);
+  }
+  .user-css .world-subtitle {
+    -webkit-text-stroke: 1px var(--LightSkyBlue50D);
+  }
 }
 
 .user-css .world-subtitle small {
