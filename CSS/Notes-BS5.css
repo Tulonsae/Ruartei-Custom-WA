@@ -107,9 +107,14 @@
   --LightSkyBlue20L: #A7FFFF;
   --LightSkyBlue10D: #5BC8E6;
   --LightSkyBlue50D: #006280;
-  --LimeGreen2: #5BF3CB;
+  --LimeGreen: #5BF3CB;
+  --LimeGreen50D: #00744C;
   --LightLemon: #FFFF8E;
+  --LightLemon50D: #80800F;
   --YellowOrange: #F3CC5B;
+  --YellowOrange10L: #FFE675;
+  --YellowOrange20L: #FFFF8E;
+  --YellowOrange30L: #FFFFA8;
   --YellowOrange50D: #744D00;
   --DarkBlueGreen: #1C3F40;
   --DarkBrown: #403A1C;
@@ -123,10 +128,16 @@
   --main-link-color: var(--LightOrange);
   --main-hover-color: var(--LimeGreen1);
   --main-h1-color: var(--LightSkyBlue);
-  --main-h2-color: var(--LimeGreen2);
+  --main-h1-stroke-color: var(--LightSkyBlue50D);
+  --main-h2-color: var(--LimeGreen);
+  --main-h2-stroke-color: var(--LimeGreen50D);
   --main-h3-color: var(--LightLemon);
+  --main-h3-stroke-color: var(--LightLemon50D);
   --main-h4-color: var(--YellowOrange);
+  --main-h4-stroke-color: var(--YellowOrange50D);
+  --main-h4-hover-color: var(--YellowOrange30L);
   --main-h5-color: var(--LightSkyBlue);
+  --main-h5-stroke-color: var(--LightSkyBlue50D);
   --main-ipa-color: var(--LightBlueGrey);
   --sidebar-bgcolor: var(--DarkBlueGreen);
   --mouseover-bgcolor: var(--DarkRedBrown);
@@ -178,27 +189,50 @@
 
 .user-css h1 {
   color: var(--main-h1-color);
+  -webkit-text-stroke: 1px var(--main-h1-stroke-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
 }
 
 .user-css h2 {
   color: var(--main-h2-color);
+  -webkit-text-stroke: 1px var(--main-h2-stroke-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
 }
 
 .user-css h3 {
   color: var(--main-h3-color);
+  -webkit-text-stroke: 1px var(--main-h3-stroke-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
 }
 
 .user-css h4 {
   color: var(--main-h4-color);
+  -webkit-text-stroke: 1px var(--main-h4-stroke-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
+/* text size is too small for the text stroke */
 .user-css h5 {
   color: var(--main-h5-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
 .user-css .article-content .pronunciation {
   text-transform: none;
   color: var(--main-ipa-color);
+  -webkit-text-stroke-width: 0;
+  text-shadow: none;
+}
+
+/* CATEGORY LIST */
+
+.user-css .category-list h5,
+.user-css .category-list a {
+  color: var(--main-h4-color);
+  text-decoration: none;
+}
+.user-css .category-list a:hover {
+  color: var(--main-h4-hover-color);
 }
 
 /* SIDEBAR */
