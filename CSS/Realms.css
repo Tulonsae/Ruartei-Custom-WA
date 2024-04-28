@@ -243,6 +243,7 @@
 }
 
 .user-css .article-subheading {
+  padding-left: 1.25rem;
   font-size: var(--h3Size);
   line-height: var(--lhTitle);
 }
