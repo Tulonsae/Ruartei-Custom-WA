@@ -190,6 +190,17 @@
   color: var(--main-hover-color);
 }
 
+
+.user-css p,
+.user-css .paragraph-indent {
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+
+.user-css .paragraph-indent {
+  text-indent: 1.5em;
+}
+
 /* HEADINGS */
 
 .user-css h1,
