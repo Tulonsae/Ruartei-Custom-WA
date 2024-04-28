@@ -96,6 +96,15 @@
 
   /* font sizes */
   --txSize: 1rem;
+  --h1Size: 2.5rem;
+  --h2Size: 2rem;
+  --h3Size: 1.75rem;
+  --h4Size: 1.5rem;
+  --h5Size: 1.25rem;
+  --smSize: .6em;
+
+  /* line heights */
+  --lhTitle: 1.2em;
 
   /* color names */
   --DeepSpaceBlue: #1C2C40;
@@ -194,35 +203,48 @@
 }
 
 .user-css h1 {
+  font-size: var(--h1Size);
+  line-height: var(--lhTitle);
   color: var(--main-h1-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
 }
 
 .user-css h2 {
+  font-size: var(--h2Size);
   color: var(--main-h2-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
   border-bottom: 2px solid var(--main-h2-line-color);
 }
 
 .user-css h3 {
+  font-size: var(--h3Size);
   color: var(--main-h3-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
 }
 
 .user-css h4 {
+  font-size: var(--h4Size);
   color: var(--main-h4-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
 .user-css h5 {
+  font-size: var(--h5Size);
   color: var(--main-h5-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
 .user-css .article-content .pronunciation {
+  font-size: var(--smSize);
+  line-height: var(--lhTitle);
   text-transform: none;
   color: var(--main-ipa-color);
   text-shadow: none;
+}
+
+.user-css .article-subheading {
+  font-size: var(--h3Size);
+  line-height: var(--lhTitle);
 }
 
 /* use text stoke only on higher resolution devices */
