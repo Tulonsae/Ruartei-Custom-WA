@@ -117,10 +117,13 @@
   --YellowOrange30L: #FFFFA8;
   --YellowOrange50D: #744D00;
   --DarkBlueGreen: #1C3F40;
+  --DarkBlueGreen10D: #032627;
   --DarkBrown: #403A1C;
   --LighterOrange: #FFDC5E;
   --DarkRedBrown: #401F1C;
+  --DarkRedBrown10D: #270603;
   --LightBlueGrey: #CFE6FF;
+  --Sandal: #a08264;
 
   /* colors */
   --main-bgcolor: var(--DeepSpaceBlue);
@@ -131,6 +134,7 @@
   --main-h1-stroke-color: var(--LightSkyBlue50D);
   --main-h2-color: var(--LimeGreen);
   --main-h2-stroke-color: var(--LimeGreen50D);
+  --main-h2-line-color: var(--Sandal);
   --main-h3-color: var(--LightLemon);
   --main-h3-stroke-color: var(--LightLemon50D);
   --main-h4-color: var(--YellowOrange);
@@ -140,7 +144,9 @@
   --main-h5-stroke-color: var(--LightSkyBlue50D);
   --main-ipa-color: var(--LightBlueGrey);
   --sidebar-bgcolor: var(--DarkBlueGreen);
+  --sidebar-inset-shadow-color: var(--DarkBlueGreen10D);
   --mouseover-bgcolor: var(--DarkRedBrown);
+  --mouseover-inset-shadow-color: var(--DarkRedBrown10D);
 
   /* spacing */
 
@@ -195,6 +201,7 @@
 .user-css h2 {
   color: var(--main-h2-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
+  border-bottom: 2px solid var(--main-h2-line-color);
 }
 
 .user-css h3 {
@@ -259,13 +266,19 @@
 /* SIDEBAR */
 
 .user-css .panel.panel-default {
+  margin-bottom: 12px;
   background: var(--sidebar-bgcolor);
+  border: 2px solid var(--main-h2-line-color);
+  box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
 }
 
 /* MOUSEOVER */
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-box {
   background: var(--mouseover-bgcolor);
+  border: 2px solid var(--main-h2-line-color);
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
 }
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-content {
@@ -292,15 +305,20 @@
 }
 .user-css-presentation .tooltipster-content h2 {
   color: var(--main-h2-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
+  border-bottom: 2px solid var(--main-h2-line-color);
 }
 .user-css-presentation .tooltipster-content h3 {
   color: var(--main-h3-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
 }
 .user-css-presentation .tooltipster-content h4 {
   color: var(--main-h4-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 .user-css-presentation .tooltipster-content h5 {
   color: var(--main-h5-color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
 }
 
 /* WHITE LABEL */
