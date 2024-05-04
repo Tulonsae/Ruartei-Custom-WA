@@ -550,6 +550,13 @@
                             'locale': locale
                         } only %}
 
+                        {# added by WA, but not available in mar-24 template zip #}
+                        {% include 'PresentationBundle:Helpers:noslugrelationlist.html.twig' with {
+                            'value': article.historicEntries,
+                            'title':'article.related_historical_events',
+                            'locale': locale
+                        } only %}
+
                     </div> {# END JEK-KEY-FACTS-CONTENT #}
 
                     {{ article.sidepanelcontent|BBcode }}
