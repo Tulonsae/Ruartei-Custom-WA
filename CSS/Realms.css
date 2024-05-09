@@ -308,6 +308,12 @@
   box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
 }
 
+/* ARTICLE TOC */
+
+.user-css div.articletoc {
+  border: 0px;
+}
+
 /* MOUSEOVER */
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-box {
