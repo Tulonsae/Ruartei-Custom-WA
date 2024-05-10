@@ -139,6 +139,7 @@
   --main-text-color: var(--PaleYellowWhite);
   --main-link-color: var(--LightOrange);
   --main-hover-color: var(--LimeGreen1);
+  --main-mark-color: var(--LightSkyBlue);
   --main-h1-color: var(--LightSkyBlue);
   --main-h1-stroke-color: var(--LightSkyBlue50D);
   --main-h2-color: var(--LimeGreen);
@@ -190,7 +191,6 @@
   color: var(--main-hover-color);
 }
 
-
 .user-css p,
 .user-css .paragraph-indent {
   margin-top: .5em;
@@ -199,6 +199,12 @@
 
 .user-css .paragraph-indent {
   text-indent: 1.5em;
+}
+
+.user-css .article-content mark {
+  background: var(--main-bgcolor);
+  padding: 0;
+  color: var(--main-mark-color);
 }
 
 /* HEADINGS */
@@ -214,7 +220,7 @@
 }
 
 .user-css h1 {
-  margin-top: .25em;
+  margin-top: .1em;
   padding-top: 0;
   font-size: var(--h1Size);
   line-height: var(--lhTitle);
