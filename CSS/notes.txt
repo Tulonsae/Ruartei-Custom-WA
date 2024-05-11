@@ -1,4 +1,4 @@
-From nnie
+From nnie 
 On chrome-based browsers you can temporarily delete the code that hides [the pop-up] 
 Right click the tooltip and go to developer tools > inspect element.
 Find a tab called "Event Listeners" and open it
