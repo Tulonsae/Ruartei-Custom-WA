@@ -327,6 +327,19 @@
   text-shadow: none;
 }
 
+/* WORLD MENU POPUP */
+
+.user-css-presentation .page-world-homepage #world-category-content .article-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 /* MOUSEOVER */
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-box {
