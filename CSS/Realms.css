@@ -320,6 +320,13 @@
   border: 0px;
 }
 
+/* ARTICLE BLOCKS */
+
+.user-css .article-panel .details .heading {
+  font-weight: var(--nearly-bold);
+  text-shadow: none;
+}
+
 /* MOUSEOVER */
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-box {
@@ -327,6 +334,26 @@
   border: 2px solid var(--main-h2-line-color);
   border-radius: 10px;
   box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
+}
+.user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-background,
+.user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-border,
+.user-css-presentation .tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: var(--main-h2-line-color);
+}
+.user-css-presentation .tooltipster-base.tooltipster-bottom .tooltipster-arrow-background,
+.user-css-presentation .tooltipster-base.tooltipster-bottom .tooltipster-arrow-border,
+.user-css-presentation .tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+  border-bottom-color: var(--main-h2-line-color);
+}
+.user-css-presentation .tooltipster-base.tooltipster-left .tooltipster-arrow-background,
+.user-css-presentation .tooltipster-base.tooltipster-left .tooltipster-arrow-border,
+.user-css-presentation .tooltip.bs-tooltip-start .tooltip-arrow::before {
+  border-left-color: var(--main-h2-line-color);
+}
+.user-css-presentation .tooltipster-base.tooltipster-right .tooltipster-arrow-background,
+.user-css-presentation .tooltipster-base.tooltipster-right .tooltipster-arrow-border,
+.user-css-presentation .tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: var(--main-h2-line-color);
 }
 
 .user-css-presentation .tooltipster-sidetip .tooltipster-content {
