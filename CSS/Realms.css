@@ -155,8 +155,10 @@
   --main-ipa-color: var(--LightBlueGrey);
   --sidebar-bgcolor: var(--DarkBlueGreen);
   --sidebar-inset-shadow-color: var(--DarkBlueGreen10D);
+  --sidebar-outset-shadow-color: var(--DarkBlueGreen10D);
   --mouseover-bgcolor: var(--DarkRedBrown);
   --mouseover-inset-shadow-color: var(--DarkRedBrown10D);
+  --mouseover-outset-shadow-color: black;
 
   /* spacing */
 
@@ -311,7 +313,7 @@
   margin-bottom: 12px;
   background: var(--sidebar-bgcolor);
   border: 2px solid var(--main-h2-line-color);
-  box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
+  box-shadow: 0px 1px 10px 2px var(--sidebar-outset-shadow-color), inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
 }
 
 /* ARTICLE TOC */
@@ -346,7 +348,7 @@
   background: var(--mouseover-bgcolor);
   border: 2px solid var(--main-h2-line-color);
   border-radius: 10px;
-  box-shadow: 0px 1px 10px 2px black, inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
+  box-shadow: 0px 1px 10px 2px var(--mouseover-outset-shadow-color), inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
 }
 .user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-background,
 .user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-border,
