@@ -295,6 +295,12 @@
   display: inline;
 }
 
+/* remove the line above the category articles block */
+.user-css.jek-no-article-blocks-heading-line .category-articles h2 {
+  border: 0;
+  padding-top: 0;
+}
+
 /* CATEGORY LIST */
 
 .user-css .category-list,
