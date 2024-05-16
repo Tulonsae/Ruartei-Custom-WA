@@ -209,6 +209,13 @@
   color: var(--main-mark-color);
 }
 
+/* TABLES */
+
+.user-css td {
+  -moz-hypens: unset;
+  hyphens: unset;
+}
+
 /* HEADINGS */
 
 .user-css h1,
