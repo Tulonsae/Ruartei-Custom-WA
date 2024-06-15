@@ -1,3 +1,8 @@
+Buzzard
+How to control left and right side timelines
+.horae-list-history-dialog-ultra-wrapper:has(.horae-list-history-dialog-arrow-right) .horae-list-history-dialog
+same thing with arrow-left
+
 From nnie 
 On chrome-based browsers you can temporarily delete the code that hides [the pop-up] 
 Right click the tooltip and go to developer tools > inspect element.
@@ -209,4 +214,20 @@ having images be desaturated until hovered is pretty simple.
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+}
+
+From Han:
+I was wondering if there was a code to change the color of the background of the World Codex list that pops up on the left hand side, I want mine to be black and have the header gold and the text white.
+.user-css-presentation #world-navigation-sidebar {
+  background: var(--background-colour);
+}
+Similarly, the button that opens it can be changed with:
+.user-css-presentation .world-navigation-palette-trigger {
+  background: var(--background-colour);
+  color: var(--text-colour-secondary);
+}
+
+.user-css-presentation .world-navigation-palette-trigger:hover {
+  background: var(--background-colour);
+  color: var(--text-colour-secondary-hover);
 }
