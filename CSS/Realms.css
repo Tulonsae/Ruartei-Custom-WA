@@ -188,6 +188,7 @@
 
 .user-css a {
   color: var(--main-link-color);
+  text-decoration: none;
 }
 .user-css a:hover {
   color: var(--main-hover-color);
@@ -422,6 +423,11 @@
 .user-css-presentation .tooltipster-content h5 {
   color: var(--main-h5-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
+}
+
+/* fix - do not break after spanned icons */
+.user-css-presentation .tooltipster-content span {
+  display: inline-flex;
 }
 
 /* WORLD HAMBURGER */
