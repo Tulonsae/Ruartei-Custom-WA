@@ -192,14 +192,25 @@
                             </div>
                         {% endif %}                        
 
-{# JEK BEGIN UNUSED/IGNORED 
-JEK END UNUSED/IGNORED #}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.vehiclesPresent,
-                            'title':'vehicle.location.reflexive.name',
-                            'locale': locale
-                        } only %}
+                        {# Warp Paths #}
+                        {% if usermetadata.warpPaths|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Warp Paths</div>
+                                <ul>
+                                {% for wp in usermetadata.warpPaths %}
+                                    {% set wpData = wp|split(':') %}
+                                    <li>
+                                    {% if wpData[2]|length > 0 %}
+                                        {% set starSysBBcode = "@["~wpData[0]~"](location:"~wpData[2]~")" %}
+                                        {{ starSysBBcode|BBcode }}:
+                                    {% else %}
+                                        {{ wpData[0] }}:
+                                    {% endif %}
+                                    {{ wpData[1] }}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.children,
@@ -210,6 +221,22 @@ JEK END UNUSED/IGNORED #}
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
                             'list': article.includedOrganizations,
                             'title': 'location.included_organizations',
+                            'locale': locale
+                        } only %}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.ethnicities,
+                            'title':'ethnicity.locations.reflexive.name',
+                            'locale': locale
+                        } only %}
+
+{# JEK BEGIN UNUSED/IGNORED 
+JEK END UNUSED/IGNORED #}
+{# need to look through the rest of these and see how/if they apply #}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehiclesPresent,
+                            'title':'vehicle.location.reflexive.name',
                             'locale': locale
                         } only %}
 
@@ -229,12 +256,6 @@ JEK END UNUSED/IGNORED #}
                             'value': article.organization,
                             'title':'location.owning_organization',
                             'article': article,'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.ethnicities,
-                            'title':'ethnicity.locations.reflexive.name',
-                            'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
