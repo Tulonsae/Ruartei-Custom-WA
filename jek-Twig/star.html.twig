@@ -104,37 +104,100 @@
 
                 <div class="panel-body card-body">
 
-                    {{ article.sidepanelcontenttop|BBcode }}
+                    {# BEGIN JEK-KEY-FACTS #}
+                    <div class="jek-key-facts">
 
-                    <div>
+                        <h3 class="jek-key-facts-heading">Key Facts</h3>
 
-{# JEK BEGIN UNUSED/IGNORED 
-JEK END UNUSED/IGNORED #}
-
+                        {# Alternate Names #}
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
                             'value': article.alternativename,
                             'title':'location.aternative_names',
                             'locale': locale
                         } only %}
 
-                        {% if article.type %}
-                            {% include 'PresentationBundle:Helpers:value.html.twig' with {
-                                'value': article.type.name,
-                                'title':'location.type',
-                                'locale': locale
-                            } only %}
-                        {% endif %}
-
-                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
-                            'list': article.vehiclesPresent,
-                            'title':'vehicle.location.reflexive.name',
+                        {# Status #}
+                        {% set jekStatus = usermetadata.status %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': jekStatus,
+                            'title': 'Status',
                             'locale': locale
                         } only %}
 
+                        {# Type #}
+                        {% set jekType = usermetadata.spectralType~" "~article.type.name %}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': jekType|trim,
+                            'title':'location.type',
+                            'locale': locale
+                        } only %}
+
+                        {# Coordinates #}
+                        {% include 'PresentationBundle:Helpers:value.html.twig' with {
+                            'value': usermetadata.coordinates,
+                            'title': 'Coordinates',
+                            'locale': locale
+                        } only %}
+
+                        {# Member Of #}
+                        {% if usermetadata.memberOf|length > 0 %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Member Of</div>
+                                <ul>
+                                {% for item in usermetadata.memberOf%}
+                                    {% set memberData = item|split(':') %}
+                                    {% if memberData[1]|length > 0 %}
+                                        {% set memberBBcode = "@["~memberData[0]~"](organization:"~memberData[1]~")" %}
+                                        <li>{{ memberBBcode|BBcode }}</li>
+                                    {% else %}
+                                        <li>{{ memberData[0] }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        {# Location Under #}
                         {% include 'PresentationBundle:Helpers:relation.html.twig' with {
                             'value': article.parent,
                             'title':'location.location_under',
                             'article': article,
+                            'locale': locale
+                        } only %}
+
+                        {# Owner/Ruler/LeaderType #}
+                        {% if usermetadata.leaderType|length > 0 %}
+                            {% set jekTitle = usermetadata.leaderType %}
+                        {% else %}
+                            {% set jekTitle = 'location.owner_ruler' %}
+                        {% endif %}
+                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
+                            'value': article.person,
+                            'title': jekTitle,
+                            'article': article,'locale': locale
+                        } only %}
+
+                        {# Key Features #}
+                        {# Note: Sidebar Content Panel Top may only be used for Key Features #}
+                        {% if article.sidepanelcontenttop|length > 0 %}
+                            {% set features = article.sidepanelcontenttop|split('\n') %}
+                            <div class="jek-key-facts-info">
+                                <div class="jek-key-facts-label">Key Features</div>
+                                <ul>
+                                {% for line in features %}
+                                    {% set item = line|trim %}
+                                        <li>{{ item|BBcode }}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}                        
+
+{# JEK BEGIN UNUSED/IGNORED 
+JEK END UNUSED/IGNORED #}
+
+                        {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
+                            'list': article.vehiclesPresent,
+                            'title':'vehicle.location.reflexive.name',
                             'locale': locale
                         } only %}
 
@@ -148,12 +211,6 @@ JEK END UNUSED/IGNORED #}
                             'list': article.includedOrganizations,
                             'title': 'location.included_organizations',
                             'locale': locale
-                        } only %}
-
-                        {% include 'PresentationBundle:Helpers:relation.html.twig' with {
-                            'value': article.person,
-                            'title':'location.owner_ruler',
-                            'article': article,'locale': locale
                         } only %}
 
                         {% include 'PresentationBundle:Helpers:relationlist.html.twig' with {
@@ -243,7 +300,7 @@ JEK END UNUSED/IGNORED #}
                             'title':'Related Materials'
                         } only %}
 
-                    </div>
+                    </div> {# END JEK-KEY-FACTS #}
 
                     {{ article.sidepanelcontent|BBcode }}
 

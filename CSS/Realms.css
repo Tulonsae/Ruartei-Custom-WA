@@ -101,6 +101,7 @@
   --h3Size: 1.75rem;
   --h4Size: 1.5rem;
   --h5Size: 1.25rem;
+  --cpSize: .9em;
   --smSize: .6em;
 
   /* line heights */
@@ -174,8 +175,12 @@
 }
 
 .user-css .article-content {
-  /* setting the font size to inherit here keeps the article pages to regular text size */
+  /* setting the font size to inherit here keeps the article pages set to regular text size */
   font-size: inherit;
+}
+
+.user-css .article-content-left {
+  margin-bottom: 1rem;
 }
 
 /* REGULAR TEXT */
@@ -208,6 +213,15 @@
   background: var(--main-bgcolor);
   padding: 0;
   color: var(--main-mark-color);
+}
+
+.user-css ul,
+.user-css ol {
+  margin-bottom: 0;
+}
+
+.user-css .artist-credits {
+  color: revert;
 }
 
 /* TABLES */
@@ -243,24 +257,28 @@
   color: var(--main-h2-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
   border-bottom: 2px solid var(--main-h2-line-color);
+  padding-top: calc(var(--h2Size) / 2);
 }
 
 .user-css h3 {
   font-size: var(--h3Size);
   color: var(--main-h3-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
+  padding-top: calc(var(--h3Size) / 2);
 }
 
 .user-css h4 {
   font-size: var(--h4Size);
   color: var(--main-h4-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
+  padding-top: calc(var(--h4Size) / 2);
 }
 
 .user-css h5 {
   font-size: var(--h5Size);
   color: var(--main-h5-color);
   text-shadow: 1px 1px 0 black, 2px 2px 0 black;
+  padding-top: calc(var(--h5Size) / 2);
 }
 
 .user-css .article-content .pronunciation {
@@ -311,6 +329,10 @@
 
 /* CATEGORY LIST */
 
+.user-css .category-list h5 {
+  padding-top: revert;
+}
+
 .user-css .category-list,
 .user-css .category-list h5,
 .user-css .category-list a {
@@ -319,20 +341,6 @@
 }
 .user-css .category-list a:hover {
   color: var(--main-h4-hover-color);
-}
-
-/* SIDEBAR */
-
-.user-css .panel.panel-default {
-  margin-bottom: 12px;
-  background: var(--sidebar-bgcolor);
-  border: 2px solid var(--main-h2-line-color);
-  box-shadow: 0px 1px 10px 2px var(--sidebar-outset-shadow-color), inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
-}
-
-.user-css .panel-default ul[class|=list] {
-  list-style: disc;
-  padding-left: 1.5em;
 }
 
 /* ARTICLE TOC */
@@ -346,6 +354,12 @@
 .user-css .article-panel .details .heading {
   font-weight: var(--nearly-bold);
   text-shadow: none;
+}
+
+/* WORLD MENU */
+
+.user-css .world-menu h5 {
+  padding-top: revert;
 }
 
 /* WORLD MENU POPUP */
@@ -546,4 +560,52 @@
 .user-css h3.world-currentDate {
   font-size: 1.25rem;
   letter-spacing: .1rem;
+}
+
+/* SIDEBAR */
+
+.user-css .panel.panel-default {
+  margin-bottom: 12px;
+  background: var(--sidebar-bgcolor);
+  border: 2px solid var(--main-h2-line-color);
+  box-shadow: 0px 1px 10px 2px var(--sidebar-outset-shadow-color), inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
+}
+
+/* JEK KEY FACTS (SIDEBAR) */
+
+.user-css .jek-key-facts-heading {
+  padding-top: 0;
+  margin-top: calc(var(--h3Size) / 4);
+  margin-bottom: calc(var(--h3Size) / 2);
+}
+
+.user-css .jek-key-facts-subheading {
+}
+
+.user-css .jek-key-facts-label,
+.user-css .jek-key-facts .section-heading {
+  font-weight: var(--nearly-bold);
+}
+
+.user-css .jek-key-facts-info,
+.user-css .jek-key-facts .section-payload {
+  margin-bottom: calc(var(--txSize) / 2);
+}
+
+.user-css .jek-key-facts ul {
+  padding-left: 1.5em;
+}
+/* need to remove the -5px from the last li */
+.user-css .jek-key-facts ul li:last-of-type {
+  margin-bottom: 0;
+}
+/* the padding here needs to be padding from ul minus padding from indent */
+.user-css .jek-key-facts .section-payload ul {
+  list-style: disc;
+  padding-left: 1em;
+}
+
+.user-css .panel .jek-key-facts-indent,
+.user-css .jek-key-facts .section-payload {
+  padding-left: .5em;
 }
