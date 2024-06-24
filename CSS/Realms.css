@@ -189,6 +189,11 @@
   margin-bottom: 1rem;
 }
 
+/* turn off all world editor buttons */
+.user-css a.world-editor-link {
+  display: none !important;
+}
+
 /* REGULAR TEXT */
 
 .user-css {
