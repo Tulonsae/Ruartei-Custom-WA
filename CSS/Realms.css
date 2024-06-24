@@ -189,6 +189,11 @@
   margin-bottom: 1rem;
 }
 
+.user-css .artist-credits {
+  font-size: var(--cpSize);
+  color: revert;
+}
+
 /* turn off all world editor buttons */
 .user-css a.world-editor-link {
   display: none !important;
@@ -215,7 +220,6 @@
   margin-top: .5em;
   margin-bottom: 0;
 }
-
 .user-css .paragraph-indent {
   text-indent: 1.5em;
 }
@@ -231,8 +235,8 @@
   margin-bottom: 0;
 }
 
-.user-css .artist-credits {
-  color: revert;
+.user-css .dropcap {
+  /* TBD */
 }
 
 /* TABLES */
