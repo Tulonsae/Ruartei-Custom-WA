@@ -137,6 +137,7 @@
 
   /* colors */
   --main-bgcolor: var(--DeepSpaceBlue);
+  --main-border-color: var(--LightSkyBlue50D);
   --main-text-color: var(--PaleYellowWhite);
   --main-link-color: var(--LightOrange);
   --main-hover-color: var(--LimeGreen1);
@@ -169,9 +170,14 @@
 
 .user-css-presentation .page {
   background: var(--main-bgcolor);
-  border: 5px solid var(--LightSkyBlue50D);
+  border: 5px solid var(--main-border-color);
+  border-radius: 15px;
   /* setting the font size here fixes the home and category pages to regular text size */
   font-size: var(--txSize);
+}
+.user-css .cover img {
+  border-bottom: 3px solid var(--main-border-color);
+  border-radius: 15px 15px 0px 0px;
 }
 
 .user-css .article-content {
@@ -549,7 +555,7 @@
     -webkit-text-stroke: 1px var(--YellowOrange50D);
   }
   .user-css .world-subtitle {
-    -webkit-text-stroke: 1px var(--LightSkyBlue50D);
+    -webkit-text-stroke: 1px var(--main-h1-stroke-color);
   }
 }
 
