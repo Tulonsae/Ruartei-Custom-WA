@@ -447,11 +447,15 @@
 /* NAV SIDEBAR */
 
 .user-css-presentation #world-navigation-sidebar {
+  height: auto;
+}
+
+.user-css-presentation #world-navigation-sidebar.user-css.page.sidebar-panel-open {
   background: var(--navsidebar-bgcolor);
   border: 2px solid var(--main-h2-line-color);
+  border-radius: 15px;
   box-shadow: 0px 1px 10px 2px var(--navsidebar-outset-shadow-color), inset 0px 0px 10px 0px var(--navsidebar-inset-shadow-color);
   scrollbar-color: var(--navscrollbar-color) var(--navsidebar-inset-shadow-color);
-  overflow-clip-margin: inherit;
 }
 
 /* MOUSEOVER */
@@ -459,9 +463,10 @@
 .user-css-presentation .tooltipster-sidetip .tooltipster-box {
   background: var(--mouseover-bgcolor);
   border: 2px solid var(--main-h2-line-color);
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0px 1px 10px 2px var(--mouseover-outset-shadow-color), inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
   scrollbar-color: var(--mouseover-color) var(--mouseover-inset-shadow-color);
+  overflow: clip;
   overflow-clip-margin: inherit;
 }
 .user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-background,
@@ -556,6 +561,7 @@
   }
   .breadcrumb-card {
     background-color: var(--breadcrumb-bgcolor);
+    border-radius: 15px;
     border: 2px solid var(--main-h2-line-color);
     box-shadow: 0px 1px 10px 2px var(--breadcrumb-outset-shadow-color), inset 0px 0px 10px 0px var(--breadcrumb-inset-shadow-color);
     div[class|=card] {
@@ -666,6 +672,7 @@
 .user-css .panel.panel-default {
   margin-bottom: 12px;
   background: var(--sidebar-bgcolor);
+  border-radius: 15px;
   border: 2px solid var(--main-h2-line-color);
   box-shadow: 0px 1px 10px 2px var(--sidebar-outset-shadow-color), inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
 }
