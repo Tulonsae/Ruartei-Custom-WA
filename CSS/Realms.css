@@ -243,9 +243,18 @@
   margin-bottom: 0;
 }
 
+/* DROPCAPS */
 .user-css .dropcap {
-  /* TBD */
 }
+
+/* BLOCKQUOTES */
+
+.user-css blockquote {
+}
+
+/* SEARCH */
+
+/* STORYTELLER SEED */
 
 /* TABLES */
 
@@ -484,24 +493,6 @@
   display: inline-flex;
 }
 
-/* WORLD HAMBURGER */
-
-/* moving this up so it doesn't cover breadcrumbs on mobile */
-.user-css-presentation .world-navigation-palette-trigger {
-  top: 9rem;
-}
-
-/* WHITE LABEL */
-
-/* sideways-lr not supported on Safari, vertical-lr and verical-rl both act like sideways-rl */
-.user-css.widget-white-label-mark {
-  padding: 2px;
-  writing-mode: vertical-lr;
-}
-.user-css.widget-white-label-mark ul {
-  display: none;
-}
-
 /* BREADCRUMBS */
 
 /* breadcrumbs contain the world link so back to world is redundant */
@@ -512,15 +503,15 @@
 .user-css .breadbox {
   margin-top: 1em;
   margin-bottom: 1em;
-}
-.user-css .breadbox hr {
-  margin-top: 1em;
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--LightBlueGrey);
-  border-top: unset;
-}
-.user-css .breadcrumb {
-  margin: 0;
+  hr {
+    margin-top: 1em;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--LightBlueGrey);
+    border-top: unset;
+  }
+  .breadcrumb {
+    margin: 0;
+  }
 }
 
 /* for category page */
@@ -557,6 +548,28 @@
 }
 .user-css .article-title-author {
   order: 3;
+}
+
+/* breadcrumb pulldown */
+.user-css .breadcrumb-card {
+}
+
+/* WORLD HAMBURGER */
+
+/* moving this up so it doesn't cover breadcrumbs on mobile */
+.user-css-presentation .world-navigation-palette-trigger {
+  top: 9rem;
+}
+
+/* WHITE LABEL */
+
+/* sideways-lr not supported on Safari, vertical-lr and verical-rl both act like sideways-rl */
+.user-css.widget-white-label-mark {
+  padding: 2px;
+  writing-mode: vertical-lr;
+}
+.user-css.widget-white-label-mark ul {
+  display: none;
 }
 
 /* HOME PAGE TITLE */
