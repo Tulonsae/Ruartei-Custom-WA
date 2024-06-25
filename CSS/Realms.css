@@ -109,7 +109,16 @@
 
   /* color names */
   --DeepSpaceBlue: #1C2C40;
+  --DeepSpaceBlue10L: #36465A;
+  --DeepSpaceBlue10D: #031327;
+  --DeepSpaceBlue20D: #00000D;
   --PaleYellowWhite: #FFF7D6;
+  --PaleYellowWhite10L: #FFFFF0;
+  --PaleYellowWhite10D: #E6DEBD;
+  --PaleYellowWhite20D: #CCC4A3;
+  --PaleYellowWhite30D: #B3AB8A;
+  --PaleYellowWhite40D: #999170;
+  --PaleYellowWhite50D: #807857;
   --LightOrange: #FFC244;
   --LimeGreen1: #66EBB9;
   --LightSkyBlue: #74E1FF;
@@ -172,6 +181,11 @@
   --breadcrumb-bgcolor: var(--DarkBrown);
   --breadcrumb-inset-shadow-color: var(--DarkBrown10D);
   --breadcrumb-outset-shadow-color: var(--Black60);
+  --search-bgcolor: var(--PaleYellowWhite10L);
+  --search-dropdown-muted-color: var(--DeepSpaceBlue10L);
+  --search-dropdown-text-color: var(--DeepSpaceBlue10D);
+  --search-dropdown-active-color: var(--DeepSpaceBlue20D);
+  --search-dropdown-active-bgcolor: var(--PaleYellowWhite10D);
 
   /* spacing */
 
@@ -256,6 +270,26 @@
 }
 
 /* SEARCH */
+
+.user-css .search-form {
+  font-size: var(--txSize);
+  .typeahead-input, ul.typeahead.dropdown-menu {
+    background-color: var(--search-bgcolor);
+  }
+  .typeahead-input {
+    color: var(--search-dropdown-muted-color);
+  }
+  .dropdown-item .text-muted {
+    color: var(--search-dropdown-muted-color) !important;
+  }
+  a.dropdown-item {
+    color: var(--search-dropdown-text-color);
+  }
+  .active a.dropdown-item {
+    background-color: var(--search-dropdown-active-bgcolor);
+    color: var(--search-dropdown-active-color);
+  }
+}
 
 /* STORYTELLER SEED */
 
