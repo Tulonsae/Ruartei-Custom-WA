@@ -128,12 +128,15 @@
   --YellowOrange50D: #744D00;
   --DarkBlueGreen: #1C3F40;
   --DarkBlueGreen10D: #032627;
-  --DarkBrown: #403A1C;
+  --DarkBrown: #322516;
+  --DarkBrown10L: #4C3F30;
+  --DarkBrown10D: #190C00;
   --LighterOrange: #FFDC5E;
   --DarkRedBrown: #401F1C;
   --DarkRedBrown10D: #270603;
   --LightBlueGrey: #CFE6FF;
   --Sandal: #a08264;
+  --Black60: #00000060;
 
   /* colors */
   --main-bgcolor: var(--DeepSpaceBlue);
@@ -160,7 +163,11 @@
   --sidebar-outset-shadow-color: var(--DarkBlueGreen10D);
   --mouseover-bgcolor: var(--DarkRedBrown);
   --mouseover-inset-shadow-color: var(--DarkRedBrown10D);
-  --mouseover-outset-shadow-color: black;
+  --mouseover-outset-shadow-color: var(--Black60);
+  --navsidebar-bgcolor: var(--DarkBrown);
+  --navsidebar-inset-shadow-color: var(--DarkBrown10D);
+  --navsidebar-outset-shadow-color: var(--Black60);
+  --navscrollbar-color: var(--YellowOrange);
 
   /* spacing */
 
@@ -388,6 +395,16 @@
   grid-column-gap: 20px;
   grid-row-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
+}
+
+/* NAV SIDEBAR */
+
+.user-css-presentation #world-navigation-sidebar {
+  background: var(--navsidebar-bgcolor);
+  border: 2px solid var(--main-h2-line-color);
+  box-shadow: 0px 1px 10px 2px var(--navsidebar-outset-shadow-color), inset 0px 0px 10px 0px var(--navsidebar-inset-shadow-color);
+  scrollbar-color: var(--navscrollbar-color) var(--navsidebar-inset-shadow-color);
+  overflow-clip-margin: inherit;
 }
 
 /* MOUSEOVER */
