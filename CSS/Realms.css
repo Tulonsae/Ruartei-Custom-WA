@@ -169,6 +169,9 @@
   --navsidebar-inset-shadow-color: var(--DarkBrown10D);
   --navsidebar-outset-shadow-color: var(--Black60);
   --navscrollbar-color: var(--YellowOrange);
+  --breadcrumb-bgcolor: var(--DarkBrown);
+  --breadcrumb-inset-shadow-color: var(--DarkBrown10D);
+  --breadcrumb-outset-shadow-color: var(--Black60);
 
   /* spacing */
 
@@ -503,6 +506,11 @@
 .user-css .breadbox {
   margin-top: 1em;
   margin-bottom: 1em;
+  div[class$=loader] {
+    display: flex;
+    position: relative;
+    left: 1rem;
+  }
   hr {
     margin-top: 1em;
     margin-bottom: 0;
@@ -512,9 +520,24 @@
   .breadcrumb {
     margin: 0;
   }
+  .breadcrumb-card {
+    background-color: var(--breadcrumb-bgcolor);
+    border: 2px solid var(--main-h2-line-color);
+    box-shadow: 0px 1px 10px 2px var(--breadcrumb-outset-shadow-color), inset 0px 0px 10px 0px var(--breadcrumb-inset-shadow-color);
+    div[class|=card] {
+      padding: .75rem;
+    }
+  }
+  .list-box ul {
+    padding-left: .25rem;
+    padding-right: .5rem;
+  }
 }
 
-/* for category page */
+/* breadcrumb pulldown */
+.user-css .breadcrumb-card {
+
+/* to place breadcrumbs for category page */
 .user-css .category-contents {
  display: flex;
  flex-direction: column;
@@ -535,7 +558,7 @@
   order: 5;
 }
 
-/* for article page */
+/* to place breadcrumbs for article page */
 .user-css .article-title {
  display: flex;
  flex-direction: column;
@@ -549,9 +572,6 @@
 .user-css .article-title-author {
   order: 3;
 }
-
-/* breadcrumb pulldown */
-.user-css .breadcrumb-card {
 }
 
 /* WORLD HAMBURGER */
