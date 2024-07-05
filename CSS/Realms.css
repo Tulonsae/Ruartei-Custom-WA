@@ -111,8 +111,11 @@
   /* color names */
   --BlueWhale: #1C2C40;		/* page background */
   --Rhino: #2C4463;		/* sidebar background */
+  --Rhino10D: #132B4A;
   --Dusk: #454D70;		/* mouseover background */
+  --Dusk10D: #2C3457;
   --Mirage: #16202E;		/* navmenu background */
+  --Mirage10D: #000715;
   --Ivory: #FFFFF0;		/* text primary */
   --Cornsilk: #FFF7D6;		/* text alternate */
   --Banana: #FFEB41;		/* text link */
@@ -130,7 +133,7 @@
   --Sandal: #A08264;
   --Black60: #00000060;
 
-  /* shadows */
+  /* text shadows */
   --shad12345: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
   --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
   --shad123:  1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
@@ -141,13 +144,31 @@
   --pageBorder: 5px solid var(--StormGrey);
   --pageBorderRadius: 15px;
   --pageBorderCoverImage: 3px solid var(--StormGrey);
-  --pageBorderCoverImageRadius: 15px 15px 0px 0px);
+  --pageBorderCoverImageRadius: 15px 15px 0px 0px;
 
   /* sidebar */
+  --sidebarBgColor: var(--Rhino);
+  --sidebarBorder: 2px solid var(--Sandal); /* may change this */
+  --sidebarBorderRadius: 15px;
+  --sidebarBorderInset: var(--Rhino10D);
+  --sidebarBorderOutset: var(--Black60);
+  --sidebarShadow: 0px 1px 10px 2px var(--sidebarBorderOutset), inset 0px 0px 20px 0px var(--sidebarBorderInset);
 
   /* mouseover */
+  --mouseoverBgColor: var(--Dusk);
+  --mouseoverBorder: 2px solid var(--Sandal); /* may change this */
+  --mouseoverBorderRadius: 15px;
+  --mouseoverBorderInset: var(--Dusk10D);
+  --mouseoverBorderOutset: var(--Black60);
+  --mouseoverShadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
 
   /* navmenu */
+  --navmenuBgColor: var(--Mirage);
+  --navmenuBorder: 2px solid var(--Sandal); /* may change this */
+  --navmenuBorderRadius: 15px;
+  --navmenuBorderInset: var(--Mirage10D);
+  --navmenuBorderOutset: var(--Black60);
+  --navmenuShadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
 
   /* text */
   --textColor: var(--Ivory);
@@ -175,85 +196,9 @@
   --ipaColor: var(--Steel);
   --ipaShadow: none;
 
-  /* color names */
-  --DeepSpaceBlue: #1C2C40;
-  --DeepSpaceBlue10L: #36465A;
-  --DeepSpaceBlue10D: #031327;
-  --DeepSpaceBlue20D: #00000D;
-  --PaleYellowWhite: #FFF7D6;
-  --PaleYellowWhite10L: #FFFFF0;
-  --PaleYellowWhite10D: #E6DEBD;
-  --PaleYellowWhite20D: #CCC4A3;
-  --PaleYellowWhite30D: #B3AB8A;
-  --PaleYellowWhite40D: #999170;
-  --PaleYellowWhite50D: #807857;
-  --LightOrange: #FFC244;
-  --LimeGreen1: #66EBB9;
-  --LightSkyBlue: #74E1FF;
-  --LightSkyBlue10L: #8EFBFF;
-  --LightSkyBlue20L: #A7FFFF;
-  --LightSkyBlue10D: #5BC8E6;
-  --LightSkyBlue50D: #006280;
-  --LimeGreen: #5BF3CB;
-  --LimeGreen50D: #00744C;
-  --LightLemon: #FFFF8E;
-  --LightLemon50D: #80800F;
-  --YellowOrange: #F3CC5B;
-  --YellowOrange10L: #FFE675;
-  --YellowOrange20L: #FFFF8E;
-  --YellowOrange30L: #FFFFA8;
-  --YellowOrange50D: #744D00;
-  --DarkBlueGreen: #1C3F40;
-  --DarkBlueGreen10D: #032627;
-  --DarkBrown: #322516;
-  --DarkBrown10L: #4C3F30;
-  --DarkBrown10D: #190C00;
-  --LighterOrange: #FFDC5E;
-  --DarkRedBrown: #401F1C;
-  --DarkRedBrown10D: #270603;
-  --LightBlueGrey: #CFE6FF;
-  --Sandal: #a08264;
-  --Black60: #00000060;
+  /* breadcrumbs */
 
-  /* colors */
-  --main-bgcolor: var(--DeepSpaceBlue);
-  --main-border-color: var(--LightSkyBlue50D);
-  --main-text-color: var(--PaleYellowWhite);
-  --main-link-color: var(--LightOrange);
-  --main-hover-color: var(--LimeGreen1);
-  --main-mark-color: var(--LightSkyBlue);
-  --main-h1-color: var(--LightSkyBlue);
-  --main-h1-stroke-color: var(--LightSkyBlue50D);
-  --main-h2-color: var(--LimeGreen);
-  --main-h2-stroke-color: var(--LimeGreen50D);
-  --main-h2-line-color: var(--Sandal);
-  --main-h3-color: var(--LightLemon);
-  --main-h3-stroke-color: var(--LightLemon50D);
-  --main-h4-color: var(--YellowOrange);
-  --main-h4-stroke-color: var(--YellowOrange50D);
-  --main-h4-hover-color: var(--YellowOrange30L);
-  --main-h5-color: var(--LightSkyBlue);
-  --main-h5-stroke-color: var(--LightSkyBlue50D);
-  --main-ipa-color: var(--LightBlueGrey);
-  --sidebar-bgcolor: var(--DarkBlueGreen);
-  --sidebar-inset-shadow-color: var(--DarkBlueGreen10D);
-  --sidebar-outset-shadow-color: var(--DarkBlueGreen10D);
-  --mouseover-bgcolor: var(--DarkRedBrown);
-  --mouseover-inset-shadow-color: var(--DarkRedBrown10D);
-  --mouseover-outset-shadow-color: var(--Black60);
-  --mouseover-color: var(--YellowOrange);
-  --navsidebar-bgcolor: var(--DarkBrown);
-  --navsidebar-inset-shadow-color: var(--DarkBrown10D);
-  --navsidebar-outset-shadow-color: var(--Black60);
-  --navscrollbar-color: var(--YellowOrange);
-  --breadcrumb-bgcolor: var(--DarkBrown);
-  --breadcrumb-inset-shadow-color: var(--DarkBrown10D);
-  --breadcrumb-outset-shadow-color: var(--Black60);
-  --search-bgcolor: var(--PaleYellowWhite10L);
-  --search-dropdown-muted-color: var(--DeepSpaceBlue10L);
-  --search-dropdown-text-color: var(--DeepSpaceBlue10D);
-  --search-dropdown-active-color: var(--DeepSpaceBlue20D);
-  --search-dropdown-active-bgcolor: var(--PaleYellowWhite10D);
+  /* search */
 
   /* spacing */
 
@@ -261,80 +206,260 @@
 
 /* PAGE */
 
+/* turn off the world editor buttons */
+.user-css a.world-editor-link {
+  display: none !important;
+}
+
+/* change the powered by World Anvil label so it doesn't overwrite the content */
+/* note: on Safari, no sideways-lr, vertical-lr and verical-rl both act like sideways-rl */
+.user-css.widget-white-label-mark {
+  padding: 2px;
+  writing-mode: vertical-lr;
+  /* turn off edit part */
+  ul {
+    display: none;
+  }
+}
+
+/* world hamburger */
+/* moving this up so it doesn't cover breadcrumbs on mobile */
+.user-css-presentation .world-navigation-palette-trigger {
+  top: 9rem;
+}
+
+/* page and image colors and borders */
 .user-css-presentation .page {
-  background: var(--main-bgcolor);
-  border: 5px solid var(--main-border-color);
-  border-radius: 15px;
-  /* setting the font size here fixes the home and category pages to regular text size */
-  font-size: var(--txSize);
-}
-.user-css .cover img {
-  border-bottom: 3px solid var(--main-border-color);
-  border-radius: 15px 15px 0px 0px;
+  background: var(--pageBgColor);
+  border: var(--pageBorder);
+  border-radius: var(--pageBorderRadius);
+  .cover img {
+    border-bottom: var(--pageBorderCoverImage);
+    border-radius: var(--pageBorderCoverImageRadius);
+  }
 }
 
-.user-css .article-content {
-  /* setting the font size to inherit here keeps the article pages set to regular text size */
-  font-size: inherit;
-}
-
+/* adjust the spacing at the bottom of the main content */
 .user-css .article-content-left {
   margin-bottom: 1rem;
 }
 
+/* credits */
 .user-css .artist-credits {
   font-size: var(--cpSize);
   color: revert;
 }
 
-/* turn off all world editor buttons */
-.user-css a.world-editor-link {
-  display: none !important;
-}
+/* TEXT */
 
-/* REGULAR TEXT */
+.user-css-presentation .page {
+  /* setting the font size here fixes the home and category pages to regular text size */
+  font-size: var(--txSize);
+}
+.user-css .article-content {
+  /* setting the font size to inherit here keeps the article pages set to regular text size */
+  font-size: inherit;
+}
 
 .user-css {
+
+  /* font and colors for text, links, and hover */
   font-family: var(--txFont);
   font-weight: var(--normal);
-  color: var(--main-text-color);
+  color: var(--textColor);
+  a {
+    color: var(--linkColor);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
+
+  /* adjust paragraph and indented paragraph spacing */
+  p, .paragraph-indent {
+    margin-top: .5em;
+    margin-bottom: 0;
+  }
+  .paragraph-indent {
+    text-indent: 1.5em;
+  }
+
+  /* adjust the spacing for lists */
+  ul, ol {
+    margin-bottom: 0;
+  }
+
+  /* formatting for marks in articles */
+  .article-content mark {
+    background: inherit;
+    color: var(--markColor);
+    padding: 0;
+  }
+
+  /* formatting for dropcaps - TODO */
+  .dropcap {
+  }
+
+  /* formatting for blockquote - TODO */
+  blockquote {
+  }
 }
 
-.user-css a {
-  color: var(--main-link-color);
-  text-decoration: none;
-}
-.user-css a:hover {
-  color: var(--main-hover-color);
-}
+/* HOME PAGE TITLE */
 
-.user-css p,
-.user-css .paragraph-indent {
-  margin-top: .5em;
-  margin-bottom: 0;
-}
-.user-css .paragraph-indent {
-  text-indent: 1.5em;
-}
-
-.user-css .article-content mark {
-  background: var(--main-bgcolor);
+.user-css h1.world-title {
   padding: 0;
-  color: var(--main-mark-color);
+  font-size: 3rem;
+  letter-spacing: .2rem;
+  color: var(--h1Color);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
 }
 
-.user-css ul,
-.user-css ol {
+.user-css .world-subtitle {
+  padding-top: .25em;
+  font-size: .5em;
+  line-height: 1.1em;
+  letter-spacing: 0;
+  color: var(--shColor);
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
+}
+
+.user-css .world-subtitle small {
+  font-size: inherit;
+}
+
+.user-css h3.world-currentDate {
+  font-size: 1.25rem;
+  letter-spacing: .1rem;
+}
+
+/* HEADINGS */
+
+.user-css {
+
+  /* font and font weight and capitalization */
+  h1, h2, h3, h4, h5 {
+    font-family: var(--hdFont);
+    font-weight: var(--normal);
+    text-transform: none;
+  }
+
+  /* page title */
+  h1 {
+    margin-top: .1em;
+    padding-top: 0;
+    font-size: var(--h1Size);
+    line-height: var(--h1LineHeight);
+    color: var(--h1Color);
+    text-shadow: var(--h1Shadow);
+  }
+
+  /* main heading */
+  h2 {
+    padding-top: calc(var(--h2Size) / 2);
+    font-size: var(--h2Size);
+    color: var(--h2Color);
+    text-shadow: var(--h2Shadow);
+    border-bottom: var(--h2BorderBottom);
+  }
+
+  /* secondary heading */
+  h3 {
+    padding-top: calc(var(--h3Size) / 2);
+    font-size: var(--h3Size);
+    color: var(--h3Color);
+    text-shadow: var(--h3Shadow);
+  }
+
+  /* tertiary heading */
+  h4 {
+    padding-top: calc(var(--h4Size) / 2);
+    font-size: var(--h4Size);
+    color: var(--h4Color);
+    text-shadow: var(--h4Shadow);
+  }
+
+  /* 4th heading */
+  h5 {
+    padding-top: calc(var(--h5Size) / 2);
+    font-size: var(--h5Size);
+    color: var(--h5Color);
+    text-shadow: var(--h5Shadow);
+  }
+
+  /* subheading in articles */
+  .article-subheading {
+    padding-left: 1.25rem;
+    padding-top: calc(var(--shSize) / 2);
+    font-size: var(--shSize);
+    color: var(--shColor);
+    text-shadow: var(--shShadow);
+  }
+
+  /* pronunciation in articles */
+  .article-content .pronunciation {
+    font-size: var(--smSize);
+    line-height: var(--ipaLineHeight);
+    color: var(--ipaColor);
+    text-shadow: var(--ipaShadow);
+    text-transform: none;
+  }
+
+}
+
+/* SIDEBAR */
+
+.user-css .panel.panel-default {
+  margin-bottom: .75rem;
+  background: var(--sidebarBgColor);
+  border-radius: var(--sidebarBorderRadius);
+  border: var(--sidebarBorder);
+  box-shadow: var(--sidebarShadow);
+}
+
+/* JEK KEY FACTS (SIDEBAR) */
+
+.user-css .jek-key-facts-heading {
+  padding-top: 0;
+  margin-top: calc(var(--h3Size) / 4);
+  margin-bottom: calc(var(--h3Size) / 2);
+}
+
+.user-css .jek-key-facts-subheading {
+}
+
+.user-css .jek-key-facts-label,
+.user-css .jek-key-facts .section-heading {
+  font-weight: var(--nearly-bold);
+}
+
+.user-css .jek-key-facts-info,
+.user-css .jek-key-facts .section-payload {
+  margin-bottom: calc(var(--txSize) / 2);
+}
+
+.user-css .jek-key-facts ul {
+  padding-left: 1.5em;
+}
+/* need to remove the -5px from the last li */
+.user-css .jek-key-facts ul li:last-of-type {
   margin-bottom: 0;
 }
-
-/* DROPCAPS */
-.user-css .dropcap {
+/* the padding here needs to be padding from ul minus padding from indent */
+.user-css .jek-key-facts .section-payload ul {
+  list-style: disc;
+  padding-left: 1em;
 }
 
-/* BLOCKQUOTES */
+.user-css .panel .jek-key-facts-indent,
+.user-css .jek-key-facts .section-payload {
+  padding-left: .5em;
+}
 
-.user-css blockquote {
+/* TOHERE */
+
+.user-css .article-content-left {
+  margin-bottom: 1rem;
 }
 
 /* SEARCH */
@@ -366,90 +491,6 @@
 .user-css td {
   -moz-hypens: unset;
   hyphens: unset;
-}
-
-/* HEADINGS */
-
-.user-css h1,
-.user-css h2,
-.user-css h3,
-.user-css h4,
-.user-css h5 {
-  font-family: var(--hdFont);
-  font-weight: var(--normal);
-  text-transform: none;
-}
-
-.user-css h1 {
-  margin-top: .1em;
-  padding-top: 0;
-  font-size: var(--h1Size);
-  line-height: var(--lhTitle);
-  color: var(--main-h1-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
-}
-
-.user-css h2 {
-  font-size: var(--h2Size);
-  color: var(--main-h2-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
-  border-bottom: 2px solid var(--main-h2-line-color);
-  padding-top: calc(var(--h2Size) / 2);
-}
-
-.user-css h3 {
-  font-size: var(--h3Size);
-  color: var(--main-h3-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
-  padding-top: calc(var(--h3Size) / 2);
-}
-
-.user-css h4 {
-  font-size: var(--h4Size);
-  color: var(--main-h4-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
-  padding-top: calc(var(--h4Size) / 2);
-}
-
-.user-css h5 {
-  font-size: var(--h5Size);
-  color: var(--main-h5-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
-  padding-top: calc(var(--h5Size) / 2);
-}
-
-.user-css .article-content .pronunciation {
-  font-size: var(--smSize);
-  line-height: var(--lhTitle);
-  text-transform: none;
-  color: var(--main-ipa-color);
-  text-shadow: none;
-}
-
-.user-css .article-subheading {
-  padding-left: 1.25rem;
-  font-size: var(--h3Size);
-  line-height: var(--lhTitle);
-}
-
-/* use text stoke only on higher resolution devices */
-@media (min-resolution: 2dppx) {
-  .user-css h1 {
-    -webkit-text-stroke: 1px var(--main-h1-stroke-color);
-  }
-  .user-css h2 {
-    -webkit-text-stroke: 1px var(--main-h2-stroke-color);
-  }
-  .user-css h3 {
-    -webkit-text-stroke: 1px var(--main-h3-stroke-color);
-  }
-  .user-css h4 {
-    -webkit-text-stroke: 1px var(--main-h4-stroke-color);
-  }
-  /* h5 font size is too small for text stroke */
-  .user-css .article-content .pronunciation {
-    -webkit-text-stroke-width: 0;
-  }
 }
 
 /* CATEGORIES */
@@ -676,110 +717,4 @@
 }
 .user-css .article-title-author {
   order: 3;
-}
-}
-
-/* WORLD HAMBURGER */
-
-/* moving this up so it doesn't cover breadcrumbs on mobile */
-.user-css-presentation .world-navigation-palette-trigger {
-  top: 9rem;
-}
-
-/* WHITE LABEL */
-
-/* sideways-lr not supported on Safari, vertical-lr and verical-rl both act like sideways-rl */
-.user-css.widget-white-label-mark {
-  padding: 2px;
-  writing-mode: vertical-lr;
-}
-.user-css.widget-white-label-mark ul {
-  display: none;
-}
-
-/* HOME PAGE TITLE */
-
-.user-css h1.world-title {
-  padding: 0;
-  font-size: 3rem;
-  letter-spacing: .2rem;
-  color: var(--YellowOrange);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
-}
-
-.user-css .world-subtitle {
-  padding-top: .25em;
-  font-size: .5em;
-  line-height: 1.1em;
-  letter-spacing: 0;
-  color: var(--LightSkyBlue);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
-}
-
-/* use text stoke only on higher resolution devices */
-@media (min-resolution: 2dppx) {
-  .user-css h1.world-title {
-    -webkit-text-stroke: 1px var(--YellowOrange50D);
-  }
-  .user-css .world-subtitle {
-    -webkit-text-stroke: 1px var(--main-h1-stroke-color);
-  }
-}
-
-.user-css .world-subtitle small {
-  font-size: inherit;
-}
-
-.user-css h3.world-currentDate {
-  font-size: 1.25rem;
-  letter-spacing: .1rem;
-}
-
-/* SIDEBAR */
-
-.user-css .panel.panel-default {
-  margin-bottom: 12px;
-  background: var(--sidebar-bgcolor);
-  border-radius: 15px;
-  border: 2px solid var(--main-h2-line-color);
-  box-shadow: 0px 1px 10px 2px var(--sidebar-outset-shadow-color), inset 0px 0px 20px 0px var(--sidebar-inset-shadow-color);
-}
-
-/* JEK KEY FACTS (SIDEBAR) */
-
-.user-css .jek-key-facts-heading {
-  padding-top: 0;
-  margin-top: calc(var(--h3Size) / 4);
-  margin-bottom: calc(var(--h3Size) / 2);
-}
-
-.user-css .jek-key-facts-subheading {
-}
-
-.user-css .jek-key-facts-label,
-.user-css .jek-key-facts .section-heading {
-  font-weight: var(--nearly-bold);
-}
-
-.user-css .jek-key-facts-info,
-.user-css .jek-key-facts .section-payload {
-  margin-bottom: calc(var(--txSize) / 2);
-}
-
-.user-css .jek-key-facts ul {
-  padding-left: 1.5em;
-}
-/* need to remove the -5px from the last li */
-.user-css .jek-key-facts ul li:last-of-type {
-  margin-bottom: 0;
-}
-/* the padding here needs to be padding from ul minus padding from indent */
-.user-css .jek-key-facts .section-payload ul {
-  list-style: disc;
-  padding-left: 1em;
-}
-
-.user-css .panel .jek-key-facts-indent,
-.user-css .jek-key-facts .section-payload {
-  padding-left: .5em;
 }
