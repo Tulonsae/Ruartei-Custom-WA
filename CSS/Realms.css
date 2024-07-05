@@ -1,4 +1,4 @@
-/* bootstrap 5, default WA style loaded, no base font specified */
+/*  uses bootstrap 5 and assumes default WA style loaded and white labeling enabled */
 
 /* FONTS */
 
@@ -95,17 +95,85 @@
   --bold: 700;
 
   /* font sizes */
-  --txSize: 1rem;
-  --h1Size: 2.5rem;
-  --h2Size: 2rem;
-  --h3Size: 1.75rem;
-  --h4Size: 1.5rem;
-  --h5Size: 1.25rem;
-  --cpSize: .9em;
-  --smSize: .6em;
+  --txSize: 1rem;		/* regular text */
+  --h1Size: 2.5rem;		/* title */
+  --h2Size: 2rem;		/* heading 1 */
+  --h3Size: 1.75rem;		/* heading 2 */
+  --h4Size: 1.5rem;		/* heading 3 */
+  --h5Size: 1.25rem;		/* heading 4 */
+  --cpSize: .9em;		/* captions */
+  --smSize: .6em;		/* pronunciation */
+  --shSize: var(--h4Size);	/* subheading */
 
   /* line heights */
   --lhTitle: 1.2em;
+
+  /* color names */
+  --BlueWhale: #1C2C40;		/* page background */
+  --Rhino: #2C4463;		/* sidebar background */
+  --Dusk: #454D70;		/* mouseover background */
+  --Mirage: #16202E;		/* navmenu background */
+  --Ivory: #FFFFF0;		/* text primary */
+  --Cornsilk: #FFF7D6;		/* text alternate */
+  --Banana: #FFEB41;		/* text link */
+  --Mint: #6EFACC;		/* text hover */
+  --Turquoise: #33DEC1;		/* text mark */
+  --Lavender: #B8AEFF;		/* title */
+  --Aquamarine: #63D7E9;	/* subtitle */
+  --Saffron: #FFC170;		/* heading 1 */
+  --Mauve: #E6BAFC;		/* heading 2 */
+  --Malibu: #4DE7FF;		/* heading 3 */
+  --Seafoam: #50FFBE;		/* heading 4 */
+  --Steel:  #ACB2DB;		/* pronunciation */
+  --Twilight: #666D92;		/* h2 line */
+  --StormGrey: #4D5479;		/* page border */
+  --Sandal: #A08264;
+  --Black60: #00000060;
+
+  /* shadows */
+  --shad12345: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
+  --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
+  --shad123:  1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
+  --shad12: 1px 1px 0 black, 2px 2px 0 black;
+
+  /* page background and border */
+  --pageBgColor: var(--BlueWhale);
+  --pageBorder: 5px solid var(--StormGrey);
+  --pageBorderRadius: 15px;
+  --pageBorderCoverImage: 3px solid var(--StormGrey);
+  --pageBorderCoverImageRadius: 15px 15px 0px 0px);
+
+  /* sidebar */
+
+  /* mouseover */
+
+  /* navmenu */
+
+  /* text */
+  --textColor: var(--Ivory);
+  --linkColor: var(--Banana);
+  --hoverColor: var(--Mint);
+  --markColor: var(--Turquoise);
+
+  /* headings */
+  --h1Color: var(--Lavender);
+  --h1Shadow: var(--shad12345);
+  --h1LineHeight: var(--lhTitle);
+  --shColor: var(--Aquamarine);
+  --shShadow: var(--shad12);
+  --shLineHeight: var(--h1LineHeight);
+  --h2Color: var(--Saffron);
+  --h2Shadow: var(--shad1234);
+  --h2Line: var(--Twilight);
+  --h2Border: 2px solid var(--h2Line);		/* bottom border */
+  --h3Color: var(--Mauve);
+  --h3Shadow: var(--shad123);
+  --h4Color: var(--Malibu);
+  --h4Shadow: 1px 1px 0 black, 2px 2px 0 black;
+  --h5Color: var(--Seafoam);
+  --h5Shadow: var(--shad12);
+  --ipaColor: var(--Steel);
+  --ipaShadow: none;
 
   /* color names */
   --DeepSpaceBlue: #1C2C40;
