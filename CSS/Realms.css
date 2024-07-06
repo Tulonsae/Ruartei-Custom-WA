@@ -112,25 +112,32 @@
   --BlueWhale: #1C2C40;		/* page background */
   --Rhino: #2C4463;		/* sidebar background */
   --Rhino10D: #132B4A;
-  --Dusk: #454D70;		/* mouseover background */
-  --Dusk10D: #2C3457;
+  --Bluewood: #3F4665;		/* mouseover background */
+  --Bluewood10D: #262D4C;
   --Mirage: #16202E;		/* navmenu background */
   --Mirage10D: #000715;
   --Ivory: #FFFFF0;		/* text primary */
   --Cornsilk: #FFF7D6;		/* text alternate */
-  --Banana: #FFEB41;		/* text link */
+  --Lemon: #FFEB4D;		/* text link */
   --Mint: #6EFACC;		/* text hover */
-  --Turquoise: #33DEC1;		/* text mark */
-  --Lavender: #B8AEFF;		/* title */
-  --Aquamarine: #63D7E9;	/* subtitle */
-  --Saffron: #FFC170;		/* heading 1 */
-  --Mauve: #E6BAFC;		/* heading 2 */
-  --Malibu: #4DE7FF;		/* heading 3 */
-  --Seafoam: #50FFBE;		/* heading 4 */
+  --Seafoam: #50FFBE;		/* text mark */
+  --ElectricBlue: #4DFFF6;	/* title */
+  --SeaGreen: #36B3AC;		/* subtitle */
+  --Buttercup: #FCE6BA;		/* heading 1 */
+  --Apricot: #FCC4BB;		/* heading 2 */
+  --Turquoise: #33DEC1;		/* heading 3 */
+  --Malibu: #4DE7FF;		/* heading 4 */
   --Steel:  #ACB2DB;		/* pronunciation */
   --Twilight: #666D92;		/* h2 line */
   --StormGrey: #4D5479;		/* page border */
   --Sandal: #A08264;
+  --Aquamarine: #63D7E9;
+  --Banana: #FFEB41;
+  --Mauve: #E6BAFC;
+  --Saffron: #FFC170;
+  --Lavender: #B8AEFF;
+  --Dusk: #454D70;		
+  --Dusk10D: #2C3457;
   --Black60: #00000060;
 
   /* text shadows */
@@ -155,10 +162,10 @@
   --sidebarShadow: 0px 1px 10px 2px var(--sidebarBorderOutset), inset 0px 0px 20px 0px var(--sidebarBorderInset);
 
   /* mouseover */
-  --mouseoverBgColor: var(--Dusk);
+  --mouseoverBgColor: var(--Bluewood);
   --mouseoverBorder: 2px solid var(--Sandal); /* may change this */
   --mouseoverBorderRadius: 15px;
-  --mouseoverBorderInset: var(--Dusk10D);
+  --mouseoverBorderInset: var(--Bluewood10D);
   --mouseoverBorderOutset: var(--Black60);
   --mouseoverShadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
 
@@ -172,26 +179,26 @@
 
   /* text */
   --textColor: var(--Ivory);
-  --linkColor: var(--Banana);
+  --linkColor: var(--Lemon);
   --hoverColor: var(--Mint);
-  --markColor: var(--Turquoise);
+  --markColor: var(--Seafoam);
 
   /* headings */
-  --h1Color: var(--Lavender);
+  --h1Color: var(--ElectricBlue);
   --h1Shadow: var(--shad12345);
   --h1LineHeight: var(--lhTitle);
-  --shColor: var(--Aquamarine);
+  --shColor: var(--SeaGreen);
   --shShadow: var(--shad12);
   --shLineHeight: var(--h1LineHeight);
-  --h2Color: var(--Saffron);
+  --h2Color: var(--Buttercup);
   --h2Shadow: var(--shad1234);
   --h2Line: var(--Twilight);
   --h2Border: 2px solid var(--h2Line);		/* bottom border */
-  --h3Color: var(--Mauve);
+  --h3Color: var(--Apricot);
   --h3Shadow: var(--shad123);
-  --h4Color: var(--Malibu);
+  --h4Color: var(--Turquoise);
   --h4Shadow: 1px 1px 0 black, 2px 2px 0 black;
-  --h5Color: var(--Seafoam);
+  --h5Color: var(--Malibu);
   --h5Shadow: var(--shad12);
   --ipaColor: var(--Steel);
   --ipaShadow: none;
@@ -360,7 +367,7 @@
     font-size: var(--h2Size);
     color: var(--h2Color);
     text-shadow: var(--h2Shadow);
-    border-bottom: var(--h2BorderBottom);
+    border-bottom: var(--h2Border);
   }
 
   /* secondary heading */
