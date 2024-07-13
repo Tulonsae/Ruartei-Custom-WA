@@ -110,102 +110,102 @@
 
   /* color names */
   --BlueWhale: #1C2C40;		/* page background */
-  --Rhino: #2C4463;		/* sidebar background */
-  --Rhino10D: #132B4A;
-  --Bluewood: #3F4665;		/* mouseover background */
-  --Bluewood10D: #262D4C;
-  --Mirage: #16202E;		/* navmenu background */
-  --Mirage10D: #000715;
-  --Ivory: #FFFFF0;		/* text primary */
-  --Cornsilk: #FFF7D6;		/* text alternate */
-  --Lemon: #FFEB4D;		/* text link */
-  --Mint: #6EFACC;		/* text hover */
-  --Seafoam: #50FFBE;		/* text mark */
-  --ElectricBlue: #4DFFF6;	/* title */
-  --SeaGreen: #36B3AC;		/* subtitle */
-  --Buttercup: #FCE6BA;		/* heading 1 */
-  --Apricot: #FCC4BB;		/* heading 2 */
-  --Turquoise: #33DEC1;		/* heading 3 */
-  --Malibu: #4DE7FF;		/* heading 4 */
-  --Steel:  #ACB2DB;		/* pronunciation */
-  --Twilight: #666D92;		/* h2 line */
-  --StormGrey: #4D5479;		/* page border */
-  --Sandal: #A08264;
-  --Aquamarine: #63D7E9;
-  --Banana: #FFEB41;
-  --Mauve: #E6BAFC;
-  --Saffron: #FFC170;
-  --Lavender: #B8AEFF;
-  --Dusk: #454D70;		
-  --Dusk10D: #2C3457;
+  --BlueWhale20L: #4F5F73;
+  --BlueWhale10D: #031326;
+  --Denim: #3F618C;		/* page border */
+  --Rhino: #273D59;		/* sidebar background */
+  --Rhino10D: #0E2440;
+  --Elephant: #22344D;		/* mouseover background */
+  --Elephant10D: #091A33;
+  --Mirage: #162233;		/* navmenu background */
+  --Mirage10D: #00091A;
+  --PaleIce: #F5FAFF;		/* text primary */
+  --PaleIce10D: #DCE1E6;
+  --Aquamarine: #73FFD0;	/* text hover */
+  --Caramel: #FFD78C;		/* text mark */
+  --Mauve: #BB99FF;		/* title & text link */
+  --AquaGreen: #73FFE8;		/* heading 1 */
+  --AquaTeal: #73FFFF;		/* heading 2 */
+  --AquaBlue: #73E8FF;		/* heading 3 */
+  --Malibu: #73D0FF;		/* heading 4 & subtitle */
+  --PaleLavender: #BFC8FF;	/* pronunciation */
+  --GullGrey: #A2ACBD;		/* h2 line */
+  --Black40: #00000040;
   --Black60: #00000060;
 
   /* text shadows */
   --shad12345: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
   --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
-  --shad123:  1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
+  --shad123: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
   --shad12: 1px 1px 0 black, 2px 2px 0 black;
 
   /* page background and border */
   --pageBgColor: var(--BlueWhale);
-  --pageBorder: 5px solid var(--StormGrey);
+  --pageBorder: 5px solid var(--Denim);
   --pageBorderRadius: 15px;
-  --pageBorderCoverImage: 3px solid var(--StormGrey);
+  --pageBorderCoverImage: 3px solid var(--Denim);
   --pageBorderCoverImageRadius: 15px 15px 0px 0px;
 
   /* sidebar */
   --sidebarBgColor: var(--Rhino);
-  --sidebarBorder: 2px solid var(--Sandal); /* may change this */
+  --sidebarBorder: 2px solid var(--GullGrey);
   --sidebarBorderRadius: 15px;
   --sidebarBorderInset: var(--Rhino10D);
   --sidebarBorderOutset: var(--Black60);
   --sidebarShadow: 0px 1px 10px 2px var(--sidebarBorderOutset), inset 0px 0px 20px 0px var(--sidebarBorderInset);
 
   /* mouseover */
-  --mouseoverBgColor: var(--Bluewood);
-  --mouseoverBorder: 2px solid var(--Sandal); /* may change this */
+  --mouseoverBgColor: var(--Elephant);
+  --mouseoverBorder: 2px solid var(--GullGrey);
   --mouseoverBorderRadius: 15px;
-  --mouseoverBorderInset: var(--Bluewood10D);
+  --mouseoverBorderInset: var(--Elephant10D);
   --mouseoverBorderOutset: var(--Black60);
   --mouseoverShadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
 
   /* navmenu */
   --navmenuBgColor: var(--Mirage);
-  --navmenuBorder: 2px solid var(--Sandal); /* may change this */
+  --navmenuBorder: 2px solid var(--GullGrey);
   --navmenuBorderRadius: 15px;
   --navmenuBorderInset: var(--Mirage10D);
   --navmenuBorderOutset: var(--Black60);
   --navmenuShadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
 
   /* text */
-  --textColor: var(--Ivory);
-  --linkColor: var(--Lemon);
-  --hoverColor: var(--Mint);
-  --markColor: var(--Seafoam);
+  --textColor: var(--PaleIce);
+  --linkColor: var(--Mauve);
+  --linkShadow: var(--shad12);
+  --hoverColor: var(--Aquamarine);
+  --markColor: var(--Caramel);
 
   /* headings */
-  --h1Color: var(--ElectricBlue);
+  --h1Color: var(--Mauve);
   --h1Shadow: var(--shad12345);
   --h1LineHeight: var(--lhTitle);
-  --shColor: var(--SeaGreen);
+  --shColor: var(--Malibu);
   --shShadow: var(--shad12);
   --shLineHeight: var(--h1LineHeight);
-  --h2Color: var(--Buttercup);
+  --h2Color: var(--AquaGreen);
   --h2Shadow: var(--shad1234);
-  --h2Line: var(--Twilight);
+  --h2Line: var(--GullGrey);
   --h2Border: 2px solid var(--h2Line);		/* bottom border */
-  --h3Color: var(--Apricot);
+  --h3Color: var(--AquaTeal);
   --h3Shadow: var(--shad123);
-  --h4Color: var(--Turquoise);
-  --h4Shadow: 1px 1px 0 black, 2px 2px 0 black;
+  --h4Color: var(--AquaBlue);
+  --h4Shadow: var(--shad123);
   --h5Color: var(--Malibu);
-  --h5Shadow: var(--shad12);
-  --ipaColor: var(--Steel);
+  --h5Shadow: var(--shad123);
+  --ipaColor: var(--PaleLavender);
   --ipaShadow: none;
 
   /* breadcrumbs */
 
   /* search */
+    --searchBgColor: var(--PaleIce);
+    --searchColor: var(--BlueWhale);
+    --searchColorMuted: var(--BlueWhale20L);
+    --searchActiveBgColor; var(--PaleIce10D);
+    --searchActiveColor: var(--BlueWhale10D);
+    --searchShadow: 3px 3px 5px var(--Black40);
 
   /* spacing */
 
@@ -276,6 +276,7 @@
   color: var(--textColor);
   a {
     color: var(--linkColor);
+    text-shadow: var(--linkShadow);
     text-decoration: none;
   }
   a:hover {
@@ -463,32 +464,48 @@
   padding-left: .5em;
 }
 
+/* SEARCH */
+
+.user-css .search-form {
+  .typeahead-input {
+    font-size: var(--txSize);
+    color: var(--searchColor);
+    background-color: var(--searchBgColor);
+    box-shadow: var(--searchShadow);
+  }
+  ul {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+  .dropdown-menu {
+    font-size: var(--cpSize);
+    background-color: var(--searchBgColor);
+    .text-muted{
+      color:  var(--searchColorMuted) !important;
+    }
+    a {
+      color: var(--searchColor);
+      text-shadow: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    li.active {
+      background-color: var(--searchActiveBgColor);
+      a {
+        font-weight: var(--nearly-bold);
+        color: var(--searchActiveColor);
+      }
+      .text-muted{
+        color:  var(--searchColorMuted) !important;
+      }
+    }
+  }
+}
+
 /* TOHERE */
 
 .user-css .article-content-left {
   margin-bottom: 1rem;
-}
-
-/* SEARCH */
-
-.user-css .search-form {
-  font-size: var(--txSize);
-  .typeahead-input, ul.typeahead.dropdown-menu {
-    background-color: var(--search-bgcolor);
-  }
-  .typeahead-input {
-    color: var(--search-dropdown-muted-color);
-  }
-  .dropdown-item .text-muted {
-    color: var(--search-dropdown-muted-color) !important;
-  }
-  a.dropdown-item {
-    color: var(--search-dropdown-text-color);
-  }
-  .active a.dropdown-item {
-    background-color: var(--search-dropdown-active-bgcolor);
-    color: var(--search-dropdown-active-color);
-  }
 }
 
 /* STORYTELLER SEED */
