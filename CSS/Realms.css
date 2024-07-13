@@ -502,12 +502,6 @@
   }
 }
 
-/* TOHERE */
-
-.user-css .article-content-left {
-  margin-bottom: 1rem;
-}
-
 /* STORYTELLER SEED */
 
 /* TABLES */
@@ -517,13 +511,13 @@
   hyphens: unset;
 }
 
-/* CATEGORIES */
+/* CATEGORY PAGES */
 
 .user-css .category-title-icon-wrapper {
   display: inline;
 }
 
-/* remove the line above the category articles block */
+/* remove the line above the category articles block for jek class */
 .user-css.jek-no-article-blocks-heading-line .category-articles h2 {
   border: 0;
   padding-top: 0;
@@ -531,25 +525,34 @@
 
 /* CATEGORY LIST */
 
-.user-css .category-list h5 {
-  padding-top: revert;
-}
-
-.user-css .category-list,
-.user-css .category-list h5,
-.user-css .category-list a {
-  color: var(--main-h4-color);
+.user-css .category-list {
+  color: var(--h5Color);
   text-decoration: none;
-}
-.user-css .category-list a:hover {
-  color: var(--main-h4-hover-color);
+  h5 {
+    padding-top: revert;
+  }
+  a {
+    color: var(--h5Color);
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
 }
 
 /* ARTICLE TOC */
 
 .user-css div.articletoc {
   border: 0px;
+  .article-toc-link {
+    border-bottom: none;
+    transition: none;
+  }
+  .article-toc-link:hover {
+    color: var(--hoverColor);
+  }
 }
+
+/* TOHERE */
 
 /* ARTICLE BLOCKS */
 
