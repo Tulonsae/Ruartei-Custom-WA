@@ -157,11 +157,14 @@
 
   /* mouseover */
   --mouseoverBgColor: var(--Elephant);
-  --mouseoverBorder: 2px solid var(--GullGrey);
+  --mouseoverBorderColor: var(--GullGrey);
+  --mouseoverBorder: 2px solid var(--mouseoverBorderColor);
   --mouseoverBorderRadius: 15px;
   --mouseoverBorderInset: var(--Elephant10D);
   --mouseoverBorderOutset: var(--Black60);
   --mouseoverShadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
+  --mouseoverScrollBarColor: var(--GullGrey);
+  --mouseoverScrollBarBgColor: transparent;
 
   /* navmenu */
   --navmenuBgColor: var(--Mirage);
@@ -408,7 +411,8 @@
 
 /* HEADINGS */
 
-.user-css {
+.user-css,
+.user-css-presentation .tooltipster-content {
 
   /* font and font weight and capitalization */
   h1, h2, h3, h4, h5 {
@@ -584,6 +588,54 @@
   }
 }
 
+/* MOUSEOVER */
+
+.user-css-presentation {
+  .tooltipster-sidetip {
+    /* the mouseover box */
+    .tooltipster-box {
+      background: var(--mouseoverBgColor);
+      border: var(--mouseoverBorder);
+      border-radius: var(--mouseoverBorderRadius);
+      box-shadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
+      scrollbar-color: var(--mouseoverScrollBarColor) var(--mouseoverScrollBarBgColor);
+    }
+    /* the mouseover content */
+    /* note: headings are the same as the regular ones */
+    .tooltipster-content {
+      font-family: var(--txFont);
+      font-weight: var(--normal);
+      font-size: var(--txSize);
+      color: var(--textColor);
+      a {
+        color: var(--linkColor);
+        text-shadow: var(--linkShadow);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--hoverColor);
+      }
+      /* do not break after spanned icons */
+      span {
+        display: inline-flex;
+      }
+    }
+    /* the mouseover border arrows */
+    .tooltipster-base.tooltipster-top {
+      border-top-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-bottom {
+      border-bottom-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-left {
+      border-left-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-right {
+      border-right-color: var(--mouseoverBorderColor);
+    }
+  }
+}
+
 /* STORYTELLER SEED */
 
 /* TOHERE */
@@ -593,83 +645,6 @@
 .user-css .article-panel .details .heading {
   font-weight: var(--nearly-bold);
   text-shadow: none;
-}
-
-/* MOUSEOVER */
-
-.user-css-presentation .tooltipster-sidetip .tooltipster-box {
-  background: var(--mouseover-bgcolor);
-  border: 2px solid var(--main-h2-line-color);
-  border-radius: 15px;
-  box-shadow: 0px 1px 10px 2px var(--mouseover-outset-shadow-color), inset 0px 0px 20px 0px var(--mouseover-inset-shadow-color);
-  scrollbar-color: var(--mouseover-color) var(--mouseover-inset-shadow-color);
-  overflow: clip;
-  overflow-clip-margin: inherit;
-}
-.user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-background,
-.user-css-presentation .tooltipster-base.tooltipster-top .tooltipster-arrow-border,
-.user-css-presentation .tooltip.bs-tooltip-top .tooltip-arrow::before {
-  border-top-color: var(--main-h2-line-color);
-}
-.user-css-presentation .tooltipster-base.tooltipster-bottom .tooltipster-arrow-background,
-.user-css-presentation .tooltipster-base.tooltipster-bottom .tooltipster-arrow-border,
-.user-css-presentation .tooltip.bs-tooltip-bottom .tooltip-arrow::before {
-  border-bottom-color: var(--main-h2-line-color);
-}
-.user-css-presentation .tooltipster-base.tooltipster-left .tooltipster-arrow-background,
-.user-css-presentation .tooltipster-base.tooltipster-left .tooltipster-arrow-border,
-.user-css-presentation .tooltip.bs-tooltip-start .tooltip-arrow::before {
-  border-left-color: var(--main-h2-line-color);
-}
-.user-css-presentation .tooltipster-base.tooltipster-right .tooltipster-arrow-background,
-.user-css-presentation .tooltipster-base.tooltipster-right .tooltipster-arrow-border,
-.user-css-presentation .tooltip.bs-tooltip-end .tooltip-arrow::before {
-  border-right-color: var(--main-h2-line-color);
-}
-
-.user-css-presentation .tooltipster-sidetip .tooltipster-content {
-  font-family: var(--txFont);
-  font-weight: var(--normal);
-  font-size: var(--txSize);
-  color: var(--main-text-color);
-}
-
-.user-css-presentation .tooltipster-content a {
-  color: var(--main-link-color);
-}
-.user-css-presentation .tooltipster-content a:hover {
-  color: var(--main-hover-color);
-}
-
-.user-css-presentation .tooltipster-content h2,
-.user-css-presentation .tooltipster-content h3,
-.user-css-presentation .tooltipster-content h4,
-.user-css-presentation .tooltipster-content h5 {
-  font-family: var(--hdFont);
-  font-weight: var(--normal);
-  text-transform: none;
-}
-.user-css-presentation .tooltipster-content h2 {
-  color: var(--main-h2-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
-  border-bottom: 2px solid var(--main-h2-line-color);
-}
-.user-css-presentation .tooltipster-content h3 {
-  color: var(--main-h3-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
-}
-.user-css-presentation .tooltipster-content h4 {
-  color: var(--main-h4-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
-}
-.user-css-presentation .tooltipster-content h5 {
-  color: var(--main-h5-color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black;
-}
-
-/* fix - do not break after spanned icons */
-.user-css-presentation .tooltipster-content span {
-  display: inline-flex;
 }
 
 /* BREADCRUMBS */
