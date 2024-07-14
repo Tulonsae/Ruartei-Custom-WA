@@ -246,7 +246,7 @@
   --searchShadow: 3px 3px 5px var(--Black40);
 
   /* article panels */
-  --articleblockBgColor: var(--Rhino);
+  --articleblockBgColor: var(--Mirage);
   --articleblockBorder: 3px solid var(--Denim);
   --articleblockBorderRadius: 15px;
   --articleblockBorderInset: var(--Rhino10D);
@@ -793,6 +793,8 @@
 /* ARTICLE BLOCKS */
 
 .user-css .article-panel {
+  margin-top: .75em;
+  margin-bottom: .5em;
   background: var(--articleblockBgColor);
   border: var(--articleblockBorder);
   border-radius: var(--articleblockBorderRadius);
@@ -803,6 +805,20 @@
     background-repeat: no-repeat;
     border-bottom: var(--articleblockBorderCoverImage);
     border-radius: var(--articleblockBorderCoverImageRadius);
+  }
+  .details {
+    .heading {
+      font-weight: var(--nearly-bold);
+      h5 {
+        padding-top: calc(var(--h5Size) / 4);
+      }
+    }
+    .subheading {
+      color: var(--textColor);
+      .date {
+        color: var(--textColor);
+      }
+    }
   }
   .excerpt {
     display: none;
@@ -821,7 +837,7 @@
   min-height: 75px;
 }
 /* size for full width */
-.user-css .col-md-12 .article-panel .cover {
+.user-css .article-content-full-bottom .col-md-12 .article-panel .cover {
   min-height: 225px;
 }
 /* size for child articles */
