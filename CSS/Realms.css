@@ -138,6 +138,7 @@
   --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
   --shad123: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
   --shad12: 1px 1px 0 black, 2px 2px 0 black;
+  --shad1: 1px 1px 0 black;
 
   /* page background and border */
   --pageBgColor: var(--BlueWhale);
@@ -170,7 +171,7 @@
   --navmenuBorderOutset: var(--Black60);
   --navmenuShadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
   --navmenuScrollBarColor: var(--GullGrey);
-  --navmenuScrollBarBgColor: var(--navmenuBgColor);
+  --navmenuScrollBarBgColor: transparent;
 
   /* text */
   --textColor: var(--PaleIce);
@@ -223,11 +224,15 @@
 /* change the powered by World Anvil label so it doesn't overwrite the content */
 /* note: on Safari, no sideways-lr, vertical-lr and verical-rl both act like sideways-rl */
 .user-css.widget-white-label-mark {
+  /* give this widget better colors */
   padding: 2px;
   writing-mode: vertical-lr;
   /* turn off edit part */
   ul {
     display: none;
+  }
+  a {
+    text-shadow: var(--shad1);
   }
 }
 
