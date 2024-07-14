@@ -466,6 +466,7 @@
 
   /* 4th heading */
   h5 {
+    margin-top: 0;
     padding-top: calc(var(--h5Size) / 2);
     font-size: var(--h5Size);
     color: var(--h5Color);
@@ -509,11 +510,15 @@
 /* SIDEBAR */
 
 .user-css .panel.panel-default {
+  margin-top: -1rem !important;
   margin-bottom: .75rem;
   background: var(--sidebarBgColor);
   border-radius: var(--sidebarBorderRadius);
   border: var(--sidebarBorder);
   box-shadow: var(--sidebarShadow);
+  div[class|=panel] {
+    margin-top: -1rem;
+  }
 }
 
 /* JEK KEY FACTS (SIDEBAR) */
@@ -611,6 +616,7 @@
     /* the mouseover content */
     /* note: headings are the same as the regular ones */
     .tooltipster-content {
+      margin-top: -1rem;
       font-family: var(--txFont);
       font-weight: var(--normal);
       font-size: var(--txSize);
