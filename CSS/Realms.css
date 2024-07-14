@@ -3,6 +3,24 @@
 /* FONTS */
 
 @font-face {
+  font-family: Taviraj;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/taviraj/v11/ahcZv8Cj3ylylTXzTOkrUsNzjUw.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Eagle Lake;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/eaglelake/v20/ptRMTiqbbuNJDOiKj9wG1On4KCFtpe4.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
   font-family: Nova Flat;
   font-style: normal;
   font-weight: 400;
@@ -87,6 +105,8 @@
   /* fonts */
   --txFont: Tomorrow, sans-serif;
   --hdFont: Nova Flat, sans-serif;
+  --sgFont: Eagle Lake, cursive;
+  --bqFont: Taviraj, serif;
 
   /* font weights */
   --normal: 400;
@@ -327,12 +347,27 @@
   }
 
   /* formatting for dropcaps - TODO */
+  /* note: need to figure out how to keep dropcaps from flowing into next content */
   .dropcap {
   }
 
-  /* formatting for blockquote - TODO */
+  /* formatting for blockquote - needs work */
   blockquote {
-  }
+    margin: .75em;
+    padding: 1.25em;
+    background: var(--sidebarBgColor);
+    box-shadow: 4px 4px 6px var(--Black60);
+    border: 1px solid var(--GullGrey);
+    border-top-right-radius: .75em;
+    border-bottom-right-radius: .75em;
+    font-family: var(--bqFont);
+    font-size: 1.2em;
+    color: var(--textColor);
+    .author {
+      font-family: var(--sgFont);
+      color: var(--textColor);
+    }
+}
 
   /* formatting for tables */
   td {
@@ -447,7 +482,7 @@
 }
 
 .user-css .world-author {
-  /* using larger font size because font itself is smaller */
+  font-family: var(--sgFont);
   font-size: var(--lgSize);
 }
 
@@ -520,7 +555,6 @@
 /* SIDEBAR */
 
 .user-css .panel.panel-default {
-  margin-top: -1rem !important;
   margin-bottom: .75rem;
   background: var(--sidebarBgColor);
   border-radius: var(--sidebarBorderRadius);
