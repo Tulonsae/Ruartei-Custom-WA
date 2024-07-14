@@ -695,8 +695,8 @@
 
 /* to place breadcrumbs for category page */
 .user-css .category-contents {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .user-css .world-global-category-introduction {
   order: 1;
@@ -716,8 +716,8 @@
 
 /* to place breadcrumbs for article page */
 .user-css .article-title {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .user-css .world-global-article-introduction {
   order: 1;
