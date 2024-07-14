@@ -807,11 +807,9 @@
     border-radius: var(--articleblockBorderCoverImageRadius);
   }
   .details {
-    .heading {
+    h5.heading {
       font-weight: var(--nearly-bold);
-      h5 {
-        padding-top: calc(var(--h5Size) / 4);
-      }
+      padding-top: calc(var(--h5Size) / 4);
     }
     .subheading {
       color: var(--textColor);
