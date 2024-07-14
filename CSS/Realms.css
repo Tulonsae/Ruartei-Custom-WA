@@ -534,6 +534,7 @@
 
 /* WORLD MENU POPUP */
 
+/* TODO - add the code for the subcategories */
 .user-css-presentation .page-world-homepage #world-category-content .article-list {
   margin-left: 10px;
   margin-right: 10px;
@@ -561,8 +562,9 @@
 
 /* SIDEBAR */
 
+/* note: need the important to override bootstrap */
 .user-css .panel.panel-default {
-  margin-bottom: .75rem;
+  margin-bottom: .75rem !important;
   background: var(--sidebarBgColor);
   border-radius: var(--sidebarBorderRadius);
   border: var(--sidebarBorder);
@@ -609,6 +611,27 @@
 .user-css .panel .jek-key-facts-indent,
 .user-css .jek-key-facts .section-payload {
   padding-left: .5em;
+}
+
+/* FOLLOWERS COUNTER */
+
+/* note: must go after sidebar, important overrides bootstrap */
+.user-css .followers-counter {
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
+  .panel-default {
+    margin-bottom: 0 !important;
+    .header-title {
+      margin-top: 3px;
+      margin-bottom: 0;
+      padding: 0;
+      font-size: var(--lgSize);
+    }
+    div[class|=panel] {
+      margin-top: 0;
+      padding: .5rem;
+    }
+  }
 }
 
 /* CATEGORY PAGES */
@@ -788,8 +811,6 @@
 
 /* STORYTELLER SEED */
 
-/* TOHERE */
-
 /* ARTICLE BLOCKS */
 
 .user-css .article-panel {
@@ -842,8 +863,3 @@
 .user-css .glossary-block .article-panel .cover {
   min-height: 75px;
 }
-
-/*.user-css .article-panel .details .heading {
-  font-weight: var(--nearly-bold);
-  text-shadow: none;
-}*/
