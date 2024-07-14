@@ -96,6 +96,9 @@
 
   /* font sizes */
   --txSize: 1rem;		/* regular text */
+  --lgSize: 1.2rem;		/* larger text */
+  --wtSize: 3rem;		/* world title */
+  --wsSize: .5em;		/* world subtitle */
   --h1Size: 2.5rem;		/* title */
   --h2Size: 2rem;		/* heading 1 */
   --h3Size: 1.75rem;		/* heading 2 */
@@ -134,6 +137,7 @@
   --Black60: #00000060;
 
   /* text shadows */
+  --shad1234567: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
   --shad12345: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
   --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
   --shad123: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
@@ -337,86 +341,6 @@
   }
 }
 
-/* HOME PAGE TITLE */
-
-.user-css h1.world-title {
-  padding: 0;
-  font-size: 3rem;
-  letter-spacing: .2rem;
-  color: var(--h1Color);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
-}
-
-.user-css .world-subtitle {
-  padding-top: .25em;
-  font-size: .5em;
-  line-height: 1.1em;
-  letter-spacing: 0;
-  color: var(--shColor);
-  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
-}
-
-.user-css .world-subtitle small {
-  font-size: inherit;
-}
-
-.user-css h3.world-currentDate {
-  font-size: 1.25rem;
-  letter-spacing: .1rem;
-}
-
-/* SEARCH */
-
-.user-css .search-form {
-  .typeahead-input {
-    font-size: var(--txSize);
-    color: var(--searchColor);
-    background-color: var(--searchBgColor);
-    box-shadow: var(--searchShadow);
-  }
-  ul {
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-  }
-  .dropdown-menu {
-    font-size: var(--cpSize);
-    background-color: var(--searchBgColor);
-    .text-muted{
-      /* need the important to override the BS5 important */
-      color:  var(--searchColorMuted) !important;
-    }
-    a {
-      color: var(--searchColor);
-      text-shadow: none;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    li.active {
-      background-color: var(--searchActiveBgColor);
-      a {
-        font-weight: var(--nearly-bold);
-        color: var(--searchActiveColor);
-      }
-      .text-muted{
-        color:  var(--searchColorMuted) !important;
-      }
-    }
-  }
-}
-
-/* WORLD MENU POPUP */
-
-.user-css-presentation .page-world-homepage #world-category-content .article-list {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 /* HEADINGS */
 
 .user-css,
@@ -491,6 +415,92 @@
     text-transform: none;
   }
 
+}
+
+/* HOME PAGE TITLE */
+
+.user-css h1.world-title {
+  padding: 0;
+  font-size: var(--wtSize);
+  letter-spacing: .2rem;
+  color: var(--h1Color);
+  text-shadow: var(--shad1234567);
+}
+
+.user-css .world-subtitle {
+  padding-top: .25em;
+  font-size: var(--wsSize);
+  line-height: 1.1em;
+  letter-spacing: 0;
+  color: var(--shColor);
+  text-shadow: var(--shad12345);
+}
+
+.user-css .world-subtitle small {
+  font-size: inherit;
+}
+
+.user-css h3.world-currentDate {
+  font-size: var(--h4Size);
+  color: var(--h4Color);
+  letter-spacing: .1rem;
+}
+
+.user-css .world-author {
+  /* using larger font size because font itself is smaller */
+  font-size: var(--lgSize);
+}
+
+/* SEARCH */
+
+.user-css .search-form {
+  .typeahead-input {
+    font-size: var(--txSize);
+    color: var(--searchColor);
+    background-color: var(--searchBgColor);
+    box-shadow: var(--searchShadow);
+  }
+  ul {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+  .dropdown-menu {
+    font-size: var(--cpSize);
+    background-color: var(--searchBgColor);
+    .text-muted{
+      /* need the important to override the BS5 important */
+      color:  var(--searchColorMuted) !important;
+    }
+    a {
+      color: var(--searchColor);
+      text-shadow: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    li.active {
+      background-color: var(--searchActiveBgColor);
+      a {
+        font-weight: var(--nearly-bold);
+        color: var(--searchActiveColor);
+      }
+      .text-muted{
+        color:  var(--searchColorMuted) !important;
+      }
+    }
+  }
+}
+
+/* WORLD MENU POPUP */
+
+.user-css-presentation .page-world-homepage #world-category-content .article-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* NAV SIDEBAR */
