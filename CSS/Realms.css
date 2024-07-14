@@ -169,6 +169,8 @@
   --navmenuBorderInset: var(--Mirage10D);
   --navmenuBorderOutset: var(--Black60);
   --navmenuShadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
+  --navmenuScrollBarColor: var(--GullGrey);
+  --navmenuScrollBarBgColor: var(--navmenuBgColor);
 
   /* text */
   --textColor: var(--PaleIce);
@@ -311,6 +313,12 @@
   /* formatting for blockquote - TODO */
   blockquote {
   }
+
+  /* formatting for tables */
+  td {
+    -moz-hypens: unset;
+    hyphens: unset;
+  }
 }
 
 /* HOME PAGE TITLE */
@@ -339,6 +347,58 @@
 .user-css h3.world-currentDate {
   font-size: 1.25rem;
   letter-spacing: .1rem;
+}
+
+/* SEARCH */
+
+.user-css .search-form {
+  .typeahead-input {
+    font-size: var(--txSize);
+    color: var(--searchColor);
+    background-color: var(--searchBgColor);
+    box-shadow: var(--searchShadow);
+  }
+  ul {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+  .dropdown-menu {
+    font-size: var(--cpSize);
+    background-color: var(--searchBgColor);
+    .text-muted{
+      /* need the important to override the BS5 important */
+      color:  var(--searchColorMuted) !important;
+    }
+    a {
+      color: var(--searchColor);
+      text-shadow: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    li.active {
+      background-color: var(--searchActiveBgColor);
+      a {
+        font-weight: var(--nearly-bold);
+        color: var(--searchActiveColor);
+      }
+      .text-muted{
+        color:  var(--searchColorMuted) !important;
+      }
+    }
+  }
+}
+
+/* WORLD MENU POPUP */
+
+.user-css-presentation .page-world-homepage #world-category-content .article-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* HEADINGS */
@@ -415,6 +475,20 @@
 
 }
 
+/* NAV SIDEBAR */
+
+.user-css-presentation #world-navigation-sidebar {
+  height: auto;
+}
+
+.user-css-presentation #world-navigation-sidebar.user-css.page.sidebar-panel-open {
+  background: var(--navmenuBgColor);
+  border: var(--navmenuBorder);
+  border-radius: var(--navmenuBorderRadius);
+  box-shadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
+  scrollbar-color: var(--navmenuScrollBarColor) var(--navmenuScrollBarBgColor);
+}
+
 /* SIDEBAR */
 
 .user-css .panel.panel-default {
@@ -464,53 +538,6 @@
   padding-left: .5em;
 }
 
-/* SEARCH */
-
-.user-css .search-form {
-  .typeahead-input {
-    font-size: var(--txSize);
-    color: var(--searchColor);
-    background-color: var(--searchBgColor);
-    box-shadow: var(--searchShadow);
-  }
-  ul {
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-  }
-  .dropdown-menu {
-    font-size: var(--cpSize);
-    background-color: var(--searchBgColor);
-    .text-muted{
-      color:  var(--searchColorMuted) !important;
-    }
-    a {
-      color: var(--searchColor);
-      text-shadow: none;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    li.active {
-      background-color: var(--searchActiveBgColor);
-      a {
-        font-weight: var(--nearly-bold);
-        color: var(--searchActiveColor);
-      }
-      .text-muted{
-        color:  var(--searchColorMuted) !important;
-      }
-    }
-  }
-}
-
-/* STORYTELLER SEED */
-
-/* TABLES */
-
-.user-css td {
-  -moz-hypens: unset;
-  hyphens: unset;
-}
-
 /* CATEGORY PAGES */
 
 .user-css .category-title-icon-wrapper {
@@ -552,6 +579,8 @@
   }
 }
 
+/* STORYTELLER SEED */
+
 /* TOHERE */
 
 /* ARTICLE BLOCKS */
@@ -559,39 +588,6 @@
 .user-css .article-panel .details .heading {
   font-weight: var(--nearly-bold);
   text-shadow: none;
-}
-
-/* WORLD MENU */
-
-.user-css .world-menu h5 {
-  padding-top: revert;
-}
-
-/* WORLD MENU POPUP */
-
-.user-css-presentation .page-world-homepage #world-category-content .article-list {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* NAV SIDEBAR */
-
-.user-css-presentation #world-navigation-sidebar {
-  height: auto;
-}
-
-.user-css-presentation #world-navigation-sidebar.user-css.page.sidebar-panel-open {
-  background: var(--navsidebar-bgcolor);
-  border: 2px solid var(--main-h2-line-color);
-  border-radius: 15px;
-  box-shadow: 0px 1px 10px 2px var(--navsidebar-outset-shadow-color), inset 0px 0px 10px 0px var(--navsidebar-inset-shadow-color);
-  scrollbar-color: var(--navscrollbar-color) var(--navsidebar-inset-shadow-color);
 }
 
 /* MOUSEOVER */
