@@ -496,6 +496,7 @@
 /* SEARCH */
 
 .user-css .search-form {
+  opacity: 75%;
   .typeahead-input {
     font-size: var(--txSize);
     color: var(--searchColor);
