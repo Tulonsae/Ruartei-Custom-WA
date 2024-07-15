@@ -396,7 +396,8 @@
 
 /* for article pages, category pages, and popup/mouseovers */
 .user-css,
-.user-css-presentation .tooltipster-content {
+.user-css-presentation .tooltipster-content,
+.user-css-presentation #comments {
 
   /* font and font weight and capitalization */
   h1, h2, h3, h4, h5 {
@@ -788,13 +789,10 @@
         border-radius: var(--mouseoverBorderRadius);
         border-color: var(--GullGrey);
         box-shadow: 3px 3px 5px var(--Black60);
-        /* figure out how to target the link in the button and only in the button */
-        a {
-          color: var(--buttonColor);
-        }
-        a:hover {
-          color: var(--hoverColor);
-        }
+        color: var(--buttonColor);
+      }
+      .btn-secondary:hover {
+        color: var(--hoverColor);
       }
     }
     /* the mouseover border arrows */
@@ -969,7 +967,7 @@
         font-family: inherit;
         font-size: inherit;
         font-weight: var(--semi-bold);
-        color: var(--h5Color);
+        color: var(--buttonColor);
       }
       a:hover {
         color: var(--hoverColor);
@@ -1005,3 +1003,8 @@
       }
     }
   }
+
+/* COMMENTS */
+
+.user-css-presentation #comments {
+}
