@@ -613,12 +613,12 @@
   padding-left: .5em;
 }
 
-/* FOLLOWERS COUNTER */
+/* FOLLOWERS COUNTER BUTTON */
 
 /* note: must go after sidebar, important overrides bootstrap */
 .user-css .followers-counter {
-  margin-top: 1rem;
-  margin-bottom: 1rem !important;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem !important;
   .panel-default {
     margin-bottom: 0 !important;
     .header-title {
@@ -626,11 +626,39 @@
       margin-bottom: 0;
       padding: 0;
       font-size: var(--lgSize);
+      color: var(--h5Color);
+      a {
+        color: var(--h5Color);
+      }
+      a:hover {
+         color: var(--hoverColor);
+     }
     }
     div[class|=panel] {
       margin-top: 0;
       padding: .5rem;
     }
+  }
+}
+
+/* DISCUSSION BOARDS BUTTON */
+
+/* note: important overrides bootstrap */
+.user-css .discussion-boards-world-link {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem !important;
+  a {
+    margin-top: 3px;
+    padding: .5rem;
+    background: var(--sidebarBgColor);
+    border-radius: var(--sidebarBorderRadius);
+    border: var(--sidebarBorder);
+    box-shadow: var(--sidebarShadow);
+    font-size: var(--lgSize);
+    color: var(--h5Color) !important;
+  }
+  a:hover {
+    color: var(--hoverColor) !important;
   }
 }
 
