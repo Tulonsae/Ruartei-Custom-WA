@@ -381,10 +381,12 @@
     -moz-hypens: unset;
     hyphens: unset;
   }
+
 }
 
 /* HEADINGS */
 
+/* for article pages, category pages, and popup/mouseovers */
 .user-css,
 .user-css-presentation .tooltipster-content {
 
@@ -448,12 +450,26 @@
     text-shadow: var(--shShadow);
   }
 
+}
+
+/* for other article titles */
+.user-css .article-title {
+
   /* pronunciation in articles */
-  .article-content .pronunciation {
+  .pronunciation {
+    font-family: var(--hdFont);
     font-size: var(--smSize);
     line-height: var(--ipaLineHeight);
     color: var(--ipaColor);
     text-shadow: var(--ipaShadow);
+    text-transform: none;
+  }
+
+  /* formatting for article title credits */
+  .article-title-author {
+    font-family: var(--sgFont);
+    font-size: var(--lgSize);
+    color: var(--markColor);
     text-transform: none;
   }
 
