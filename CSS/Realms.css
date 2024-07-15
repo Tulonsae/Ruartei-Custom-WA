@@ -206,6 +206,8 @@
   --linkShadow: var(--shad12);
   --hoverColor: var(--Aquamarine);
   --markColor: var(--Caramel);
+  --buttonColor: var(--Malibu);
+/* TODO - update with new buttonColor var */
 
   /* headings */
   --h1Color: var(--Mauve);
@@ -254,6 +256,12 @@
   --articleblockShadow: 4px 4px 6px var(--Black60);;
   --articleblockBorderCoverImage: 2px solid var(--Denim);
   --articleblockBorderCoverImageRadius: 15px 15px 0px 0px;
+
+  /* article meta */
+  --articlemetaBgColor: var(--Mirage);
+  --articlemetaBorder: 3px solid var(--Denim);
+  --articlemetaBorderWidth: 0 3px 3px;
+  --articlemetaBorderRadius: 0 0 15px 15px;
 }
 
 /* PAGE */
@@ -750,7 +758,7 @@
       background: var(--mouseoverBgColor);
       border: var(--mouseoverBorder);
       border-radius: var(--mouseoverBorderRadius);
-      box-shadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
+      box-shadow: var(--mouseoverShadow);
       scrollbar-color: var(--mouseoverScrollBarColor) var(--mouseoverScrollBarBgColor);
     }
     /* the mouseover content */
@@ -772,6 +780,21 @@
       /* do not break after spanned icons */
       span {
         display: inline-flex;
+      }
+      /* this is the read full article button */
+      .btn-secondary {
+        background: var(--Rhino);
+        border-width: 1px;
+        border-radius: var(--mouseoverBorderRadius);
+        border-color: var(--GullGrey);
+        box-shadow: 3px 3px 5px var(--Black60);
+        /* figure out how to target the link in the button and only in the button */
+        a {
+          color: var(--buttonColor);
+        }
+        a:hover {
+          color: var(--hoverColor);
+        }
       }
     }
     /* the mouseover border arrows */
@@ -929,3 +952,56 @@
 .user-css .glossary-block .article-panel .cover {
   min-height: 75px;
 }
+
+/* ARTICLE METADATA */
+
+/* importants used to override bootstrap */
+.user-css-presentation .article-extended-tabs {
+  font-family: var(--txFont);
+  font-size: var(--txSize);
+  .nav-tabs {
+    li.nav-item {
+      a {
+        background-color: var(--articlemetaBgColor);
+        border: var(--articlemetaBorder);
+        border-width: var(--articlemetaBorderWidth);
+        border-radius: var(--articlemetaBorderRadius);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: var(--semi-bold);
+        color: var(--h5Color);
+      }
+      a:hover {
+        color: var(--hoverColor);
+      }
+    }
+  }
+  .tab-content {
+    color: var(--textColor);
+    .metadata-label {
+      font-weight: var(--semi-bold);
+    }
+    a {
+      color: var(--linkColor);
+    }
+    a:hover {
+      color: var(--hoverColor);
+    }
+    .badge-wip.text-danger {
+      font-weight: var(--semi-bold);
+      color: var(--Caramel) !important;
+    }
+    .orgtree li { 
+      a {
+        background-color: var(--Mirage);
+        font-family: inherit;
+        font-size: inherit;
+        color: var(--h5Color);
+        text-shadow: var(--shad12);
+      }
+      a:hover {
+        background-color: var(--Rhino);
+        color: var(--hoverColor);
+      }
+    }
+  }
