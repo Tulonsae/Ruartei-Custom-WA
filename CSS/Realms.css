@@ -278,6 +278,7 @@
   --buttonBgColor: var(--Rhino);
   --buttonBorder: 2px solid var(--GullGrey);
   --buttonBorderRadius: 15px;
+  --commentsDateBorder: 1px solid var(--GullGrey);
 
 }
 
@@ -1118,11 +1119,18 @@
       color: var(--hoverColor);
     }
   }
+  .comment-box {
+    background-color: var(--buttonBgColor);
+  }
   .comment-box-author {
     font-family: var(--sgFont);
     font-size: var(--lgSize);
   }
-  .comment-box {
-    background-color: var(--buttonBgColor);
+  .comment-box-date {
+    border-bottom: var(--commentsDateBorder);
+    .text-muted {
+      color: var(--textColor) !important;
+      opacity: inherit;
+    }
   }
 }
