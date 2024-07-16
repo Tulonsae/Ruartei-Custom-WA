@@ -1078,6 +1078,9 @@
         color: var(--hoverColor);
       }
     }
+    .metadata-value .explorer-tag {
+      background: inherit;
+    }
   }
 }
 
