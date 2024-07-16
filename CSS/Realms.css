@@ -665,30 +665,42 @@
   border-radius: var(--sidebarBorderRadius);
   border: var(--sidebarBorder);
   box-shadow: var(--sidebarShadow);
-  div[class|=panel] {
+/*  div[class|=panel] {
     margin-top: -1rem;
-  }
+  }*/
 }
 
 /* JEK KEY FACTS (SIDEBAR) */
 
-.user-css .jek-key-facts-heading {
+/* Note: this roughly parallels the WA structure,
+   except that there's no distinct class name for the WA section */
+
+/* title */
+.user-css .jek-key-facts h2 {
   padding-top: 0;
-  margin-top: calc(var(--h3Size) / 4);
-  margin-bottom: calc(var(--h3Size) / 2);
+  margin-top: calc(var(--h2Size) / 4);
+  margin-bottom: calc(var(--h2Size) / 2);
 }
 
-.user-css .jek-key-facts-subheading {
+/* section start */
+.user-css .jek-key-facts-section,
+.user-css .jek-key-facts .section-title {
+  margin-top: calc(var(--h5Size) / 2);
 }
 
-.user-css .jek-key-facts-label,
-.user-css .jek-key-facts .section-heading {
-  font-weight: var(--nearly-bold);
-}
-
-.user-css .jek-key-facts-info,
+/* section end */
+.user-css .jek-key-facts-section,
 .user-css .jek-key-facts .section-payload {
-  margin-bottom: calc(var(--txSize) / 2);
+  margin-bottom: calc(var(--h5Size) / 2);
+}
+
+/* headings */
+.user-css .jek-key-facts-heading,
+.user-css .jek-key-facts .section-heading {
+  font-family: var(--hdFont);
+  font-size: var(--h5Size);
+  color: var(--h5Color);
+  text-shadow: var(--h5Shadow);
 }
 
 .user-css .jek-key-facts ul {

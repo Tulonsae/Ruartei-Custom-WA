@@ -107,7 +107,7 @@
                     {# BEGIN JEK-KEY-FACTS #}
                     <div class="jek-key-facts">
 
-                        <h2 class="jek-key-facts-heading">Key Facts</h2>
+                        <h2>Key Facts</h2>
 
                         {# Alternate Names #}
                         {% include 'PresentationBundle:Helpers:value.html.twig' with {
@@ -141,19 +141,21 @@
 
                         {# Member Of #}
                         {% if usermetadata.memberOf|length > 0 %}
-                            <div class="jek-key-facts-info">
-                                <div class="jek-key-facts-label">Member Of</div>
-                                <ul>
-                                {% for item in usermetadata.memberOf%}
-                                    {% set memberData = item|split(':') %}
-                                    {% if memberData[1]|length > 0 %}
-                                        {% set memberBBcode = "@["~memberData[0]~"](organization:"~memberData[1]~")" %}
-                                        <li>{{ memberBBcode|BBcode }}</li>
-                                    {% else %}
-                                        <li>{{ memberData[0] }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
+                            <div class="jek-key-facts-section">
+                                <div class="jek-key-facts-heading">Member Of</div>
+                                <div class="jek-key-facts-info">
+                                    <ul>
+                                    {% for item in usermetadata.memberOf%}
+                                        {% set memberData = item|split(':') %}
+                                        {% if memberData[1]|length > 0 %}
+                                            {% set memberBBcode = "@["~memberData[0]~"](organization:"~memberData[1]~")" %}
+                                            <li>{{ memberBBcode|BBcode }}</li>
+                                        {% else %}
+                                            <li>{{ memberData[0] }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
                         {% endif %}
 
@@ -181,34 +183,38 @@
                         {# Note: Sidebar Content Panel Top may only be used for Key Features #}
                         {% if article.sidepanelcontenttop|length > 0 %}
                             {% set features = article.sidepanelcontenttop|split('\n') %}
-                            <div class="jek-key-facts-info">
-                                <div class="jek-key-facts-label">Key Features</div>
-                                <ul>
-                                {% for line in features %}
-                                    {% set item = line|trim %}
-                                        <li>{{ item|BBcode }}</li>
-                                {% endfor %}
-                                </ul>
+                            <div class="jek-key-facts-section">
+                                <div class="jek-key-facts-heading">Key Features</div>
+                                <div class="jek-key-facts-info">
+                                    <ul>
+                                    {% for line in features %}
+                                        {% set item = line|trim %}
+                                            <li>{{ item|BBcode }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
                         {% endif %}                        
 
                         {# Warp Paths #}
                         {% if usermetadata.warpPaths|length > 0 %}
-                            <div class="jek-key-facts-info">
-                                <div class="jek-key-facts-label">Warp Paths</div>
-                                <ul>
-                                {% for wp in usermetadata.warpPaths %}
-                                    {% set wpData = wp|split(':') %}
-                                    <li>
-                                    {% if wpData[2]|length > 0 %}
-                                        {% set starSysBBcode = "@["~wpData[0]~"](location:"~wpData[2]~")" %}
-                                        {{ starSysBBcode|BBcode }}:
-                                    {% else %}
-                                        {{ wpData[0] }}:
-                                    {% endif %}
-                                    {{ wpData[1] }}</li>
-                                {% endfor %}
-                                </ul>
+                            <div class="jek-key-facts-section">
+                                <div class="jek-key-facts-heading">Warp Paths</div>
+                                <div class="jek-key-facts-info">
+                                    <ul>
+                                    {% for wp in usermetadata.warpPaths %}
+                                        {% set wpData = wp|split(':') %}
+                                        <li>
+                                        {% if wpData[2]|length > 0 %}
+                                            {% set starSysBBcode = "@["~wpData[0]~"](location:"~wpData[2]~")" %}
+                                            {{ starSysBBcode|BBcode }}:
+                                        {% else %}
+                                            {{ wpData[0] }}:
+                                        {% endif %}
+                                        {{ wpData[1] }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
                         {% endif %}
 
