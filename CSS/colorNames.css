@@ -1,9 +1,9 @@
-  /* color names */
-  --DeepSpaceBlue: #1C2C40;
+  /* OLD color names */
+  --DeepSpaceBlue: #1C2C40; /* DarkSlateGray */
   --DeepSpaceBlue10L: #36465A;
   --DeepSpaceBlue10D: #031327;
   --DeepSpaceBlue20D: #00000D;
-  --PaleYellowWhite: #FFF7D6;
+  --PaleYellowWhite: #FFF7D6; /* CornSilk */
   --PaleYellowWhite10L: #FFFFF0;
   --PaleYellowWhite10D: #E6DEBD;
   --PaleYellowWhite20D: #CCC4A3;
