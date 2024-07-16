@@ -1,0 +1,17 @@
+To Migrate,
+
+Change Star Systems to Stars template
+Remove container BBCode from Stars
+
+Change all Category descriptions to use new format:
+[container:jek-cat-desc-content]
+[img:4578263]
+[h1]The Realms of Ruartei[/h1]
+[row]
+[col][img:4624737][h4]Dimensions[/h4][/col]
+[col][img:4624737][h4]Portal[/h4][/col]
+[/row]
+[row]
+[col][img:4624737][h4]The Caelum[/h4][/col]
+[/row]
+[/container]
