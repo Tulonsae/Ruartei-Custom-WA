@@ -267,7 +267,8 @@
 /* PAGE */
 
 /* turn off the world editor buttons */
-.user-css a.world-editor-link {
+.user-css a.world-editor-link,
+.user-css-presentation .tooltipster-content a.world-editor-link {
   display: none !important;
 }
 
@@ -396,8 +397,7 @@
 
 /* for article pages, category pages, and popup/mouseovers */
 .user-css,
-.user-css-presentation .tooltipster-content,
-.user-css-presentation #comments {
+.user-css-presentation .tooltipster-content {
 
   /* font and font weight and capitalization */
   h1, h2, h3, h4, h5 {
@@ -668,14 +668,14 @@
   margin-bottom: 1.25rem !important;
   .panel-default {
     margin-bottom: 0 !important;
-    .header-title {
+    h4.header-title {
       margin-top: 3px;
       margin-bottom: 0;
       padding: 0;
       font-size: var(--lgSize);
-      color: var(--h5Color);
+      color: var(--buttonColor);
       a {
-        color: var(--h5Color);
+        color: var(--buttonColor);
       }
       a:hover {
          color: var(--hoverColor);
