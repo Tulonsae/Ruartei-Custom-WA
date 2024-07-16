@@ -796,6 +796,11 @@
   a:hover {
     color: var(--hoverColor);
   }
+  /* display articles before categories */
+  .world-menu-subcategory {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 /* ARTICLE TOC */
