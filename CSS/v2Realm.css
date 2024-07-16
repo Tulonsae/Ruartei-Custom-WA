@@ -1,0 +1,1170 @@
+/*  uses bootstrap 5 and assumes default WA style loaded and white labeling enabled */
+
+/* FONTS */
+
+@font-face {
+  font-family: Taviraj;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/taviraj/v11/ahcZv8Cj3ylylTXzTOkrUsNzjUw.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Eagle Lake;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/eaglelake/v20/ptRMTiqbbuNJDOiKj9wG1On4KCFtpe4.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Nova Flat;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/novaflat/v24/QdVUSTc-JgqpytEbVeb0viFluW44JQ.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLmrETNbFtZCeGqgRXSe2DiLsip.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLgrETNbFtZCeGqgRXXS2LoKeqrgE8.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR0hWHXPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ5HLPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR0NX3XPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ73MPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLhrETNbFtZCeGqgR1pXnXPDMWDikd5.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Tomorrow;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tomorrow/v17/WBLjrETNbFtZCeGqgRXXQ9nNPMeJjWV72Vc.woff2);
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* VARIABLES */
+
+.user-css,
+.user-css-presentation {
+
+  /* fonts */
+  --txFont: Tomorrow, sans-serif;
+  --hdFont: Nova Flat, sans-serif;
+  --sgFont: Eagle Lake, cursive;
+  --bqFont: Taviraj, serif;
+
+  /* font weights */
+  --normal: 400;
+  --semi-bold: 500;
+  --nearly-bold: 600;
+  --bold: 700;
+
+  /* font sizes */
+  --txSize: 1rem;		/* regular text */
+  --lgSize: 1.2rem;		/* larger text */
+  --wtSize: 3rem;		/* world title */
+  --wsSize: .5em;		/* world subtitle */
+  --h1Size: 2.5rem;		/* title */
+  --h2Size: 2rem;		/* heading 1 */
+  --h3Size: 1.75rem;		/* heading 2 */
+  --h4Size: 1.5rem;		/* heading 3 */
+  --h5Size: 1.25rem;		/* heading 4 */
+  --cpSize: .9em;		/* captions */
+  --smSize: .6em;		/* pronunciation */
+  --shSize: var(--h4Size);	/* subheading */
+
+  /* line heights */
+  --lhTitle: 1.2em;
+
+  /* color names */
+  --BlueWhale: #1C2C40;		/* page background */
+  --BlueWhale20L: #4F5F73;
+  --BlueWhale10D: #031326;
+  --Denim: #3F618C;		/* page border */
+  --Rhino: #273D59;		/* sidebar background */
+  --Rhino10D: #0E2440;
+  --Elephant: #22344D;		/* mouseover background */
+  --Elephant10D: #091A33;
+  --Mirage: #162233;		/* navmenu background */
+  --Mirage10D: #00091A;
+  --PaleIce: #F5FAFF;		/* text primary */
+  --PaleIce10D: #DCE1E6;
+  --Aquamarine: #73FFD0;	/* text hover */
+  --Caramel: #FFD78C;		/* text mark */
+  --Mauve: #BB99FF;		/* title & text link */
+  --AquaGreen: #73FFE8;		/* heading 1 */
+  --AquaTeal: #73FFFF;		/* heading 2 */
+  --AquaBlue: #73E8FF;		/* heading 3 */
+  --Malibu: #73D0FF;		/* heading 4 & subtitle */
+  --PaleLavender: #BFC8FF;	/* pronunciation */
+  --GullGrey: #A2ACBD;		/* h2 line */
+  --Black40: #00000040;
+  --Black60: #00000060;
+
+  /* text shadows */
+  --shad1234567: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black, 6px 6px 0 black, 7px 7px 0 black;
+  --shad12345: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black, 5px 5px 0 black;
+  --shad1234: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
+  --shad123: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black;
+  --shad12: 1px 1px 0 black, 2px 2px 0 black;
+  --shad1: 1px 1px 0 black;
+
+  /* page background and border */
+  --pageBgColor: var(--BlueWhale);
+  --pageBorder: 5px solid var(--Denim);
+  --pageBorderRadius: 15px;
+  --pageBorderCoverImage: 3px solid var(--Denim);
+  --pageBorderCoverImageRadius: 15px 15px 0px 0px;
+
+  /* sidebar */
+  --sidebarBgColor: var(--Rhino);
+  --sidebarBorder: 2px solid var(--GullGrey);
+  --sidebarBorderRadius: 15px;
+  --sidebarBorderInset: var(--Rhino10D);
+  --sidebarBorderOutset: var(--Black60);
+  --sidebarShadow: 0px 1px 10px 2px var(--sidebarBorderOutset), inset 0px 0px 20px 0px var(--sidebarBorderInset);
+
+  /* mouseover */
+  --mouseoverBgColor: var(--Elephant);
+  --mouseoverBorderColor: var(--GullGrey);
+  --mouseoverBorder: 2px solid var(--mouseoverBorderColor);
+  --mouseoverBorderRadius: 15px;
+  --mouseoverBorderInset: var(--Elephant10D);
+  --mouseoverBorderOutset: var(--Black60);
+  --mouseoverShadow: 0px 1px 10px 2px var(--mouseoverBorderOutset), inset 0px 0px 20px 0px var(--mouseoverBorderInset);
+  --mouseoverScrollBarColor: var(--GullGrey);
+  --mouseoverScrollBarBgColor: transparent;
+
+  /* navmenu */
+  --navmenuBgColor: var(--Mirage);
+  --navmenuBorder: 2px solid var(--GullGrey);
+  --navmenuBorderRadius: 15px;
+  --navmenuBorderInset: var(--Mirage10D);
+  --navmenuBorderOutset: var(--Black60);
+  --navmenuShadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
+  --navmenuScrollBarColor: var(--GullGrey);
+  --navmenuScrollBarBgColor: transparent;
+
+  /* text */
+  --textColor: var(--PaleIce);
+  --linkColor: var(--Mauve);
+  --linkShadow: var(--shad12);
+  --hoverColor: var(--Aquamarine);
+  --markColor: var(--Caramel);
+  --buttonColor: var(--Malibu);
+/* TODO - update with new buttonColor var */
+
+  /* headings */
+  --h1Color: var(--Mauve);
+  --h1Shadow: var(--shad12345);
+  --h1LineHeight: var(--lhTitle);
+  --shColor: var(--Malibu);
+  --shShadow: var(--shad12);
+  --shLineHeight: var(--h1LineHeight);
+  --h2Color: var(--AquaGreen);
+  --h2Shadow: var(--shad1234);
+  --h2Line: var(--GullGrey);
+  --h2Border: 2px solid var(--h2Line);		/* bottom border */
+  --h3Color: var(--AquaTeal);
+  --h3Shadow: var(--shad123);
+  --h4Color: var(--AquaBlue);
+  --h4Shadow: var(--shad123);
+  --h5Color: var(--Malibu);
+  --h5Shadow: var(--shad123);
+  --ipaColor: var(--PaleLavender);
+  --ipaShadow: none;
+
+  /* breadcrumbs */
+  --breadcrumbLinkColor: var(--Malibu);
+  --breadcrumbBorder: var(--GullGrey);
+  --breadcardBgColor: var(--Mirage);
+  --breadcardBorder: 2px solid var(--GullGrey);
+  --breadcardBorderRadius: 15px;
+  --breadcardBorderInset: var(--Mirage10D);
+  --breadcardBorderOutset: var(--Black60);
+  --breadcardShadow: 0px 1px 10px 2px var(--breadcardBorderOutset), inset 0px 0px 10px 0px var(--breadcardBorderInset);
+
+  /* search */
+  --searchBgColor: var(--PaleIce);
+  --searchColor: var(--BlueWhale);
+  --searchColorMuted: var(--BlueWhale20L);
+  --searchActiveBgColor; var(--PaleIce10D);
+  --searchActiveColor: var(--BlueWhale10D);
+  --searchShadow: 3px 3px 5px var(--Black40);
+
+  /* article panels */
+  --articleblockBgColor: var(--Mirage);
+  --articleblockBorder: 3px solid var(--Denim);
+  --articleblockBorderRadius: 15px;
+  --articleblockBorderInset: var(--Rhino10D);
+  --articleblockBorderOutset: var(--Black60);
+  --articleblockShadow: 4px 4px 6px var(--Black60);;
+  --articleblockBorderCoverImage: 2px solid var(--Denim);
+  --articleblockBorderCoverImageRadius: 15px 15px 0px 0px;
+
+  /* category panels */
+  --catblockBgColor: var(--Mirage);
+  --catblockBorder: 3px solid var(--Denim);
+  --catblockBorderRadius: 15px;
+  --catblockBorderInset: var(--Rhino10D);
+  --catblockBorderOutset: var(--Black60);
+  --catblockShadow: 4px 4px 6px var(--Black60);;
+
+  /* article meta */
+  --articlemetaBgColor: var(--Mirage);
+  --articlemetaBorder: 3px solid var(--Denim);
+  --articlemetaBorderWidth: 0 3px 3px;
+  --articlemetaBorderRadius: 0 0 15px 15px;
+
+  /* comments */
+  --commentsBgColor: var(--PaleIce);
+  --commentsColor: var(--BlueWhale);
+  --commentsShadow: 3px 3px 5px var(--Black40);
+  --buttonBgColor: var(--Rhino);
+  --buttonBorder: 2px solid var(--GullGrey);
+  --buttonBorderRadius: 15px;
+  --commentsDateBorder: 1px solid var(--GullGrey);
+
+}
+
+/* PAGE */
+
+/* turn off the world editor buttons */
+.user-css a.world-editor-link,
+.user-css-presentation .tooltipster-content a.world-editor-link {
+  display: none !important;
+}
+
+/* change the powered by World Anvil label so it doesn't overwrite the content */
+/* note: on Safari, no sideways-lr, vertical-lr and verical-rl both act like sideways-rl */
+.user-css.widget-white-label-mark {
+  /* give this widget better colors */
+  padding: 2px;
+  writing-mode: vertical-lr;
+  /* turn off edit part */
+  ul {
+    display: none;
+  }
+  a {
+    text-shadow: var(--shad1);
+  }
+}
+
+/* world hamburger */
+/* moving this up so it doesn't cover breadcrumbs on mobile */
+.user-css-presentation .world-navigation-palette-trigger {
+  top: 9rem;
+}
+
+/* page and image colors and borders */
+.user-css-presentation .page {
+  background: var(--pageBgColor);
+  border: var(--pageBorder);
+  border-radius: var(--pageBorderRadius);
+  .cover img {
+    border-bottom: var(--pageBorderCoverImage);
+    border-radius: var(--pageBorderCoverImageRadius);
+  }
+}
+
+/* adjust the spacing at the bottom of the main content */
+.user-css .article-content-left {
+  margin-bottom: 1rem;
+}
+
+/* credits */
+.user-css .artist-credits {
+  font-size: var(--cpSize);
+  color: revert;
+}
+
+/* TEXT */
+
+.user-css-presentation .page {
+  /* setting the font size here fixes the home and category pages to regular text size */
+  font-size: var(--txSize);
+}
+.user-css .article-content {
+  /* setting the font size to inherit here keeps the article pages set to regular text size */
+  font-size: inherit;
+}
+
+.user-css {
+
+  /* font and colors for text, links, and hover */
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  color: var(--textColor);
+  a {
+    color: var(--linkColor);
+    text-shadow: var(--linkShadow);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
+
+  /* adjust paragraph and indented paragraph spacing */
+  p, .paragraph-indent {
+    margin-top: .5em;
+    margin-bottom: 0;
+  }
+  .paragraph-indent {
+    text-indent: 1.5em;
+  }
+
+  /* adjust the spacing for lists */
+  ul, ol {
+    margin-bottom: 0;
+  }
+
+  /* formatting for marks in articles */
+  .article-content mark {
+    background: inherit;
+    color: var(--markColor);
+    padding: 0;
+  }
+
+  /* formatting for dropcaps - TODO */
+  /* note: need to figure out how to keep dropcaps from flowing into next content */
+  .dropcap {
+  }
+
+  /* formatting for blockquote - needs work */
+  blockquote {
+    margin: .75em;
+    padding: 1.25em;
+    background: var(--sidebarBgColor);
+    box-shadow: 4px 4px 6px var(--Black60);
+    border: 1px solid var(--GullGrey);
+    border-top-right-radius: .75em;
+    border-bottom-right-radius: .75em;
+    font-family: var(--bqFont);
+    font-size: 1.2em;
+    color: var(--textColor);
+    .author {
+      font-family: var(--sgFont);
+      color: var(--textColor);
+    }
+}
+
+  /* formatting for tables */
+  td {
+    -moz-hypens: unset;
+    hyphens: unset;
+  }
+
+}
+
+/* HEADINGS */
+
+/* for article pages, category pages, and popup/mouseovers */
+.user-css,
+.user-css-presentation .tooltipster-content {
+
+  /* font and font weight and capitalization */
+  h1, h2, h3, h4, h5 {
+    font-family: var(--hdFont);
+    font-weight: var(--normal);
+    text-transform: none;
+  }
+
+  /* page title */
+  h1 {
+    margin-top: .1em;
+    padding-top: 0;
+    font-size: var(--h1Size);
+    line-height: var(--h1LineHeight);
+    color: var(--h1Color);
+    text-shadow: var(--h1Shadow);
+  }
+
+  /* main heading */
+  h2 {
+    padding-top: calc(var(--h2Size) / 2);
+    font-size: var(--h2Size);
+    color: var(--h2Color);
+    text-shadow: var(--h2Shadow);
+    border-bottom: var(--h2Border);
+  }
+
+  /* secondary heading */
+  h3 {
+    padding-top: calc(var(--h3Size) / 2);
+    font-size: var(--h3Size);
+    color: var(--h3Color);
+    text-shadow: var(--h3Shadow);
+  }
+
+  /* tertiary heading */
+  h4 {
+    padding-top: calc(var(--h4Size) / 2);
+    font-size: var(--h4Size);
+    color: var(--h4Color);
+    text-shadow: var(--h4Shadow);
+  }
+
+  /* 4th heading */
+  h5 {
+    margin-top: 0;
+    padding-top: calc(var(--h5Size) / 2);
+    font-size: var(--h5Size);
+    color: var(--h5Color);
+    text-shadow: var(--h5Shadow);
+  }
+
+  /* subheading in articles */
+  .article-subheading {
+    padding-left: 1.25rem;
+    padding-top: calc(var(--shSize) / 2);
+    font-size: var(--shSize);
+    color: var(--shColor);
+    text-shadow: var(--shShadow);
+  }
+
+}
+
+/* for other article titles */
+.user-css .article-title {
+
+  /* pronunciation in articles */
+  .pronunciation {
+    font-family: var(--hdFont);
+    font-size: var(--smSize);
+    line-height: var(--ipaLineHeight);
+    color: var(--ipaColor);
+    text-shadow: var(--ipaShadow);
+    text-transform: none;
+  }
+
+  /* formatting for article title credits */
+  .article-title-author {
+    font-family: var(--sgFont);
+    font-size: var(--lgSize);
+    color: var(--markColor);
+    text-transform: none;
+  }
+
+}
+
+/* HOME PAGE TITLE */
+
+.user-css h1.world-title {
+  padding: 0;
+  font-size: var(--wtSize);
+  letter-spacing: .2rem;
+  color: var(--h1Color);
+  text-shadow: var(--shad1234567);
+}
+
+.user-css .world-subtitle {
+  padding-top: .25em;
+  font-size: var(--wsSize);
+  line-height: 1.1em;
+  letter-spacing: 0;
+  color: var(--shColor);
+  text-shadow: var(--shad12345);
+}
+
+.user-css .world-subtitle small {
+  font-size: inherit;
+}
+
+.user-css h3.world-currentDate {
+  font-size: var(--h4Size);
+  color: var(--h4Color);
+  letter-spacing: .1rem;
+}
+
+.user-css .world-author {
+  font-family: var(--sgFont);
+  font-size: var(--lgSize);
+}
+
+/* SEARCH */
+
+.user-css .search-form {
+  opacity: 75%;
+  .typeahead-input {
+    font-size: var(--txSize);
+    color: var(--searchColor);
+    background-color: var(--searchBgColor);
+    box-shadow: var(--searchShadow);
+  }
+  ul {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+  .dropdown-menu {
+    font-size: var(--cpSize);
+    background-color: var(--searchBgColor);
+    .text-muted{
+      /* need the important to override the BS5 important */
+      color:  var(--searchColorMuted) !important;
+    }
+    a {
+      color: var(--searchColor);
+      text-shadow: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    li.active {
+      background-color: var(--searchActiveBgColor);
+      a {
+        font-weight: var(--nearly-bold);
+        color: var(--searchActiveColor);
+      }
+      .text-muted{
+        color:  var(--searchColorMuted) !important;
+      }
+    }
+  }
+}
+
+/* CATEGORY PAGE */
+
+.user-css .category-contents {
+  .category-header .text-center {
+    strong {
+      font-weight: var(--semi-bold);
+    }
+  }
+  /* identifies content that should displayed in world category popup,
+     but not on category page */
+  .jek-cat-desc-content {
+    display: none;
+  }
+}
+
+/* WORLD CATEGORY POPUP */
+
+/* title box */
+.user-css-presentation #world-category-content {
+  .panel-default {
+    div[class|=panel] {
+      margin-top: 0;
+      padding-top: 1rem;
+      padding-bottom: 0;
+    }
+  }
+  .category-header .text-center {
+    width: 100%;
+    strong {
+      font-weight: var(--semi-bold);
+    }
+    p {
+      margin: 0;
+    }
+    /* artist credits are displayed elsewhere */
+    .artist-credits {
+      display: none;
+    }
+    img {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      background: var(--catblockBgColor);
+      border: var(--catblockBorder);
+      border-radius: var(--catblockBorderRadius);
+      box-shadow: var(--catblockShadow);
+    }
+    .user-css-image-thumbnail {
+      padding: .25rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+    h5 {
+      margin-top: -.25rem;
+      margin-bottom: .25rem;
+      padding: 0;
+    }
+  }
+  .category-columns {
+    margin-bottom: 1rem;
+  }
+}
+
+/* article block list, double column */
+.user-css-presentation .page-world-homepage #world-category-content .article-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* NAV SIDEBAR */
+
+.user-css-presentation #world-navigation-sidebar {
+  height: auto;
+}
+
+.user-css-presentation #world-navigation-sidebar.user-css.page.sidebar-panel-open {
+  background: var(--navmenuBgColor);
+  border: var(--navmenuBorder);
+  border-radius: var(--navmenuBorderRadius);
+  box-shadow: 0px 1px 10px 2px var(--navmenuBorderOutset), inset 0px 0px 10px 0px var(--navmenuBorderInset);
+  scrollbar-color: var(--navmenuScrollBarColor) var(--navmenuScrollBarBgColor);
+}
+
+/* SIDEBAR */
+
+/* note: need the important to override bootstrap */
+.user-css .panel.panel-default {
+  margin-bottom: .75rem !important;
+  background: var(--sidebarBgColor);
+  border-radius: var(--sidebarBorderRadius);
+  border: var(--sidebarBorder);
+  box-shadow: var(--sidebarShadow);
+/*  div[class|=panel] {
+    margin-top: -1rem;
+  }*/
+}
+
+/* JEK KEY FACTS (SIDEBAR) */
+
+/* Note: this roughly parallels the WA structure,
+   except that there's no distinct class name for the WA section */
+
+/* title */
+.user-css .jek-key-facts h2 {
+  padding-top: 0;
+  margin-top: calc(var(--h2Size) / 4);
+  margin-bottom: calc(var(--h2Size) / 2);
+}
+
+/* section start */
+.user-css .jek-key-facts-section,
+.user-css .jek-key-facts .section-title {
+  margin-top: calc(var(--h5Size) / 2);
+}
+
+/* section end */
+.user-css .jek-key-facts-section,
+.user-css .jek-key-facts .section-payload {
+  margin-bottom: calc(var(--h5Size) / 2);
+}
+
+/* headings */
+.user-css .jek-key-facts-heading,
+.user-css .jek-key-facts .section-heading {
+  font-family: var(--hdFont);
+  font-size: var(--h5Size);
+  color: var(--h5Color);
+  text-shadow: var(--h5Shadow);
+}
+
+.user-css .jek-key-facts ul {
+  padding-left: 1.5em;
+}
+/* need to remove the -5px from the last li */
+.user-css .jek-key-facts ul li:last-of-type {
+  margin-bottom: 0;
+}
+/* the padding here needs to be padding from ul minus padding from indent */
+.user-css .jek-key-facts .section-payload ul {
+  list-style: disc;
+  padding-left: 1em;
+}
+
+.user-css .panel .jek-key-facts-indent,
+.user-css .jek-key-facts .section-payload {
+  padding-left: .5em;
+}
+
+/* FOLLOWERS COUNTER BUTTON */
+
+/* note: must go after sidebar, important overrides bootstrap */
+.user-css .followers-counter {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem !important;
+  .panel-default {
+    margin-bottom: 0 !important;
+    h4.header-title {
+      margin-top: 3px;
+      margin-bottom: 0;
+      padding: 0;
+      font-size: var(--lgSize);
+      color: var(--buttonColor);
+      a {
+        color: var(--buttonColor);
+      }
+      a:hover {
+         color: var(--hoverColor);
+     }
+    }
+    div[class|=panel] {
+      margin-top: 0;
+      padding: .5rem;
+    }
+  }
+}
+
+/* FOLLOWERS PAGE */
+
+/* TODO - need to see what is needed for formatting when there are followers */
+.user-css-presentation .page-followers {
+  .nav-strip {
+    background: inherit;
+    box-shadow: none;
+    font-family: var(--txFont);
+    font-size: var(--txSize);
+    a {
+      color: var(--buttonColor);
+      font-weight: inherit;
+    }
+    a:hover {
+      background: inherit;
+      color: var(--hoverColor);
+    }
+  }
+}
+
+/* DISCUSSION BOARDS BUTTON */
+
+/* note: important overrides bootstrap */
+.user-css .discussion-boards-world-link {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem !important;
+  a {
+    margin-top: 3px;
+    padding: .5rem;
+    background: var(--sidebarBgColor);
+    border-radius: var(--sidebarBorderRadius);
+    border: var(--sidebarBorder);
+    box-shadow: var(--sidebarShadow);
+    font-size: var(--lgSize);
+    color: var(--h5Color) !important;
+  }
+  a:hover {
+    color: var(--hoverColor) !important;
+  }
+}
+
+/* DISCUSSION BOARDS PAGE */
+
+/* TODO - check format when there are actually discussions */
+.user-css-presentation .discussion-board-section {
+   .backtoworld {
+    display: block;
+  }
+}
+
+/* CATEGORY PAGES */
+
+.user-css .category-title-icon-wrapper {
+  display: inline;
+}
+
+/* remove the line above the category articles block for jek class */
+.user-css.jek-no-article-blocks-heading-line .category-articles h2 {
+  border: 0;
+  padding-top: 0;
+}
+
+/* CATEGORY LIST */
+
+.user-css .category-list {
+  color: var(--h5Color);
+  text-decoration: none;
+  h5 {
+    padding-top: revert;
+  }
+  a {
+    color: var(--h5Color);
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
+  /* display articles before categories */
+  .world-menu-subcategory {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+/* ARTICLE TOC */
+
+.user-css div.articletoc {
+  border: 0px;
+  .article-toc-link {
+    border-bottom: none;
+    transition: none;
+  }
+  .article-toc-link:hover {
+    color: var(--hoverColor);
+  }
+}
+
+/* MOUSEOVER */
+
+.user-css-presentation {
+  .tooltipster-sidetip {
+    /* the mouseover box */
+    .tooltipster-box {
+      background: var(--mouseoverBgColor);
+      border: var(--mouseoverBorder);
+      border-radius: var(--mouseoverBorderRadius);
+      box-shadow: var(--mouseoverShadow);
+      scrollbar-color: var(--mouseoverScrollBarColor) var(--mouseoverScrollBarBgColor);
+    }
+    /* the mouseover content */
+    /* note: headings are the same as the regular ones */
+    .tooltipster-content {
+      margin-top: -1rem;
+      font-family: var(--txFont);
+      font-weight: var(--normal);
+      font-size: var(--txSize);
+      color: var(--textColor);
+      a {
+        color: var(--linkColor);
+        text-shadow: var(--linkShadow);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--hoverColor);
+      }
+      /* do not break after spanned icons */
+      span {
+        display: inline-flex;
+      }
+      /* this is the read full article button */
+      .btn-secondary {
+        background: var(--Rhino);
+        border-width: 1px;
+        border-radius: var(--mouseoverBorderRadius);
+        border-color: var(--GullGrey);
+        box-shadow: 3px 3px 5px var(--Black60);
+        color: var(--buttonColor);
+      }
+      .btn-secondary:hover {
+        color: var(--hoverColor);
+      }
+    }
+    /* the mouseover border arrows */
+    .tooltipster-base.tooltipster-top {
+      border-top-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-bottom {
+      border-bottom-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-left {
+      border-left-color: var(--mouseoverBorderColor);
+    }
+    .tooltipster-base.tooltipster-right {
+      border-right-color: var(--mouseoverBorderColor);
+    }
+  }
+}
+
+/* BREADCRUMBS */
+
+/* breadcrumbs contain the world link so backtoworld is redundant */
+.user-css .backtoworld {
+  display: none;
+}
+
+.user-css .breadbox {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  div[class$=loader] {
+    display: flex;
+    position: relative;
+    left: 1rem;
+  }
+  a {
+    color: var(--breadcrumbLinkColor);
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
+  hr {
+    margin-top: .5em;
+    margin-bottom: 0;
+    border-bottom: var(--breadcrumbBorder);
+    border-top: unset;
+    opacity: .5;
+  }
+  .breadcrumb {
+    margin: 0;
+  }
+  .breadcrumb-card {
+    /* use important to override bootstrap setting */
+    margin-top: .5em;
+    margin-bottom: .5em !important;
+    background-color: var(--breadcardBgColor);
+    border-radius: var(--breadcardBorderRadius);
+    border: var(--breadcardBorder);
+    box-shadow: var(--breadcardShadow);
+    div[class|=card] {
+      padding: .75rem;
+    }
+  }
+  .list-box ul {
+    padding-left: .25rem;
+    padding-right: .5rem;
+  }
+}
+
+/* to place breadcrumbs for category page */
+.user-css .category-contents {
+  display: flex;
+  flex-direction: column;
+}
+.user-css .world-global-category-introduction {
+  order: 1;
+}
+.user-css .category-header {
+  order: 2;
+}
+.user-css .category-contents .row {
+  order: 3;
+}
+.user-css .category-contents hr {
+  order: 4;
+}
+.user-css .category-contents .cover-credits {
+  order: 5;
+}
+
+/* to place breadcrumbs for article page */
+.user-css .article-title {
+  display: flex;
+  flex-direction: column;
+}
+.user-css .world-global-article-introduction {
+  order: 1;
+}
+.user-css .article-title .m-b-0 {
+  order: 2;
+}
+.user-css .article-title-author {
+  order: 3;
+}
+
+/* STORYTELLER SEED */
+
+/* WORLD META */
+
+/* ARTICLE BLOCKS */
+
+.user-css .article-panel {
+  margin-top: .75em;
+  margin-bottom: .5em;
+  background: var(--articleblockBgColor);
+  border: var(--articleblockBorder);
+  border-radius: var(--articleblockBorderRadius);
+  box-shadow: var(--articleblockShadow);
+  .cover {
+    max-height: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: var(--articleblockBorderCoverImage);
+    border-radius: var(--articleblockBorderCoverImageRadius);
+  }
+  .details {
+    h5.heading {
+      font-weight: var(--nearly-bold);
+      padding-top: calc(var(--h5Size) / 4);
+    }
+    .subheading {
+      color: var(--textColor);
+      .date {
+        color: var(--textColor);
+      }
+    }
+  }
+  .excerpt {
+    display: none;
+  }
+}
+/* size for side panels */
+.user-css .col-md-4 .article-panel .cover {
+  min-height: 75px;
+}
+/* size for left content */
+.user-css .col-md-8 .article-panel .cover {
+  min-height: 150px;
+}
+/* size for world cat popup grid */
+.user-css .col-md-8 .col-md-12 .article-panel .cover {
+  min-height: 75px;
+}
+/* size for full width */
+.user-css .article-content-full-bottom .col-md-12 .article-panel .cover {
+  min-height: 225px;
+}
+/* size for child articles */
+.user-css .glossary-block .article-panel .cover {
+  min-height: 75px;
+}
+
+/* ARTICLE METADATA */
+
+/* importants used to override bootstrap */
+.user-css-presentation .article-extended-tabs {
+  font-family: var(--txFont);
+  font-size: var(--txSize);
+  .nav-tabs {
+    li.nav-item {
+      a {
+        background-color: var(--articlemetaBgColor);
+        border: var(--articlemetaBorder);
+        border-width: var(--articlemetaBorderWidth);
+        border-radius: var(--articlemetaBorderRadius);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: var(--semi-bold);
+        color: var(--buttonColor);
+      }
+      a:hover {
+        color: var(--hoverColor);
+      }
+    }
+  }
+  .tab-content {
+    color: var(--textColor);
+    .metadata-label {
+      font-weight: var(--semi-bold);
+    }
+    a {
+      color: var(--linkColor);
+    }
+    a:hover {
+      color: var(--hoverColor);
+    }
+    .badge-wip.text-danger {
+      font-weight: var(--semi-bold);
+      color: var(--Caramel) !important;
+    }
+    .orgtree li { 
+      a {
+        background-color: var(--Mirage);
+        font-family: inherit;
+        font-size: inherit;
+        color: var(--h5Color);
+        text-shadow: var(--shad12);
+      }
+      a:hover {
+        background-color: var(--Rhino);
+        color: var(--hoverColor);
+      }
+    }
+    .metadata-value .explorer-tag {
+      background: inherit;
+    }
+  }
+}
+
+/* COMMENTS */
+
+.user-css-presentation #comments {
+  font-family: var(--txFont);
+  font-weight: var(--normal);
+  color: var(--textColor);
+  a {
+    color: var(--linkColor);
+    text-shadow: var(--linkShadow);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--hoverColor);
+  }
+  h2 {
+    font-family: var(--hdFont);
+    font-weight: var(--normal);
+    text-transform: none;
+    color: var(--h2Color);
+    text-shadow: var(--h2Shadow);
+    border-bottom: var(--h2Border);
+  }
+  .comment-form textarea {
+    color: var(--commentsColor);
+    background-color: var(--commentsBgColor);
+    box-shadow: var(--commentsShadow);
+  }
+  .btn-primary {
+    background-color: var(--buttonBgColor);
+    border: var(--buttonBorder);
+    border-radius(--buttonBorderRadius);
+    a {
+      color: var(--buttonColor);
+    }
+    a:hover {
+      color: var(--hoverColor);
+    }
+  }
+  .comment-box {
+    background-color: var(--buttonBgColor);
+  }
+  .comment-box-author {
+    font-family: var(--sgFont);
+    font-size: var(--lgSize);
+  }
+  .comment-box-date {
+    border-bottom: var(--commentsDateBorder);
+    .text-muted {
+      color: var(--textColor) !important;
+      opacity: inherit;
+    }
+  }
+}
