@@ -759,6 +759,26 @@
   }
 }
 
+/* FOLLOWERS PAGE */
+
+/* TODO - need to see what is needed for formatting when there are followers */
+.user-css-presentation .page-followers {
+  .nav-strip {
+    background: inherit;
+    box-shadow: none;
+    font-family: var(--txFont);
+    font-size: var(--txSize);
+    a {
+      color: var(--buttonColor);
+      font-weight: inherit;
+    }
+    a:hover {
+      background: inherit;
+      color: var(--hoverColor);
+    }
+  }
+}
+
 /* DISCUSSION BOARDS BUTTON */
 
 /* note: important overrides bootstrap */
