@@ -257,6 +257,14 @@
   --articleblockBorderCoverImage: 2px solid var(--Denim);
   --articleblockBorderCoverImageRadius: 15px 15px 0px 0px;
 
+  /* category panels */
+  --catblockBgColor: var(--Mirage);
+  --catblockBorder: 3px solid var(--Denim);
+  --catblockBorderRadius: 15px;
+  --catblockBorderInset: var(--Rhino10D);
+  --catblockBorderOutset: var(--Black60);
+  --catblockShadow: 4px 4px 6px var(--Black60);;
+
   /* article meta */
   --articlemetaBgColor: var(--Mirage);
   --articlemetaBorder: 3px solid var(--Denim);
@@ -558,6 +566,21 @@
   }
 }
 
+/* CATEGORY PAGE */
+
+.user-css .category-contents {
+  .category-header .text-center {
+    strong {
+      font-weight: var(--semi-bold);
+    }
+  }
+  /* identifies content that should displayed in world category popup,
+     but not on category page */
+  .jek-cat-desc-content {
+    display: none;
+  }
+}
+
 /* WORLD CATEGORY POPUP */
 
 /* TODO - add the code for the subcategories */
@@ -567,7 +590,8 @@
   .panel-default {
     div[class|=panel] {
       margin-top: 0;
-      padding: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 0;
     }
   }
   .category-header .text-center {
@@ -578,6 +602,33 @@
     p {
       margin: 0;
     }
+    /* artist credits are displayed elsewhere */
+    .artist-credits {
+      display: none;
+    }
+    img {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      background: var(--catblockBgColor);
+      border: var(--catblockBorder);
+      border-radius: var(--catblockBorderRadius);
+      box-shadow: var(--catblockShadow);
+    }
+    .user-css-image-thumbnail {
+      padding: .25rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+    h5 {
+      margin-top: -.25rem;
+      margin-bottom: .25rem;
+      padding: 0;
+    }
+  }
+  .category-columns {
+    margin-bottom: 1rem;
   }
 }
 
