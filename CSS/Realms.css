@@ -11,7 +11,7 @@
      SIDEBAR
      JEK KEY FACTS (SIDEBAR)
      BUTTONS
-     IMAGES - bring from old css
+     IMAGES
      MOUSEOVER
      CATEGORY LIST
      WORLD CATEGORY POPUP
@@ -21,17 +21,17 @@
      ARTICLE METADATA
      COMMENT SECTION
      CATEGORY PAGE
-     CHARACTER ARTICLE PORTRAIT AND FLAG IMAGES - bring from old css
-     SLOGANS, MOTTOS - bring from old css
-     RELATIONS - bring from old css*/
+     CHARACTER ARTICLE PORTRAIT AND FLAG IMAGES
+     SLOGANS, MOTTOS
+     RELATIONS
      HOME PAGE TITLE
      FOLLOWERS PAGE
      DISCUSSION BOARDS PAGE
      WORLD META
-     STORYTELLER SEED - bring from old css
-     SECRETS - bring from old css
-     TIMELINES - bring from old css
-     WHITEBOARDS - bring from old css
+     STORYTELLER SEED
+     SECRETS
+     TIMELINES
+     WHITEBOARDS
 */
 
 /* FONTS */
@@ -836,6 +836,19 @@
 
 /* IMAGES */
 
+.jek-image-30 {
+  max-width: 30% !important;
+  .credit-art-title {
+    display: block;
+  }
+}
+.jek-image-50 {
+  max-width: 50% !important;
+  .credit-art-title {
+    display: block;
+  }
+}
+
 /* MOUSEOVER */
 
 .user-css-presentation {
@@ -1171,7 +1184,29 @@
 
 /* CHARACTER ARTICLE PORTRAIT AND FLAG IMAGES */
 
+.user-css .jek-character-article-portrait,
+.user-css .organization-flag {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  border: var(--stdBorder2);
+  border-radius: var(--stdRadius);
+  box-shadow: 4px 4px 8px var(--Black60);
+}
+.user-css .character-article-portrait,
+.user-css .jek-flag-image {
+  border-radius: var(--stdRadius);
+}
+
 /* SLOGANS, MOTTOS */
+
+.user-css .organization-motto {
+  margin-top: 0em;
+  margin-bottom: 1em;
+  h4 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+}
 
 /* RELATIONS */
 
@@ -1240,10 +1275,96 @@
 
 /* WORLD META */
 
+.world-meta-section {
+  h3.world-currentDate {
+    display:none;
+  }
+  .panel {
+    margin-top: 3em;
+    background: var(--sidebarBgColor);
+    border: 0 solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--Black60);
+    .list-box.selected {
+      background: var(--sidebarBgColor); /* TODO - change this to inherit? */
+    }
+    h3 {
+      color: var(--h4Color);
+    }
+    h5,
+    a {
+      font-weight: var(--nearly-bold);
+      color: var(--linkColor);
+    }
+    a:hover {
+      color: var(--hoverColor);
+    }
+  h2:first-of-type {
+    margin-top: 2.5em;
+  }
+  h3 {
+    text-transform: capitalize;
+  }
+}
+
 /* STORYTELLER SEED */
+
+.user-css .panel-greatgm {
+  margin: .75em;
+  background: var(--mouseoverBgColor);
+  border-width: 2px;
+  border-color: var(--mouseoverBorderColor);
+  border-radius: var(--mouseoverBorderRadius);
+  box-shadow: 5px 5px 10px var(--Black60);
+  .seed-content {
+    padding-top: 0;
+    font-family: var(--txFont);
+    font-weight: var(--normal);
+    font-size: var(--txSize);
+    line-height: 1.5em;
+    color: var(--textColor);
+    p {
+      margin-top: .5em;
+      margin-bottom: 0;
+    }
+    .paragraph-indent {
+      margin-top: .25em;
+      margin-bottom: 0;
+      text-indent: 1.5em;
+    }
+    ul {
+      padding-top: .5em;
+    }
+    a {
+      color: var(--linkColor);
+    }
+    a:hover {
+      color: var(--linkColor);
+    }
+    h2, h3, h4 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      font-family: var(--hdFont);
+      font-weight: var(--normal);
+    }
+    h2 {
+      color: var(--h2Color);
+    }
+    h3 {
+      color: var(--h3Color);
+    }
+    h4 {
+      color: var(--h4Color);
+    }
+  }
+}
 
 /* SECRETS */
 
 /* TIMELINES */
 
 /* WHITEBOARDS */
+
+.user-css .chakra-text {
+  text-transform: none;
+}
