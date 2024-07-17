@@ -185,7 +185,8 @@
   --PaleIce: #F5FAFF;		/* text primary */
   --PaleIce10D: #DCE1E6;
   --Aquamarine: #73FFD0;	/* text hover */
-  --Caramel: #FFD78C;		/* text mark */
+  --Fiord: #B5CFFF;		/* text mark */
+  --Caramel: #FFD78C;		/* text alert / author / info */
   --Mauve: #BB99FF;		/* title / text link */
   --AquaGreen: #73FFE8;		/* heading 1 */
   --AquaTeal: #73FFFF;		/* heading 2 */
@@ -216,7 +217,8 @@
   --linkColor: var(--Mauve);
   --linkShadow: var(--shad12);
   --hoverColor: var(--Aquamarine);
-  --markColor: var(--Caramel);
+  --markColor: var(--Fiord);
+  --infoColor: var(--Caramel);
   --buttonColor: var(--Malibu);		/* buttons / heading links */
 
   /* text shadows */
@@ -313,7 +315,7 @@
   --articlemetaBorder: var(--imgBorder3);
   --articlemetaBorderWidth: 0 3px 3px;
   --articlemetaBorderRadius: 0 0 var(--stdRadius) var(--stdRadius);
-  --articlemetaWipColor: var(--Caramel);
+  --articlemetaWipColor: var(--infoColor);
 
   /* comment section */
   --commentformBgColor: var(--PaleIce);
@@ -547,7 +549,7 @@
     padding-left: calc(var(--h1Size) * 2);
     font-family: var(--sgFont);
     font-size: var(--lgSize);
-    color: var(--markColor);
+    color: var(--infoColor);
     text-transform: none;
   }
 
