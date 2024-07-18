@@ -327,6 +327,13 @@
 
 /* PAGE */
 
+/* website background */
+.user-css-presentation {
+  background: var(--Mirage);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 /* turn off the world editor buttons */
 .user-css a.world-editor-link,
 .user-css-presentation .tooltipster-content a.world-editor-link {
