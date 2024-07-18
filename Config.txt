@@ -1,0 +1,75 @@
+Configuration
+
+Settings/Additional
+-------------------
+Role Playing Gaming System: Generic[Generic Blocks Only], Homebrew/In Development
+
+Settings/Additional
+-------------------
+Genres: Space Opera, Science Fantasy, Science Fiction
+
+ On - Article Forced Privacy State
+
+Home Page/Display Options
+-------------------------
+ On - Display Table of Contents
+Off - Display Uncategorized Articles under the Table of Contents 
+ On - Display Recent Articles
+
+World Subtitle: rival dynasties, interstellar politics, dimensional intrigue
+
+Date & Time
+-----------
+Era Name: Before Juridical System
+Era Abbreviation: BJS
+
+Global Era After Year 0
+Era Name: Ruartei Common Time
+Era Abbreviation: RCT
+
+Current Date
+Current Display Date: 513.5.12 GS
+Current Year: 8958
+Current Month: 5
+Current Day: 12
+
+Display/Global Options
+----------------------
+ On - World Anvil Community Social Features
+ On - Display Article Tooltips
+ On - Display Block Headers
+Off - Visibility Toggle
+Off - Open Secrets
+
+Display/Global Content
+----------------------
+
+Global Copyright Footer
+Copyright 2024 Joella Kay[br]
+All images used with permission.
+
+Global Article Introduction Block
+[container:breadbox]
+[breadcrumb]
+[hr]
+[/container]
+
+Social
+------
+Off - Social Media Sharing Widgets
+
+Styling/Basic
+-------------
+Theme - none
+World Cover: GalaxySectionStarsHome.webp
+Global Cover: GalaxySectionStars.webp
+Page Background: StarsPurpleBlueNebulaDenim35.webp
+Base Font Size: none
+Base Font Color: none
+
+Styling/CSS
+-----------
+Presentation Cascade Stylesheets (CSS): Realms.css
+Authoring Panel Cascade Stylesheets (CSS): none
+Boostrap Version: Bootstrap 5
+ On - Load Default Stylesheet
