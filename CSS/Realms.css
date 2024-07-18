@@ -964,8 +964,10 @@
       padding: .25rem;
     }
     h2 {
-      margin-bottom: 1rem;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
       padding: 0;
+      border-bottom: none;
     }
     h5 {
       margin-top: -.25rem;
@@ -975,6 +977,11 @@
   }
   .category-columns {
     margin-bottom: 1rem;
+    .category-articles hr {
+      margin-top: .5rem
+      margin-bottom: .5rem
+      padding: 0;
+    }
   }
 }
 
