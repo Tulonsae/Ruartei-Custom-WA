@@ -742,6 +742,11 @@
   color: var(--h5Color);
   text-shadow: var(--h5Shadow);
 }
+/* to add more space for descenders */
+.user-css .jek-key-facts-heading,
+.user-css .jek-key-facts .section-title {
+  margin-bottom: calc(var(--h5Size) / 8);
+}
 
 .user-css .jek-key-facts ul {
   padding-left: 1.5em;
