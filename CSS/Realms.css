@@ -964,6 +964,7 @@
       padding: .25rem;
     }
     h2 {
+  /*    margin-bottom: 1rem;*/
       margin-top: .5rem;
       margin-bottom: .5rem;
       padding: 0;
@@ -1007,7 +1008,6 @@
   border-radius: var(--artblockBorderRadius);
   box-shadow: var(--artblockShadow);
   .cover {
-    max-height: unset;
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom: var(--artblockBorderCoverImage);
@@ -1030,26 +1030,6 @@
   }
 }
 /* TODO - adjust the "sizes" */
-/* size for side panels */
-.user-css .col-md-4 .article-panel .cover {
-  min-height: 75px;
-}
-/* size for left content */
-.user-css .col-md-8 .article-panel .cover {
-  min-height: 150px;
-}
-/* size for world cat popup grid */
-.user-css .col-md-8 .col-md-12 .article-panel .cover {
-  min-height: 75px;
-}
-/* size for full width */
-.user-css .article-content-full-bottom .col-md-12 .article-panel .cover {
-  min-height: 225px;
-}
-/* size for child articles */
-.user-css .glossary-block .article-panel .cover {
-  min-height: 75px;
-}
 
 /* ARTICLE PAGE */
 
