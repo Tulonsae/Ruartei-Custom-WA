@@ -170,6 +170,7 @@
 
   /* line heights */
   --lhTitle: 1.2em;
+  --lhText: 1.4em;
 
   /* color names */
   --BlueWhale: #1C2C40;		/* page background */
@@ -420,6 +421,7 @@
   }
   .paragraph-indent {
     text-indent: 1.5em;
+    line-height: var(--lhText);
   }
 
   /* adjust the spacing for lists */
